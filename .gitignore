@@ -1,11 +1,11 @@
 *.pyc
 *~
-__pycache__
+#__pycache__
 
 # Env
 .env
 myvenv/
-venv/
+#venv/
 
 # Database
 db.sqlite3
