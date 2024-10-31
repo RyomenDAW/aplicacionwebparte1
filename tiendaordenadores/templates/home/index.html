@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Inicio</title>
+</head>
+<body>
+    <h1>Bienvenido a mi tienda de ordenadores</h1>
+    <nav>
+        <ul>
+            <li><a href="{% url 'lista_procesadores' %}">Ver Lista de Procesadores</a></li>
+
+            <li><a href="{% url 'lista_procesadores_segunhilos' numero_hilos=8433 %}">Ver Lista de Procesadores SEGUN HILOS (8433)
+            
+            <li><a href="{% url 'lista_procesadores_segunfamilia' nombre_familia="Intel" %}">Ver Lista de Procesadores SEGUN  FAMILIA Intel
+            
+                <li><a href="{% url 'lista_graficas_segunfamilia_y_vram' nombre_familia='Nvidia' cantidad_vram='Magazine.' %}">Ver gráficas según familia 'Nvidia' y 'Magazine.' de VRAM</a></li>
+            </ul>
+    </nav>
+</body>
+</html>
