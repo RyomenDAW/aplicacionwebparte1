@@ -200,4 +200,150 @@ class PlacaBaseDisipador(models.Model):
 
 ===========================================================================================================================================================================================================
 
-Hasta aqui todo.
+Hasta aqui todo PARTE 1.
+
+
+
+Resurgimos de las cenizas como Soul of Cinder y explicamos brevemente la parte 2, pero es basicamente lo mismo que el views.py comentado.
+
+
+===========================================================================================================================================================================================================
+
+PARTE 2:
+
+## Resumen de Vistas y Comentarios
+
+### 1. Inicio:
+**Función**: `inicio`  
+**Descripción**: Esta es la página index, donde irán todas las URLs, en total 10.  
+
+```python
+def inicio(request):
+    return render(request, 'home/index.html')
+```
+
+### 2. Lista de Procesadores:
+**Función**: `lista_procesadores`  
+**Descripción**: Esta vista devolverá todos los procesadores con sus características (atributos). También incluirá dentro del HTML el atributo de la placa base que va asociada al procesador.  
+
+```python
+def lista_procesadores(request):
+    procesadores = Procesador.objects.all()
+    return render(request, 'procesadores/lista_procesadores.html', {'procesadores': procesadores})
+```
+
+### 3. Filtrar por Hilos:
+**Función**: `lista_procesadores_segunhilos`  
+**Descripción**: Esta vista devolverá todos los procesadores que tengan el número de hilos exacto que se le pasa como parámetro, es un integer, puede ser negativo el valor. También incluirá el atributo de la placa base asociada al procesador.  
+
+```python
+def lista_procesadores_segunhilos(request, numero_hilos):
+    procesadores = Procesador.objects.filter(hilos=numero_hilos).all()
+    return render(request, 'procesadores/lista_procesadores_segunhilos.html', {'procesadores': procesadores})
+```
+
+### 4. Filtrar por Familia:
+**Función**: `lista_procesadores_segunfamilia`  
+**Descripción**: Esta vista devolverá todos los procesadores que pertenezcan a la familia que se le indique como parámetro. También incluirá el atributo de la placa base asociada al procesador.  
+
+```python
+def lista_procesadores_segunfamilia(request, nombre_familia):
+    procesadores = Procesador.objects.filter(familiaprocesador=nombre_familia).all()
+    return render(request, 'procesadores/lista_procesadores_segunfamilia.html', {'procesadores': procesadores})
+```
+
+### 5. Filtrar Gráficas por Familia y VRAM:
+**Función**: `lista_graficas_segunfamilia_y_vram`  
+**Descripción**: Esta vista devolverá la lista de gráficas que cumplan ambos parámetros, el atributo de su familia y la cantidad de VRAM asignada. También incluirá el atributo de la placa base que va asociada a la gráfica.  
+
+```python
+def lista_graficas_segunfamilia_y_vram(request, nombre_familia, cantidad_vram):
+    graficas = Grafica.objects.filter(familiagrafica=nombre_familia, memoriavram=cantidad_vram).all()
+    return render(request, 'graficas/lista_graficas_segunfamilia_y_vram.html', {'graficas': graficas})
+```
+
+### 6. Promedio de Núcleos:
+**Función**: `promedio_nucleos`  
+**Descripción**:  
+```python
+# SE UTILIZA LA PARTE DE AGGREGATE QUE SE TENIA QUE INVESTIGAR, SE UTILIZA PARA PODER HACER AGREGACIONES SIN CARGAR EN LA MEMORIA TODOS LOS VALORES Y DEVOLVER EL
+# RESULTADO DE LAS OPERACIONES REALIZADAS CON ESOS VALORES, AHORRANDO RECURSO Y OPTIMIZANDO.
+
+# La vista nos obtiene la media (avg) del campo nucleos de todos los objetos en el modelo Procesador, tener en cuenta que es negativo algunos valores.
+def promedio_nucleos(request):
+    promedio_nucleos = Procesador.objects.aggregate(promedio_nucleos=Avg('nucleos'))
+    return render(request, 'procesadores/promedio_nucleos.html', {'promedio_nucleos': promedio_nucleos})
+```
+
+### 7. Filtrar Procesadores (OR y AND):
+**Función**: `filtrar8nucleos_OR_intel_AND_12hilos`  
+**Descripción**: Esta vista obtendrá procesadores que tengan más de 8 núcleos o que pertenezcan a la familia 'Intel', pero que además tengan más de 12 hilos.  
+
+```python
+def filtrar8nucleos_OR_intel_AND_12hilos(request):
+    procesadores = Procesador.objects.filter((Q(nucleos__gt=8) | Q(familiaprocesador='Intel')) & Q(hilos__gt=12)).all()
+    return render(request, 'procesadores/filtrar8nucleos_OR_intel_AND_12hilos.html', {'procesadores': procesadores})
+```
+
+### 8. Filtrar Gráficas por Fecha:
+**Función**: `filtrargraficas_segunfecha`  
+**Descripción**: Esta vista devolverá todas las gráficas ordenadas de forma descendente por fecha.  
+
+```python
+def filtrargraficas_segunfecha(request):
+    graficas = Grafica.objects.order_by('-fecha_salida')
+    return render(request, 'graficas/filtrargraficas_segunfecha.html', {'graficas': graficas})
+```
+
+### 9. Procesadores Según Gráfica:
+**Función**: `procesadores_segun_grafica`  
+**Descripción**: Esta vista obtiene una gráfica específica según su ID y devuelve los procesadores asociados a esa gráfica. Si no existe la gráfica, generará un error.  
+
+```python
+def procesadores_segun_grafica(request, grafica_id):
+    grafica_especifica = Grafica.objects.get(id_grafica=grafica_id)
+    procesadores_conectados = Procesador.objects.filter(procesadores_reverse=grafica_especifica)
+    return render(request, 'reverse/procesadores_segun_grafica.html', {
+        'grafica': grafica_especifica,
+        'procesadores': procesadores_conectados,
+    })
+```
+
+### 10. Primeros 5 SSD:
+**Función**: `primeros_5_ssd`  
+**Descripción**: Esta vista obtiene las primeras 5 instancias de `DiscoDuroSsd` y las muestra en la plantilla. No se aplica ningún filtro especial, solo se limita a 5 resultados.  
+
+```python
+def primeros_5_ssd(request):
+    ssds = DiscoDuroSsd.objects.all()[:5]
+    return render(request, 'ssd/primeros_5_ssd.html', {
+        'ssds': ssds,
+    })
+```
+
+### 11. Gráficas Sin Cuello de Botella:
+**Función**: `graficas_sin_cuello_de_botella`  
+**Descripción**: Esta vista devolverá todas las gráficas sin cuello de botella, es decir, aquellas gráficas que tienen en la relación `ManyToMany` el atributo `cuellodebotella` en 0 (False). También incluirá el procesador asociado.  
+
+```python
+def graficas_sin_cuello_de_botella(request):
+    graficas_sin_cuello = GraficaProcesador.objects.filter(cuellodebotella=False)  # O None si lo defines como Nullable
+    return render(request, 'intermedia/graficas_sin_cuello_de_botella.html', {
+        'graficas_sin_cuello': graficas_sin_cuello,
+    })
+```
+
+### 12. Lista de Gráficas:
+**Función**: `lista_graficas`  
+**Descripción**: Esta vista devolverá todas las gráficas con sus características (atributos). También incluirá dentro del HTML el atributo de la placa base que va asociada a la tarjeta gráfica.  
+
+```python
+def lista_graficas(request):
+    graficas = Grafica.objects.all()
+    return render(request, 'graficas/lista_graficas.html', {'graficas': graficas})
+```
+
+---
+
+===========================================================================================================================================================================================================
+
