@@ -62,7 +62,7 @@ class Procesador (models.Model):
     potenciacalculo = models.CharField(max_length=30)
     nucleos = models.IntegerField()
     hilos = models.IntegerField()
-    
+
     
 # Relación OneToOne con PlacaBase
 placabase = models.OneToOneField('PlacaBase', on_delete=models.CASCADE, null=True, blank=True)
@@ -77,6 +77,10 @@ class Grafica (models.Model):
     memoriavram = models.CharField(max_length=10)
     fecha_salida = models.DateTimeField(default=timezone.now)
     trazadorayos = models.BooleanField(default=False)
+
+   #AÑADIDO EN ESTA TAREA PARA QUE FUNCIONE LA URL REVERSA
+    grafica_procesadores = models.ForeignKey(Procesador, related_name='procesadores_reverse', on_delete=models.CASCADE)
+
 
 # Relación OneToOne con PlacaBase
 placabase = models.OneToOneField('PlacaBase', on_delete=models.CASCADE, null=True, blank=True)
@@ -198,10 +202,6 @@ class PlacaBaseDisipador(models.Model):
     
     
     
-
-
-# (Al menos una de ella debe tener una tabla intermedia con atributos extras)
-# Cada modelo debe tener al menos 4 campos.  Y debe existir en total 10 atributos 
 # de distinto tipo.No son válidos los atributos de relaciones.
 
     # Relaciones ManyToMany

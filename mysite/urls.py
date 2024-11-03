@@ -21,3 +21,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('tiendaordenadores.urls')),  # Reemplaza 'tu_aplicacion' por el nombre de tu aplicación
 ]
+
+handler404 = 'tiendaordenadores.views.mi_error_404'
+handler400 = 'tiendaordenadores.views.mi_error_400'
+handler403 = 'tiendaordenadores.views.mi_error_403'
+handler500 = 'tiendaordenadores.views.mi_error_500'

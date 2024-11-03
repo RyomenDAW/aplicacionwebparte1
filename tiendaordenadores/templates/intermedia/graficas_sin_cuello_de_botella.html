@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráficas sin Cuello de Botella</title>
+</head>
+<body>
+    <h1>Gráficas sin Cuello de Botella</h1>
+
+    {% if graficas_sin_cuello %}
+        <p>Lista de gráficas que no tienen cuello de botella:</p>
+        <ul>
+            {% for grafica_procesador in graficas_sin_cuello %}
+            <br>
+
+                <li>
+                    <p><strong>ID de la Gráfica:</strong> {{ grafica_procesador.grafica.id_grafica }}</p>
+
+                    <p><strong>Nombre de la Gráfica:</strong> {{ grafica_procesador.grafica.nombre }}</p>
+                    <p><strong>URL de Compra (Gráfica):</strong> <a href="{{ grafica_procesador.grafica.urlcompra }}">{{ grafica_procesador.grafica.urlcompra }}</a></p>
+                    <p><strong>Familia Gráfica:</strong> {{ grafica_procesador.grafica.familiagrafica }}</p>
+                    <p><strong>Potencia de Cálculo (Gráfica):</strong> {{ grafica_procesador.grafica.potenciacalculo }}</p>
+                    <p><strong>Memoria VRAM:</strong> {{ grafica_procesador.grafica.memoriavram }}</p>
+                    <p><strong>Fecha de Salida:</strong> {{ grafica_procesador.grafica.fecha_salida }}</p>
+                    <br>
+                    <p><strong>Nombre del Procesador:</strong> {{ grafica_procesador.procesador.nombre }}</p>
+                    <p><strong>URL de Compra (Procesador):</strong> <a href="{{ grafica_procesador.procesador.urlcompra }}">{{ grafica_procesador.procesador.urlcompra }}</a></p>
+                    <p><strong>Familia Procesador:</strong> {{ grafica_procesador.procesador.familiaprocesador }}</p>
+                    <p><strong>Potencia de Cálculo (Procesador):</strong> {{ grafica_procesador.procesador.potenciacalculo }}</p>
+                    <p><strong>Núcleos:</strong> {{ grafica_procesador.procesador.nucleos }}</p>
+                    <p><strong>Hilos:</strong> {{ grafica_procesador.procesador.hilos }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontraron gráficas sin cuello de botella.</p>
+    {% endif %}
+</body>
+</html>

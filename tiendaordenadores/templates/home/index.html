@@ -6,16 +6,32 @@
     <title>Página de Inicio</title>
 </head>
 <body>
-    <h1>Bienvenido a mi tienda de ordenadores</h1>
+    <h1>Bienvenido a mi tienda de ordenadores: ISRAEL HERNANDEZ CHACON INC.</h1>
+    <h2>Acceda a las URL's, recuerde que los parametros ya estan puestos pero puedo modificarlos en la barra superior si quieres comprobar otro, (mira la BBDD)</h2>
     <nav>
         <ul>
             <li><a href="{% url 'lista_procesadores' %}">Ver Lista de Procesadores</a></li>
 
-            <li><a href="{% url 'lista_procesadores_segunhilos' numero_hilos=8433 %}">Ver Lista de Procesadores SEGUN HILOS (8433)
+            <li><a href="{% url 'lista_procesadores_segunhilos' numero_hilos=2024 %}">Ver Lista de Procesadores SEGUN HILOS (2024)
             
             <li><a href="{% url 'lista_procesadores_segunfamilia' nombre_familia="Intel" %}">Ver Lista de Procesadores SEGUN  FAMILIA Intel
             
-                <li><a href="{% url 'lista_graficas_segunfamilia_y_vram' nombre_familia='Nvidia' cantidad_vram='Magazine.' %}">Ver gráficas según familia 'Nvidia' y 'Magazine.' de VRAM</a></li>
+             
+             
+            <li><a href="{% url 'lista_graficas_segunfamilia_y_vram' nombre_familia='Nvidia' cantidad_vram='Be.' %}">Ver gráficas según familia 'Nvidia' y 'Be.' de VRAM</a></li>
+                
+            <li><a href="{% url 'promedio_nucleos' %}">Ver promedio de nucleos de los procesadores</a></li>
+
+            <li><a href="{% url 'filtrargraficas_segunvram' %}">Filtrar segun su cantidad de VRAM (Incluye negativos)</a></li>
+
+            <li><a href="{% url 'primeros_5_ssd'%}"> Obtener los primeros 5 SSD segun su ID</a></li>
+
+            <li><a href="{% url 'graficas_sin_cuello_de_botella'%}"> Graficas sin cuello de botella (Boolean False)</a></li>
+
+            <li><a href="{% url 'procesadores_segun_grafica' grafica_id=1%}"> RELACION REVERSA: Acceder a atributos de procesador segun la ID de una grafica conectada</a></li>
+
+            <li><a href="{% url 'lista_graficas' %}">Ver Lista de Graficas</a></li>
+
             </ul>
     </nav>
 </body>
