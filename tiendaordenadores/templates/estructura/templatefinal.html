@@ -1,0 +1,41 @@
+{# ESTO ES EL APARTADO 3 #}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/css.css' %}">
+    <script src="{% static './javascript/script.js' %}"></script>
+
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Inicio</title>
+</head>
+<body>
+    <h1 class="bienvenida">Bienvenido a Cool Components</h1>
+
+    {%block cabecera%}
+    {% endblock %}
+
+    {% include './nav.html' %}
+
+    {%block contenido%}
+    {% endblock %}
+
+    {% include './footer.html' %}
+
+
+</body>
+</html>
+
+{% comment %} CUARTO TEMPLATE TAG:, BLOCK Y ENDBLOCK
+Es blocky endblock
+
+{%block contenido%}
+{% endblock %} {% endcomment %}
+
+{% comment %} TERCER TEMPLATE TAG, INCLUDE
+{% include './footer.html' %}
+
+Es include {% endcomment %}

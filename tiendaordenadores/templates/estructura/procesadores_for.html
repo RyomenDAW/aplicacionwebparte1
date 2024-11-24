@@ -1,0 +1,25 @@
+<div>
+    <p><strong>ID:</strong> {{ procesador.id_procesador|default_if_none:"No disponible" }}</p>  <!-- Si el id es None manda un mensaje--> 
+    
+    <p><strong>Nombre:</strong> {{ procesador.nombre }}</p>
+    
+    <p><strong>Familia del Procesador:</strong> {{ procesador.familiaprocesador|slice:":10" }}</p> <!-- Extrae 10 primeros caracteres, como Intel y AMD son 5, y 3, no dara error -->
+    
+    <p><strong>Potencia de Cálculo:</strong> {{ procesador.potenciacalculo|default_if_none:"Información no disponible" }}</p>  
+    
+    <p><strong>Núcleos:</strong> {{ procesador.nucleos|default_if_none:"No especificado" }}</p>
+    
+    <p><strong>Hilos:</strong> {{ procesador.hilos|default_if_none:"No especificado" }}</p>
+    
+    <p><strong>URL de Compra:</strong> 
+        <a href="{{ procesador.urlcompra }}">{{ procesador.urlcompra|slice:":30" }}</a>
+    </p>
+    
+    <p><strong>Nombre Placa Base:</strong>
+        {% if procesador.placabase %}
+            {{ procesador.placabase.nombre|upper }} <!-- Solo el Nombre de la Placa Base con mayúsculas, ya que es unico atributo -->
+        {% else %}
+            No asignada, lo sentimos
+        {% endif %}
+    </p>
+</div>

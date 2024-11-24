@@ -1,0 +1,28 @@
+{% if graficas_sin_cuello %}
+<p>Lista de gráficas que no tienen cuello de botella:</p>
+<ul>
+    {% for grafica_procesador in graficas_sin_cuello %}
+    <br>
+
+        <li>
+            <p><strong>ID de la Gráfica:</strong> {{ grafica_procesador.grafica.id_grafica }}</p>
+
+            <p><strong>Nombre de la Gráfica:</strong> {{ grafica_procesador.grafica.nombre|title }}</p> <!-- Convierte la primera letra de cada palabra en mayúscula (título) -->
+            <p><strong>URL de Compra (Gráfica):</strong> <a href="{{ grafica_procesador.grafica.urlcompra }}">{{ grafica_procesador.grafica.urlcompra|default:"No disponible" }}</a></p> <!-- Proporciona un valor por defecto si la URL de compra es vacía o None -->
+            <p><strong>Familia Gráfica:</strong> {{ grafica_procesador.grafica.familiagrafica|title }}</p> <!-- Convierte la primera letra de cada palabra en mayúscula (título) -->
+            <p><strong>Potencia de Cálculo (Gráfica):</strong> {{ grafica_procesador.grafica.potenciacalculo|add:10 }}</p> <!-- Suma 10 a la potencia de cálculo -->
+            <p><strong>Memoria VRAM:</strong> {{ grafica_procesador.grafica.memoriavram }}</p>
+            <p><strong>Fecha de Salida:</strong> {{ grafica_procesador.grafica.fecha_salida }}</p>
+            <br>
+            <p><strong>Nombre del Procesador:</strong> {{ grafica_procesador.procesador.nombre|title }}</p> <!-- Convierte la primera letra de cada palabra en mayúscula (título) -->
+            <p><strong>URL de Compra (Procesador):</strong> <a href="{{ grafica_procesador.procesador.urlcompra }}">{{ grafica_procesador.procesador.urlcompra|default:"No disponible" }}</a></p> <!-- Proporciona un valor por defecto si la URL de compra es vacía o None -->
+            <p><strong>Familia Procesador:</strong> {{ grafica_procesador.procesador.familiaprocesador|title }}</p> <!-- Convierte la primera letra de cada palabra en mayúscula (título) -->
+            <p><strong>Potencia de Cálculo (Procesador):</strong> {{ grafica_procesador.procesador.potenciacalculo|add:20 }}</p> <!-- Suma 20 a la potencia de cálculo -->
+            <p><strong>Núcleos:</strong> {{ grafica_procesador.procesador.nucleos }}</p>
+            <p><strong>Hilos:</strong> {{ grafica_procesador.procesador.hilos }}</p>
+        </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No se encontraron gráficas sin cuello de botella, felicidades</p>
+{% endif %}

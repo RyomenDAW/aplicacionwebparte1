@@ -1,26 +1,19 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Discos Duros SSD</title>
-</head>
-<body>
-    <h1>Lista de Discos Duros SSD</h1>
+{% extends "../estructura/templatefinal.html" %}
 
-    {% if ssds %}
-        {% for ssd in ssds %}
-            <div>
-                <h2>Disco Duro SSD ID: {{ ssd.id_ssd }}</h2>
-                <p><strong>Amperaje:</strong> {{ ssd.amperaje }}</p>
-                <p><strong>Capacidad:</strong> {{ ssd.capacidad }}</p>
-                <p><strong>Peso:</strong> {{ ssd.peso }}</p>
-                <p><strong>Tiempo Medio hasta Fallos (MTBF):</strong> {{ ssd.tiempomediofallos }} horas</p>
-                <hr>
-            </div>
-        {% endfor %}
+{% comment %} ESTE ES EL SEGUNDO TEMPLATE TAG, FOR EMPTY {% endcomment %}
+{% block cabecera %}
+{% endblock %}
+
+{% block contenido %}
+    {% if not ssds %}
+        <p>No se encontraron SSDs disponibles.</p>
     {% else %}
-        <p>No hay discos duros SSD disponibles en este momento.</p>
+        {% for ssd in ssds %}
+            {% include "../estructura/ssd_for.html" %}
+        {% empty %}
+            <p>No se encontraron SSDs disponibles.</p>  
+        {% endfor %}
     {% endif %}
-</body>
-</html>
+{% endblock %}
+
+{% comment %} FIN DEL SEGUNDO TEMPLATE TAG {% endcomment %}

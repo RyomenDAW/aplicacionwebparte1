@@ -347,3 +347,140 @@ def lista_graficas(request):
 
 ===========================================================================================================================================================================================================
 
+TEMPLATES TAGS UTILIZADOS:
+
+
+1: IF-ELSE 
+
+{% comment %} AQUI VA EL PRIMER TEMPLATE TAG, UN IF ELSE {% endcomment %}
+
+{% extends "../estructura/templatefinal.html" %}
+{% block cabecera %}
+{% endblock %}
+
+{% block contenido %}
+
+<h1>Promedio de Núcleos</h1>
+
+{% if promedio_nucleos.promedio_nucleos %}
+    <p>El promedio de núcleos en los procesadores es: {{ promedio_nucleos.promedio_nucleos }}</p>
+{% else %}
+    <p>No se pudo calcular el promedio de núcleos en este momento.</p>
+{% endif %}
+
+{% endblock %}
+
+En promedio_nucleos.html
+
+
+2: FOR-EMPTY
+
+
+{% comment %} ESTE ES EL SEGUNDO TEMPLATE TAG, FOR EMPTY {% endcomment %}
+
+{% extends "../estructura/templatefinal.html" %}
+{% block cabecera %}
+{% endblock %}
+
+{% block contenido %}
+    {% for ssd in ssds %}
+        {% include "../estructura/ssd_for.html" %}
+    {% empty %}
+        <p>No se encontraron SSDs disponibles.</p>
+    {% endfor %}
+{% endblock %}
+
+{% comment %} FIN DEL SEGUNDO TEMPLATE TAG {% endcomment %}
+
+En primeros_5_ssd.html
+
+3: INCLUDE
+
+{% comment %} TERCER TEMPLATE TAG, INCLUDE {% endcomment %}
+
+{% include './footer.html' %}
+
+{% comment %} FIN DEL TERCER TEMPLATE TAG {% endcomment %}
+
+En estructura/templatefinal.html
+
+4: BLOCK Y ENDBLOCK
+
+{% comment %} CUARTO TEMPLATE TAG: BLOCK Y ENDBLOCK {% endcomment %}
+
+{% block contenido %}
+{% endblock %}
+
+{% comment %} FIN DEL CUARTO TEMPLATE TAG {% endcomment %}
+
+En estructura/templatefinal.html
+
+5: FOR & ENDFOR
+
+{% comment %} QUINTO TEMPLATE TAG, FOR, ENDFOR {% endcomment %}
+
+    {% for grafica in graficas %}
+    {% include "../estructura/graficas_for.html" %}
+
+    {% endfor %}
+{% comment %} FIN DEL QUINTO TEMPLATE TAG {% endcomment %}
+
+En estructura/graficas_for.html
+
+
+===========================================================================================================================================================================================================
+
+OPERADORES USADOS:
+
+{% comment %} PRIMER OPERADOR, IGUALDAD == {% endcomment %}  en listaprocesadores_segunfamilia.html
+{% comment %} SEGUNDO Y TERCER OPERADOR, ARITMÉTICOS > Y <= {% endcomment %} en promedio_nucleos.html
+{% comment %} CUARTO OPERADOR, `if not` {% endcomment %} en primeros_5_ssd.httml
+{% comment %} QUINTO OPERADOR, ES UN `AND` {% endcomment %} en lista_procesadores.html
+
+===========================================================================================================================================================================================================
+
+TEMPLATE FILTERS USADOS:
+---------------------------------------------------------------------------------------------------
+
+Todos en procesadores_for.html
+
+1. upper
+Convierte todo el texto a mayúsculas.           
+
+2. slice
+Extrae una porción de una cadena de texto o lista. Se puede utilizar para tomar un número específico de caracteres o elementos.
+
+3. default_if_none
+Proporciona un valor por defecto solo si el valor original es None.
+---------------------------------------------------------------------------------------------------
+
+Todos en graficas_for.html
+4. lower
+Convierte todo el texto a minúsculas.
+
+5. truncatewords
+Trunca el texto a un número específico de palabras. Es útil cuando se necesita limitar la longitud del texto mostrado.
+
+6. date
+Formatea un objeto datetime en una cadena de texto con un formato específico. Permite mostrar fechas de forma legible.
+
+7. length
+Devuelve la longitud de una lista, cadena o iterable. Es útil para mostrar el tamaño de una colección o cadena.
+
+---------------------------------------------------------------------------------------------------
+
+Todos en graficas_sin_cuello.html
+
+8. title
+Convierte la primera letra de cada palabra en mayúscula. Ideal para títulos o nombres de campos.
+
+9. default
+Proporciona un valor por defecto si la variable es vacía o None. Se usa para asegurar que siempre haya un valor visible en caso de que no exista uno.
+
+10. add
+Suma un valor al original. Puede utilizarse para realizar cálculos dentro de las plantillas.
+
+---------------------------------------------------------------------------------------------------
+
+Cómo usar los filtros
+Estos filtros pueden ser aplicados a cualquier variable dentro de las plantillas de Django para modificar su formato, mostrar valores predeterminados, o realizar operaciones como sumar valores. Solo es necesario usar el operador de filtro |, seguido del nombre del filtro y sus parámetros si los hubiera (como en el caso de truncatewords:10 o date:"d M Y").

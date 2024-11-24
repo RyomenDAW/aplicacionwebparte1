@@ -1,33 +1,21 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Procesadores</title>
-</head>
-<body>
+{% extends "../estructura/templatefinal.html" %}
+{% block cabecera %}
+{% endblock %}
+
+{% block contenido %}
     <h1>Lista de Procesadores</h1>
-    
+
     {% for procesador in procesadores %}
-        <div>
-            <p><strong>ID:</strong> {{ procesador.id_procesador }}</p>
-            <p><strong>Nombre:</strong> {{ procesador.nombre }}</p>
-            <p><strong>Familia del Procesador:</strong> {{ procesador.familiaprocesador }}</p>
-            <p><strong>Potencia de Cálculo:</strong> {{ procesador.potenciacalculo }}</p>
-            <p><strong>Núcleos:</strong> {{ procesador.nucleos }}</p>
-            <p><strong>Hilos:</strong> {{ procesador.hilos }}</p>
-            <p><strong>URL de Compra:</strong> <a href="{{ procesador.urlcompra }}">{{ procesador.urlcompra }}</a></p>
-            
-            <p><strong>Placa Base:</strong>
-                {% if procesador.placabase %}
-                    {{ procesador.placabase.nombre }} <!-- Solo el Nombre de la Placa Base -->
-                {% else %}
-                    No asignada
-                {% endif %}
-            </p>
-        </div>
-        <hr>
+        {% if procesador and procesador.hilos %} 
+        {% comment %} Existen hilos y ademas la variable procesador? {% endcomment %}
+            {% include "../estructura/procesadores_for.html" %}
+        {% else %}
+            <p>Este procesador no tiene información completa sobre los hilos.</p>
+        {% endif %}
     {% endfor %}
-    
+
+    <a href="{% url 'inicio' %}">Regresar a la página de inicio</a>
+{% endblock %}
+
 </body>
 </html>

@@ -1,34 +1,15 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Graficas</title>
-</head>
-<body>
-    <h1>Lista de Graficas</h1>
+{% extends "../estructura/templatefinal.html" %}
+{% block cabecera %}
+{% endblock %}
     
+{% block contenido %}
+
     {% for grafica in graficas %}
-        <div>
-            <p><strong>ID:</strong> {{ grafica.id_grafica}}</p>
-            <p><strong>Nombre:</strong> {{ grafica.nombre }}</p>
-            <p><strong>Familia de la Grafica:</strong> {{ grafica.familiagrafica }}</p>
-            <p><strong>Potencia de Cálculo:</strong> {{ grafica.potenciacalculo }}</p>
-            <p><strong>FechaSalida:</strong> {{ grafica.fecha_salida }}</p>
-            <p><strong>TrazadoRayos:</strong> {{ grafica.trazadorayos }}</p>
-            <p><strong>URL de Compra:</strong> <a href="{{ grafica.urlcompra }}">{{ grafica.urlcompra }}</a></p>
-            <p><strong>Memoria VRAM:</strong> {{ grafica.trazadorayos }}</p>
-        
-            <p><strong>Placa Base:</strong>
-                {% if grafica.placabase %}
-                    {{ grafica.placabase.nombre }} <!-- Solo el Nombre de la Placa Base -->
-                {% else %}
-                    No asignada
-                {% endif %}
-            </p>
-        </div>
-        <hr>
+
+    {% include "../estructura/graficas_for.html" %}
+    
     {% endfor %}
+{% endblock %}
     
 </body>
 </html>

@@ -1,3 +1,30 @@
-<!-- promedio_nucleos.html -->
+{% extends "../estructura/templatefinal.html" %}
+
+{% comment %} AQUI VA EL PRIMER TEMPLATE TAG, UN IF ELSE {% endcomment %}
+
+{% block cabecera %}
+{% endblock %}
+
+{% block contenido %}
+
 <h1>Promedio de Núcleos</h1>
-<p>El promedio de núcleos en los procesadores es: {{ promedio_nucleos.promedio_nucleos }}</p>
+
+        {%if promedio_nucleos.promedio_nucleos|length > 2 %} 
+        <p>Muchos Nucleos!</p>
+        {%endif%}
+
+        {%if promedio_nucleos.promedio_nucleos|length <= 2 %}
+        <p>Pocos Nucleos!</p>
+        {%endif%}
+
+
+        {% if promedio_nucleos.promedio_nucleos %}
+            <p>El promedio de núcleos en los procesadores es: {{ promedio_nucleos.promedio_nucleos }}</p>
+        {% else %}
+            <p>No se pudo calcular el promedio de núcleos en este momento.</p>
+        {% endif %}
+
+{% endblock %}
+
+
+{% comment %} FIN DE EL PRIMER TEMPLATE TAG, UN IF ELSE {% endcomment %}

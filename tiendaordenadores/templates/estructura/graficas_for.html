@@ -1,0 +1,19 @@
+<div>
+    <p><strong>ID:</strong> {{ grafica.id_grafica }}</p> Longitud de la id: {{ grafica.id_grafica|length}}  <!-- Nos da la longitud de la cadena -->
+    <p><strong>Nombre:</strong> {{ grafica.nombre|lower }}</p> <!-- Convierte el nombre a minúsculas -->
+    <p><strong>Familia de la Gráfica:</strong> {{ grafica.familiagrafica|upper }}</p> <!-- Convierte la familia a mayúsculas -->
+    <p><strong>Potencia de Cálculo:</strong> {{ grafica.potenciacalculo|truncatewords:12 }}</p> <!-- Limita la potencia de cálculo a 12 palabras, si no es que tiene mas -->
+    <p><strong>Fecha de Salida:</strong> {{ grafica.fecha_salida|date:"d-m-Y" }}</p> <!-- Formatea la fecha en formato d-m-Y -->
+    <p><strong>Trazado de Rayos:</strong> {{ grafica.trazadorayos  }}</p> 
+    <p><strong>URL de Compra:</strong> <a href="{{ grafica.urlcompra }}">{{ grafica.urlcompra|truncatewords:5 }}</a></p> <!-- Limita la URL a 5 palabras -->
+    <p><strong>Memoria VRAM:</strong> {{ grafica.memoria_vram}} MB</p> 
+
+    <p><strong>Placa Base:</strong> 
+        {% if grafica.placabase %}
+            {{ grafica.placabase.nombre|upper }} 
+        {% else %}
+            No asignada
+        {% endif %}
+    </p>
+</div>
+<hr>

@@ -1,0 +1,14 @@
+{% if ssds %}
+{% for ssd in ssds %}
+    <div>
+        <h2>Disco Duro SSD ID: {{ ssd.id_ssd }}</h2>
+        <p><strong>Amperaje:</strong> {{ ssd.amperaje }}</p>
+        <p><strong>Capacidad:</strong> {{ ssd.capacidad }}</p>
+        <p><strong>Peso:</strong> {{ ssd.peso }}</p>
+        <p><strong>Tiempo Medio hasta Fallos (MTBF):</strong> {{ ssd.tiempomediofallos }} horas</p>
+        <hr>
+    </div>
+{% endfor %}
+{% else %}
+<p>No hay discos duros SSD disponibles en este momento, lo sentimos</p>
+{% endif %}
