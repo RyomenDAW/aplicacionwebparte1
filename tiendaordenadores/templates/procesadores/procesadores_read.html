@@ -1,0 +1,55 @@
+{% extends "../estructura/templatefinal.html" %}
+
+{% block titulo %}Búsqueda y Lista de Procesadores{% endblock %}
+
+{% block cabecera %}
+    <h1>Búsqueda Avanzada de Procesadores</h1>
+{% endblock %}
+
+{% block contenido %}
+    <!-- Sección de Búsqueda -->
+    <section>
+        <h2>Buscar Procesadores</h2>
+        <form method="GET">
+            <!-- Campo para buscar por nombre -->
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" id="nombre" value="{{ request.GET.nombre }}" placeholder="Introduce el nombre">
+
+            <!-- Campo para buscar por familia -->
+            <label for="familia">Familia:</label>
+            <input type="text" name="familia" id="familia" value="{{ request.GET.familia }}" placeholder="Introduce la familia">
+
+            <!-- Campo para buscar por núcleos -->
+            <label for="nucleos">Núcleos:</label>
+            <input type="number" name="nucleos" id="nucleos" value="{{ request.GET.nucleos }}" placeholder="Número de núcleos">
+
+            <button type="submit">Buscar</button>
+        </form>
+    </section>
+
+    <!-- Sección de Resultados -->
+    <section>
+        <h2>Resultados de la Búsqueda</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Familia</th>
+                    <th>Núcleos</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for procesador in procesadores %}
+                    {% include "../estructura/procesadores_for.html" %}
+                {% empty %}
+                    <tr>
+                        <td colspan="4">No se encontraron procesadores.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+    <a href="{% url 'inicio' %}">Regresar a la página de inicio</a>
+{% endblock %}

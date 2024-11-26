@@ -15,6 +15,9 @@ urlpatterns = [
     path('intermedia/graficas_sin_cuello_de_botella' ,views.graficas_sin_cuello_de_botella, name='graficas_sin_cuello_de_botella'),
     path('reverse/procesadores_segun_grafica/<int:grafica_id>', views.procesadores_segun_grafica, name='procesadores_segun_grafica'),
     path('graficas/lista_graficas.html', views.lista_graficas, name='lista_graficas'),
+    
+    
+        path('crear-procesador/', views.crear_procesador, name='crear_procesador'),
     ] 
 
 

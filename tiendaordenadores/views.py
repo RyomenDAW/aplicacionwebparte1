@@ -2,8 +2,14 @@
 # de la aplicación con sus datos correspondientes.
 
 from django.db.models import Q, Count, Avg  # Para filtros OR, agregaciones, y operaciones con modelos
-
-
+from django.shortcuts import render,redirect
+from django.db.models import Prefetch
+from django.forms import modelform_factory
+from .models import *
+from .forms import *
+from django.contrib import messages
+from datetime import datetime
+from django.views.generic import ListView
 from django.views.defaults import page_not_found
 
 
@@ -189,3 +195,19 @@ def lista_graficas(request):
 
 
 #No se si te molestan las lineas pero yo lo veo mejor asi.
+
+#=================================================================================================================================================================
+
+
+def crear_procesador(request):
+    if request.method == 'POST':
+        form = ProcesadorForm(request.POST)
+        if form.is_valid():
+            form.save()  # Guarda el nuevo procesador en la base de datos
+            return redirect('lista_procesadores.html')  # Cambia al nombre de tu URL para la lista
+    else:
+        form = ProcesadorForm()
+
+    return render(request, 'procesadores/crear_procesador.html', {'form': form})
+
+

@@ -80,8 +80,8 @@ body {
 }
 
 .rtx-logo {
-    position: absolute;
+    position: static;
     top: 10px;
     right: 10px;
-    width: 100px;
+    width: 10px;
 }

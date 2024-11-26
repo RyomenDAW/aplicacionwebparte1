@@ -64,8 +64,8 @@ class Procesador (models.Model):
     hilos = models.IntegerField()
 
     
-# Relación OneToOne con PlacaBase
-placabase = models.OneToOneField('PlacaBase', on_delete=models.CASCADE, null=True, blank=True)
+    # Relación OneToOne con PlacaBase
+    placabase = models.OneToOneField('PlacaBase', on_delete=models.CASCADE, null=True, blank=True)
 
 
 class Grafica (models.Model):
