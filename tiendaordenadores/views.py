@@ -55,9 +55,9 @@ def inicio(request):
 
 #ESTA VISTA DEVOLVERÁ TODOS LOS PROCESADORES CON SUS CARACTERÍSTICAS (ATRIBUTOS), TAMBIEN INCLUIRA DENTRO DEL HTML EL ATRIBUTO DE LA PLACA BASE QUE VA ASOCIADA
 #AL PROCESADOR
-def lista_procesadores(request):
-    procesadores = Procesador.objects.all()
-    return render (request, 'procesadores/lista_procesadores.html', {'procesadores': procesadores})
+# def lista_procesadores(request):
+#     procesadores = Procesador.objects.all()
+#     return render (request, 'procesadores/lista_procesadores.html', {'procesadores': procesadores})
 
 
 #=================================================================================================================================================================
@@ -209,5 +209,51 @@ def crear_procesador(request):
         form = ProcesadorForm()
 
     return render(request, 'procesadores/crear_procesador.html', {'form': form})
+
+
+
+from django.shortcuts import render
+from .models import Procesador
+from .forms import BusquedaAvanzadaProcesador
+
+def lista_procesadores(request):
+    # Inicializar el formulario de búsqueda
+    form = BusquedaAvanzadaProcesador(request.GET)
+
+    # Filtrar los procesadores según los criterios del formulario
+    procesadores = Procesador.objects.all()
+
+    if form.is_valid():
+        nombre = form.cleaned_data.get('nombreBusqueda')
+        nucleos = form.cleaned_data.get('nucleos')
+        hilos = form.cleaned_data.get('hilos')
+        familiaprocesador = form.cleaned_data.get('familiaprocesador')
+
+        if nombre:
+            procesadores = procesadores.filter(nombre__icontains=nombre)
+        if nucleos:
+            procesadores = procesadores.filter(nucleos=nucleos)
+        if hilos:
+            procesadores = procesadores.filter(hilos=hilos)
+        if familiaprocesador:
+            procesadores = procesadores.filter(familiaprocesador__in=familiaprocesador)
+
+    return render(request, 'procesadores/lista_procesadores.html', {'form': form, 'procesadores': procesadores})
+
+from django.shortcuts import render, get_object_or_404
+from .models import Procesador
+from .forms import ProcesadorForm
+
+def editar_procesador(request, id):
+    procesador = get_object_or_404(Procesador, id_procesador=id)  # Recupera el procesador por id
+    if request.method == 'POST':
+        form = ProcesadorForm(request.POST, instance=procesador)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_procesadores')
+    else:
+        form = ProcesadorForm(instance=procesador)
+    
+    return render(request, 'procesadores/editar_procesador.html', {'form': form, 'procesador': procesador})
 
 

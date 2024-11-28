@@ -1,6 +1,6 @@
 from django.urls import path, re_path
 from . import views
-
+from .views import *
 urlpatterns = [
     path('home/', views.inicio, name ='inicio'),
     path('', views.inicio, name='inicio'),  # Página de inicio
@@ -17,7 +17,9 @@ urlpatterns = [
     path('graficas/lista_graficas.html', views.lista_graficas, name='lista_graficas'),
     
     
-        path('crear-procesador/', views.crear_procesador, name='crear_procesador'),
+        path('procesadores/crear_procesador/', views.crear_procesador, name='crear_procesador'),
+        path('procesadores/', lista_procesadores, name='read_procesadores'),  # URL para la búsqueda de procesadores
+    path('editar_procesador/<int:id>/', views.editar_procesador, name='editar_procesador'),        
     ] 
 
 
