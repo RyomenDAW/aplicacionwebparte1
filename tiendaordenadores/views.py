@@ -257,3 +257,18 @@ def editar_procesador(request, id_procesador):
     return render(request, 'procesadores/editar_procesador.html', {'form': form, 'procesador': procesador})
 
 
+def eliminar_procesador(request, id_procesador):
+    # Usamos get_object_or_404 para manejar objetos inexistentes
+    procesador = get_object_or_404(Procesador, id_procesador=id_procesador)
+    
+    if request.method == 'POST':
+        try:
+            procesador.delete()  # Eliminar el procesador de la base de datos
+            return redirect('lista_procesadores')  # Redirigir a la lista de procesadores
+        except Exception as e:
+            # Manejar cualquier error de eliminación (aunque no es común)
+            print(f"Error al eliminar el procesador: {e}")
+            return render(request, 'eliminar_procesador.html', {'procesador': procesador, 'error': 'Hubo un error al eliminar el procesador.'})
+    
+    # Si el método es GET, mostramos la página de confirmación
+    return render(request, 'eliminar_procesador.html', {'procesador': procesador})

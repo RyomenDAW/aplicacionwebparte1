@@ -1,0 +1,24 @@
+<form method="POST">
+    {% csrf_token %}
+    <p>¿Estás seguro de que quieres eliminar el procesador "{{ procesador.nombre }}"?</p>
+    
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    
+    <button type="submit">Eliminar</button>
+    <a href="{% url 'lista_procesadores' %}">Cancelar</a>
+</form>
+<script>
+    function eliminar() {
+        // Confirmación de eliminación
+        var x = confirm("¿Estás seguro de que quieres eliminar el procesador?");
+        if (x) {
+            // Si el usuario confirma, enviar el formulario
+            document.getElementById("eliminar-form").submit();
+        } else {
+            // Si el usuario cancela, no hacer nada
+            return false;
+        }
+    }
+</script>

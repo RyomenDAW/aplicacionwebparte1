@@ -18,8 +18,7 @@ urlpatterns = [
     path('procesadores/crear_procesador/', views.crear_procesador, name='crear_procesador'),
     path('procesadores/', lista_procesadores, name='read_procesadores'),  # URL para la búsqueda de procesadores
     path('editar_procesador/<int:id_procesador>/', views.editar_procesador, name='editar_procesador'),
-    path('procesadores/eliminar_procesador/<int_id_procesador>/', views.eliminar_procesador, name='eliminar_procesador')
-    
+    path('procesadores/eliminar_procesador/<int:id_procesador>/', views.eliminar_procesador, name='eliminar_procesador'),    
     
     ] 
 

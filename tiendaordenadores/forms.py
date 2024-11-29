@@ -70,3 +70,6 @@ class BusquedaAvanzadaProcesador(forms.Form):
             self.add_error(None, "Por favor, rellene al menos un campo para la búsqueda.")
 
         return cleaned_data
+
+
+
