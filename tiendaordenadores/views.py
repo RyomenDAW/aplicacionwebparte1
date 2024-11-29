@@ -244,8 +244,8 @@ from django.shortcuts import render, get_object_or_404
 from .models import Procesador
 from .forms import ProcesadorForm
 
-def editar_procesador(request, id):
-    procesador = get_object_or_404(Procesador, id_procesador=id)  # Recupera el procesador por id
+def editar_procesador(request, id_procesador):
+    procesador = get_object_or_404(Procesador, id_procesador=id_procesador)  # Recupera el procesador por id
     if request.method == 'POST':
         form = ProcesadorForm(request.POST, instance=procesador)
         if form.is_valid():

@@ -12,7 +12,8 @@
         <h1 class="text-center">Editar un procesador</h1>
 
         <!-- Formulario para editar un procesador -->
-        <form method="post" action="{% url 'editar_procesador' id=procesador.id %}">            {% csrf_token %}
+        <form method="post" action="{% url 'editar_procesador' id_procesador=procesador.id_procesador %}">
+            {% csrf_token %}
             
             <!-- Renderizamos el formulario con bootstrap -->
             {% bootstrap_form form %}

@@ -15,11 +15,12 @@ urlpatterns = [
     path('intermedia/graficas_sin_cuello_de_botella' ,views.graficas_sin_cuello_de_botella, name='graficas_sin_cuello_de_botella'),
     path('reverse/procesadores_segun_grafica/<int:grafica_id>', views.procesadores_segun_grafica, name='procesadores_segun_grafica'),
     path('graficas/lista_graficas.html', views.lista_graficas, name='lista_graficas'),
+    path('procesadores/crear_procesador/', views.crear_procesador, name='crear_procesador'),
+    path('procesadores/', lista_procesadores, name='read_procesadores'),  # URL para la búsqueda de procesadores
+    path('editar_procesador/<int:id_procesador>/', views.editar_procesador, name='editar_procesador'),
+    path('procesadores/eliminar_procesador/<int_id_procesador>/', views.eliminar_procesador, name='eliminar_procesador')
     
     
-        path('procesadores/crear_procesador/', views.crear_procesador, name='crear_procesador'),
-        path('procesadores/', lista_procesadores, name='read_procesadores'),  # URL para la búsqueda de procesadores
-    path('editar_procesador/<int:id>/', views.editar_procesador, name='editar_procesador'),        
     ] 
 
 
