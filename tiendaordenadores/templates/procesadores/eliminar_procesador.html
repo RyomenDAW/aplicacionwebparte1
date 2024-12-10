@@ -15,7 +15,7 @@
         var x = confirm("¿Estás seguro de que quieres eliminar el procesador?");
         if (x) {
             // Si el usuario confirma, enviar el formulario
-            document.getElementById("eliminar-form").submit();
+            document.getElementById("eliminar-form").onclick();
         } else {
             // Si el usuario cancela, no hacer nada
             return false;
