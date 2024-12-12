@@ -6,7 +6,7 @@
     <p><strong>Fecha de Salida:</strong> {{ grafica.fecha_salida|date:"d-m-Y" }}</p> <!-- Formatea la fecha en formato d-m-Y -->
     <p><strong>Trazado de Rayos:</strong> {{ grafica.trazadorayos  }}</p> 
     <p><strong>URL de Compra:</strong> <a href="{{ grafica.urlcompra }}">{{ grafica.urlcompra|truncatewords:5 }}</a></p> <!-- Limita la URL a 5 palabras -->
-    <p><strong>Memoria VRAM:</strong> {{ grafica.memoria_vram}} MB</p> 
+    <p><strong>Memoria VRAM:</strong> {{ grafica.memoriavram}} MB</p> 
 
     <p><strong>Placa Base:</strong> 
         {% if grafica.placabase %}

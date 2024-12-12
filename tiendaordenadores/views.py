@@ -60,6 +60,10 @@ def inicio(request):
 #     return render (request, 'procesadores/lista_procesadores.html', {'procesadores': procesadores})
 
 
+def lista_procesadores(request):
+    procesadores = Procesador.objects.all()  
+    return render(request, 'procesadores/lista_procesadores.html', {'procesadores': procesadores})
+
 #=================================================================================================================================================================
 
 # USANDO UN PARAMETRO ENTERO.
@@ -214,13 +218,14 @@ def crear_procesador(request):
 
 from django.shortcuts import render
 from .models import Procesador
-from .forms import BusquedaAvanzadaProcesador
+from .forms import BusquedaAvanzadaProcesador, BusquedaAvanzadaGrafica
 
-def lista_procesadores(request):
-    # Inicializar el formulario de búsqueda
+def read_procesadores(request):
     form = BusquedaAvanzadaProcesador(request.GET)
 
-    # Filtrar los procesadores según los criterios del formulario
+    # Verifica que el formulario se está enviando correctamente
+    print(form)
+
     procesadores = Procesador.objects.all()
 
     if form.is_valid():
@@ -238,7 +243,9 @@ def lista_procesadores(request):
         if familiaprocesador:
             procesadores = procesadores.filter(familiaprocesador__in=familiaprocesador)
 
-    return render(request, 'procesadores/lista_procesadores.html', {'form': form, 'procesadores': procesadores})
+    return render(request, 'procesadores/read_procesadores.html', {'form': form, 'procesadores': procesadores})
+
+
 
 from django.shortcuts import render, get_object_or_404
 from .models import Procesador
@@ -271,4 +278,57 @@ def eliminar_procesador(request, id_procesador):
             return render(request, 'eliminar_procesador.html', {'procesador': procesador, 'error': 'Hubo un error al eliminar el procesador.'})
     
     # Si el método es GET, mostramos la página de confirmación
-    return render(request, 'eliminar_procesador.html', {'procesador': procesador})
+    return render(request, 'procesadores/eliminar_procesador.html', {'procesador': procesador})
+
+
+#=================================================================================================================================================================
+
+def crear_grafica(request):
+    if request.method == 'POST':
+        form = GraficaForm(request.POST)
+        if form.is_valid():
+            form.save()  # Guarda el nuevo procesador en la base de datos
+            return redirect('lista_graficas')  # Redirige usando el nombre de la vista
+    else:
+        form = GraficaForm()
+
+    return render(request, 'graficas/crear_grafica.html', {'form': form})
+
+def read_graficas(request):
+    form = BusquedaAvanzadaGrafica(request.GET)
+
+    # Verifica que el formulario se está enviando correctamente
+    print(form)
+
+    graficas = Grafica.objects.all()
+
+    if form.is_valid():
+        nombre = form.cleaned_data.get('nombreBusqueda')
+        potenciacalculo = form.cleaned_data.get('potenciacalculo')
+        memoriavram = form.cleaned_data.get('memoriavram')
+        familiagrafica = form.cleaned_data.get('familiagrafica')
+
+        if nombre:
+            graficas = graficas.filter(nombre__icontains=nombre)
+        if potenciacalculo:
+            graficas = graficas.filter(potenciacalculo=potenciacalculo)
+        if memoriavram:
+            graficas = graficas.filter(memoriavram=memoriavram)
+        if familiagrafica:
+            graficas = graficas.filter(familiagrafica__in=familiagrafica)
+
+    return render(request, 'graficas/read_graficas.html', {'form': form, 'graficas': graficas})
+
+
+def editar_grafica(request, id_grafica):
+    grafica = get_object_or_404(Grafica, id_grafica=id_grafica)  # Recupera el procesador por id
+    if request.method == 'POST':
+        form = GraficaForm(request.POST, instance=grafica)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_graficas')
+    else:
+        form = GraficaForm(instance=grafica)
+    
+    return render(request, 'graficas/editar_grafica.html', {'form': form, 'grafica': grafica})
+

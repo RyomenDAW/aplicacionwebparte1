@@ -163,16 +163,20 @@ placabase = models.OneToOneField('PlacaBase', on_delete=models.CASCADE, null=Tru
 # La clase Meta en un modelo de Django se utiliza para proporcionar opciones adicionales sobre el comportamiento del modelo. 
 # En este caso, estamos utilizando el atributo unique_together para definir una restricción de unicidad en la tabla intermedia 
 # que relaciona los modelos. 
-# 
 # Esto significa que la combinación de grafica y procesador debe ser única, evitando así que se creen registros 
 # duplicados para la misma tarjeta gráfica y procesador en la relación GraficaProcesador.
-# 
 # Esto asegura la integridad de los datos  y mejora la consistencia en las relaciones entre modelos.
 
   
-# Relación ManyToMany: Grafica - Procesador                                    //Un procesador o varios, pueden dar soporte funcional a uno o mas graficas
-                                                                               #Esto se llama SLI, aunque no se usa mucho hoy en dia, Nvlink es ejemplo, la placa
-                                                                               #base tiene que ser tambien de muy alta calidad, añado atributo cuellodebotella a la tabla intermedia
+# Relación ManyToMany: Grafica - Procesador                                   
+
+Un procesador o varios, pueden dar soporte funcional a uno o mas graficas
+                                                                            
+Esto se llama SLI, aunque no se usa mucho hoy en dia, Nvlink es ejemplo, la placa
+base tiene que ser tambien de muy alta calidad, añado atributo cuellodebotella a la tabla intermedia
+
+
+
 class GraficaProcesador(models.Model):
     grafica = models.ForeignKey(Grafica, on_delete=models.CASCADE)
     procesador = models.ForeignKey(Procesador, on_delete=models.CASCADE)
@@ -181,7 +185,12 @@ class GraficaProcesador(models.Model):
     class Meta:
         unique_together = ('grafica', 'procesador')  # Evitar duplicados
 
-# Relación ManyToMany: Monitor - Grafica               //Varios monitores pueden estar conectados a 1 o mas graficas tecnicamente
+# Relación ManyToMany: Monitor - Grafica              
+
+Varios monitores pueden estar conectados a 1 o mas graficas tecnicamente
+
+
+
 class MonitorGrafica(models.Model):
     monitor = models.ForeignKey(Monitor, on_delete=models.CASCADE)
     grafica = models.ForeignKey(Grafica, on_delete=models.CASCADE)
@@ -189,7 +198,11 @@ class MonitorGrafica(models.Model):
     class Meta:
         unique_together = ('monitor', 'grafica')  # Evitar duplicados
 
-# Relación ManyToMany: PlacaBase - Disipador          //Una placa base de muy alta calidad puede tener uno o mas disipadores
+# Relación ManyToMany: PlacaBase - Disipador          
+Una placa base de muy alta calidad puede tener uno o mas disipadores
+
+
+
 class PlacaBaseDisipador(models.Model): 
     placabase = models.ForeignKey(PlacaBase, on_delete=models.CASCADE)
     disipador = models.ForeignKey(Disipador, on_delete=models.CASCADE)

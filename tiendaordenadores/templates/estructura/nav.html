@@ -8,13 +8,13 @@
             <ul class="nav-section">
                 <li class="nav-header">Procesadores</li>
                 <li><a href="{% url 'lista_procesadores' %}">Ver Lista de Procesadores</a></li>
-                <li><a href="{% url 'lista_procesadores_segunhilos' numero_hilos=2024 %}">Procesadores Según Hilos (2024)</a></li>
+                <li><a href="{% url 'lista_procesadores_segunhilos' numero_hilos=46040 %}">Procesadores Según Hilos (46040)</a></li>
                 <li><a href="{% url 'lista_procesadores_segunfamilia' nombre_familia='Intel' %}">Procesadores Según Familia (Intel)</a></li>
                 <li><a href="{% url 'promedio_nucleos' %}">Promedio de Núcleos</a></li>
             </ul>
             <ul class="nav-section">
                 <li class="nav-header">Gráficas</li>
-                <li><a href="{% url 'lista_graficas_segunfamilia_y_vram' nombre_familia='Nvidia' cantidad_vram='Be.' %}">Gráficas Según Familia (Nvidia) y VRAM 'Be'</a></li>
+                <li><a href="{% url 'lista_graficas_segunfamilia_y_vram' nombre_familia='Nvidia' cantidad_vram='14060' %}">Gráficas Según Familia (Nvidia) y VRAM '14060'</a></li>
                 <li><a href="{% url 'filtrargraficas_segunvram' %}">Filtrar Gráficas por VRAM</a></li>
                 <li><a href="{% url 'graficas_sin_cuello_de_botella' %}">Gráficas Sin Cuello de Botella</a></li>
                 <li><a href="{% url 'lista_graficas' %}">Lista Completa de Gráficas</a></li>
@@ -26,6 +26,22 @@
             <ul class="nav-section">
                 <li class="nav-header">Relaciones</li>
                 <li><a href="{% url 'procesadores_segun_grafica' grafica_id=1 %}">Procesadores Según Su Gráfica (ID=1)</a></li>
+            </ul>
+
+            <ul class="nav-section">
+                <li class="nav-header">CRUD Procesador</li>
+                <li><a href="{% url 'crear_procesador' %}">Crear un procesador</a></li>
+                <li><a href="{% url 'read_procesadores' %}">Buscar un procesador (Read)</a></li>
+                <li><a href="{% url 'editar_procesador' id_procesador=2 %}">Editar un procesador (ID: 2)</a></li>
+                <li><a href="{% url 'eliminar_procesador' id_procesador=2 %}">Eliminar un procesador (ID: 2)</a></li>
+            </ul>
+
+            <ul class="nav-section">
+                <li class="nav-header">CRUD Graficas</li>
+                <li><a href="{% url 'crear_grafica' %}">Crear una grafica</a></li>
+                <li><a href="{% url 'read_graficas' %}">Buscar una grafica (Read)</a></li>
+                <li><a href="{% url 'editar_grafica' id_grafica=2 %}">Editar una grafica (ID: 2)</a></li>
+
             </ul>
         </nav>
     </div>

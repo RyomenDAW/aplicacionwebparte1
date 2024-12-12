@@ -1,7 +1,7 @@
 <form method="POST">
     {% csrf_token %}
     <p>¿Estás seguro de que quieres eliminar el procesador "{{ procesador.nombre }}"?</p>
-    
+    <p>Seria el procesador con la ID " {{ procesador.id_procesador }} " <p>
     {% if error %}
         <p style="color: red;">{{ error }}</p>
     {% endif %}

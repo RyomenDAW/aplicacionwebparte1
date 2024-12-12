@@ -1,0 +1,60 @@
+
+
+{% block content %}
+<h1>Búsqueda Avanzada de Graficas</h1>
+
+<!-- Formulario de búsqueda avanzada -->
+<form method="get" action="{% url 'read_graficas' %}">
+    {{ form.non_field_errors }}
+    
+    <div>
+        <label for="id_nombreBusqueda">Nombre:</label>
+        {{ form.nombreBusqueda }}
+        {{ form.nombreBusqueda.errors }}
+    </div>
+    
+    <div>
+        <label for="id_potenciacalculo">Potencia de calculo:</label>
+        {{ form.potenciacalculo }}
+        {{ form.potenciacalculo.errors }}
+    </div>
+    
+    <div>
+        <label for="id_memoriavram">Memoria VRAM:</label>
+        {{ form.memoriavram }}
+        {{ form.memoriavram.errors }}
+    </div>
+    
+    <div>
+        <label for="id_familiagrafica">Familia de Grafica:</label>
+        {{ form.familiagrafica }}
+        {{ form.familiagrafica.errors }}
+    </div>
+    
+    <button type="submit">Buscar</button>
+</form>
+
+<hr>
+
+<!-- Tabla de resultados de la búsqueda -->
+<h2>Resultados de la Búsqueda</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Potencia de calculo:</th>
+            <th>Memoria VRAM:</th>
+            <th>Familia de Grafica</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for grafica in graficas %}
+        {% include "../estructura/graficas_for.html" %}
+        {% empty %}
+        <tr>
+            <td colspan="4">No se encontraron graficas con esos criterios de búsqueda.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

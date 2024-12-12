@@ -4,7 +4,6 @@ from .views import *
 urlpatterns = [
     path('home/', views.inicio, name ='inicio'),
     path('', views.inicio, name='inicio'),  # Página de inicio
-
     path ('procesadores/', views.lista_procesadores, name='lista_procesadores'),
     path ('procesadores/<int:numero_hilos>', views.lista_procesadores_segunhilos, name='lista_procesadores_segunhilos'),
     path ('procesadores/<nombre_familia>', views.lista_procesadores_segunfamilia, name='lista_procesadores_segunfamilia'),
@@ -16,10 +15,14 @@ urlpatterns = [
     path('reverse/procesadores_segun_grafica/<int:grafica_id>', views.procesadores_segun_grafica, name='procesadores_segun_grafica'),
     path('graficas/lista_graficas.html', views.lista_graficas, name='lista_graficas'),
     path('procesadores/crear_procesador/', views.crear_procesador, name='crear_procesador'),
-    path('procesadores/', lista_procesadores, name='read_procesadores'),  # URL para la búsqueda de procesadores
+    #path('procesadores/', lista_procesadores, name='read_procesadores'),  # URL para la búsqueda de procesadores
     path('editar_procesador/<int:id_procesador>/', views.editar_procesador, name='editar_procesador'),
     path('procesadores/eliminar_procesador/<int:id_procesador>/', views.eliminar_procesador, name='eliminar_procesador'),    
-    
+    path('procesadores/read_procesadores/', views.read_procesadores, name='read_procesadores'),
+        path('procesadores/crear_grafica/', views.crear_grafica, name='crear_grafica'),
+    path('procesadores/read_graficas/', views.read_graficas, name='read_graficas'),
+    path('editar_grafica/<int:id_grafica>/', views.editar_grafica, name='editar_grafica'),
+
     ] 
 
 

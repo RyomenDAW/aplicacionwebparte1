@@ -6,24 +6,29 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/css.css' %}">
     <script src="{% static './javascript/script.js' %}"></script>
-<!-- Incluir Bootstrap desde CDN -->
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-    
+    <!-- Carga de Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    {% load django_bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% load bootstrap_icons %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Inicio</title>
 </head>
 <body>
-    <h1 class="bienvenida">Bienvenido a Cool Components</h1>
+    <h1 class="bienvenida">Bienvenido a Cool Components!</h1>
 
     {%block cabecera%}
     {% endblock %}
 
     {% include './nav.html' %}
-
+<div class="container p-2">
     {%block contenido%}
+
     {% endblock %}
+</div>
 
     {% include './footer.html' %}
 

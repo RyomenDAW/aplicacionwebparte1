@@ -1,74 +1,21 @@
 {% extends "../estructura/templatefinal.html" %}
-{% load bootstrap_icons %}
-{% block contenido %}
-<h1 class="mb-4">Listado de Procesadores</h1>
 
-<!-- Formulario de búsqueda avanzada -->
-
-
-
-<form method="get" action="{% url 'read_procesadores' %}" class="mb-4">
-    {{ form.non_field_errors }}
-    <div class="form-group">
-        <label for="id_nombreBusqueda">Nombre:</label>
-        {{ form.nombreBusqueda }}
-        {% for error in form.nombreBusqueda.errors %}
-            <p class="text-danger">{{ error }}</p>
-        {% endfor %}
-    </div>
-    
-    <div class="form-group">
-        <label for="id_nucleos">Núcleos:</label>
-        {{ form.nucleos }}
-        {% for error in form.nucleos.errors %}
-            <p class="text-danger">{{ error }}</p>
-        {% endfor %}
-    </div>
-    
-    <div class="form-group">
-        <label for="id_hilos">Hilos:</label>
-        {{ form.hilos }}
-        {% for error in form.hilos.errors %}
-            <p class="text-danger">{{ error }}</p>
-        {% endfor %}
-    </div>
-    
-    <div class="form-group">
-        <label for="id_familiaprocesador">Familia de Procesador:</label>
-        {{ form.familiaprocesador }}
-        {% for error in form.familiaprocesador.errors %}
-            <p class="text-danger">{{ error }}</p>
-        {% endfor %}
-    </div>
-    
-    <!-- Botón de envío -->
-    <button type="submit" class="btn btn-primary btn-lg">Buscar Procesadores</button>
-</form>
-
-<!-- Formulario de eliminar -->
-
-
-
-
-<!-- Lista de procesadores -->
-<table class="table table-striped table-bordered">
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Núcleos</th>
-            <th>Hilos</th>
-            <th>Familia</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for procesador in procesadores %}
-            {% include "../estructura/procesadores_for.html" %}
-            {% empty %}
-            <tr>
-                <td colspan="4">No se encontraron procesadores con esos criterios de búsqueda.</td>
-            </tr>
-            {% endfor %}
-    </tbody>
-</table>
+{% block cabecera %}
 {% endblock %}
+
+
+{% block contenido %}
+    <h1>Lista de Procesadores</h1>
+    {% for procesador in procesadores %}
+
+    {% include "estructura/procesadores_for.html" %}
+    <br>
+    {% endfor %}
+
+{% endblock %}
+
+
+
+
+
 

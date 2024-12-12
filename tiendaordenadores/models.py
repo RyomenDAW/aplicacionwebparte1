@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
+from django.core.validators import MinValueValidator
 
 # Definir 10 modelos de mi página Web que cumpla los siguientes requisitos.
 # Al menos 3 relaciones OneToOne, 3 relaciones ManytoOne, 3 relaciones ManyToMany
@@ -59,11 +60,9 @@ class Procesador (models.Model):
     urlcompra = models.URLField(max_length=100)
     nombre = models.TextField(max_length=100)
     familiaprocesador = models.TextField(max_length=6, choices=FAMILIA_PROCESADOR)
-    potenciacalculo = models.CharField(max_length=30)
-    nucleos = models.IntegerField()
-    hilos = models.IntegerField()
-
-    
+    potenciacalculo = models.PositiveBigIntegerField()
+    nucleos = models.PositiveSmallIntegerField()
+    hilos = models.PositiveIntegerField(validators=[MinValueValidator(35000)])  # Mínimo 100 para 'hilos'
     # Relación OneToOne con PlacaBase
     placabase = models.OneToOneField('PlacaBase', on_delete=models.CASCADE, null=True, blank=True)
 
@@ -73,17 +72,15 @@ class Grafica (models.Model):
     urlcompra = models.URLField(max_length=100)
     nombre = models.TextField(max_length=100)
     familiagrafica = models.TextField(max_length=6, choices=FAMILIA_GRAFICA)
-    potenciacalculo = models.CharField(max_length=30)
-    memoriavram = models.CharField(max_length=10)
+    potenciacalculo = models.PositiveIntegerField()  # Valor mínimo de 0
+    memoriavram = models.PositiveIntegerField()    # Valor mínimo de 0
     fecha_salida = models.DateTimeField(default=timezone.now)
     trazadorayos = models.BooleanField(default=False)
 
-   #AÑADIDO EN ESTA TAREA PARA QUE FUNCIONE LA URL REVERSA
+    #AÑADIDO EN ESTA TAREA PARA QUE FUNCIONE LA URL REVERSA
     grafica_procesadores = models.ForeignKey(Procesador, related_name='procesadores_reverse', on_delete=models.CASCADE)
-
-
-# Relación OneToOne con PlacaBase
-placabase = models.OneToOneField('PlacaBase', on_delete=models.CASCADE, null=True, blank=True)
+    # Relación OneToOne con PlacaBase
+    placabase = models.OneToOneField('PlacaBase', on_delete=models.CASCADE, null=True, blank=True)
     
     
 class FuenteAlimentacion(models.Model):
