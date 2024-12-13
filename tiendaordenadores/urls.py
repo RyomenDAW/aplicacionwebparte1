@@ -22,6 +22,12 @@ urlpatterns = [
         path('procesadores/crear_grafica/', views.crear_grafica, name='crear_grafica'),
     path('procesadores/read_graficas/', views.read_graficas, name='read_graficas'),
     path('editar_grafica/<int:id_grafica>/', views.editar_grafica, name='editar_grafica'),
+        path('graficas/eliminar_grafica/<int:id_grafica>/', views.eliminar_grafica, name='eliminar_grafica'),    
+        path('monitores/crear_monitor/', views.crear_monitor, name='crear_monitor'),
+        path('monitores/read_monitor/', views.read_monitor, name='read_monitor'),
+    path('monitores/editar_monitor/<int:id_monitor>/', views.editar_monitor, name='editar_monitor'),
+        path('monitores/eliminar_monitor/<int:id_monitor>/', views.eliminar_monitor, name='eliminar_monitor'),    
+
 
     ] 
 

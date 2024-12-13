@@ -1,0 +1,44 @@
+<form method="get" action="{% url 'read_monitor' %}">
+    {{ form.non_field_errors }}
+
+    <div>
+        <label for="id_hz_min">Tasa de refresco mínima (Hz):</label>
+        {{ form.hz_min }}
+        {{ form.hz_min.errors }}
+    </div>
+
+    <div>
+        <label for="id_hz_max">Tasa de refresco máxima (Hz):</label>
+        {{ form.hz_max }}
+        {{ form.hz_max.errors }}
+    </div>
+
+    <div>
+        <label for="id_calidad_respuesta">Calidad de respuesta máxima (ms):</label>
+        {{ form.calidad_respuesta }}
+        {{ form.calidad_respuesta.errors }}
+    </div>
+
+    <div>
+        <label for="id_curvo">¿Es curvo?</label>
+        {{ form.curvo }}
+        {{ form.curvo.errors }}
+    </div>
+
+    <div>
+        <label for="id_pantallafiltroplasma">¿Tiene filtro plasma HDR?</label>
+        {{ form.pantallafiltroplasma }}
+        {{ form.pantallafiltroplasma.errors }}
+    </div>
+
+    <button type="submit">Buscar</button>
+</form>
+
+<h3>Resultados</h3>
+<ul>
+    {% for monitor in monitors %}
+        <li>{{ monitor.nombre }} - {{ monitor.hz }} Hz - {{ monitor.calidad_respuesta }}</li>
+    {% empty %}
+        <li>No se encontraron monitores</li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,23 @@
+<form method="POST">
+    {% csrf_token %}
+    <p>¿Estás seguro de que quieres eliminar el monitor "{{ monitor.id_monitor }}"?</p>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    
+    <button type="submit">Eliminar</button>
+    <a href="{% url 'inicio' %}">Cancelar</a>
+</form>
+<script>
+    function eliminar() {
+        // Confirmación de eliminación
+        var x = confirm("¿Estás seguro de que quieres eliminar el monitor ?");
+        if (x) {
+            // Si el usuario confirma, enviar el formulario
+            document.getElementById("eliminar-form").onclick();
+        } else {
+            // Si el usuario cancela, no hacer nada
+            return false;
+        }
+    }
+</script>

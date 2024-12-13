@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Monitor</title>
+    {% load django_bootstrap5 %}
+    {% bootstrap_css %}
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Editar un monitor</h1>
+
+        <!-- Formulario para editar un procesador -->
+        <form method="post" action="{% url 'editar_monitor' id_monitor=monitor.id_monitor %}">
+            {% csrf_token %}
+            
+            <!-- Renderizamos el formulario con bootstrap -->
+            {% bootstrap_form form %}
+            
+            <!-- Botón para guardar cambios -->
+            <button type="submit" class="btn btn-primary mt-3">Guardar cambios</button>
+        </form>
+
+        <a href="{% url 'inicio' %}" class="btn btn-secondary mt-3">Volver a la lista</a>
+    </div>
+
+    {% bootstrap_javascript %}
+</body>
+</html>

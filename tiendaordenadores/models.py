@@ -116,6 +116,7 @@ class Monitor (models.Model):
     calidad_respuesta = models.DecimalField(max_digits=10, decimal_places=5)  # 5 decimales, el valor real de ms puede ser 1, monitores competetivos sobre todo
     curvo = models.BooleanField(default=False)
     pantallafiltroplasma = models.BooleanField(default=False)
+    
 class Ram (models.Model):
     id_ram = models.AutoField(primary_key=True)
     fecha_fabricacion = models.DateField(default=timezone.now)

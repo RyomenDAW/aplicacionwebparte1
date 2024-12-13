@@ -1,5 +1,5 @@
 from django import forms
-from .models import Procesador, Grafica
+from .models import Procesador, Grafica, Monitor, FuenteAlimentacion, Ram, DiscoDuroHdd
 #================================================================================================================================
 
 class ProcesadorForm(forms.ModelForm): #MODEL FORM
@@ -126,7 +126,7 @@ def clean(self):  # 3 VALIDACIONES
     nombre = cleaned_data.get('nombreBusqueda')
     familiagrafica = cleaned_data.get('familiagrafica')
 
-    # Validación 1: 
+    # Validación 1: La potencia de calculo tiene que ser MAYOR que 500
     if potenciacalculo:
         if potenciacalculo > 500:
             self.add_error('potenciacalculo', 'El número de potencia de cálculo debe ser mayor que 500.')
@@ -143,3 +143,111 @@ def clean(self):  # 3 VALIDACIONES
         self.add_error(None, "Por favor, rellene al menos un campo para la búsqueda.")
 
     return self.cleaned_data
+
+#================================================================================================================================
+
+
+class MonitorForm(forms.ModelForm): #MODEL FORM
+    class Meta:
+        model = Monitor
+        fields = 'hz', 'urlcompra', 'calidad_respuesta', 'curvo', 'pantallafiltroplasma',  # Incluir todos los campos del modelo
+
+        # Configuración opcional para personalizar etiquetas o mensajes de ayuda
+        labels = {
+            'hz': 'Tasa de refresco',
+            'urlcompra': 'URL de compra',
+            'calidad_respuesta': 'Calidad de respuesta (1ms?)',
+            'curvo': 'Es curvo?',
+            'pantallafiltroplasma': 'Tiene filtro plasma HDR?',
+ 
+        }
+        help_texts = {
+            'hz': 'Selecciona los hercios del monitor',
+            'urlcompra': 'Introduce una URL válida donde se pueda comprar este procesador.',
+            'pantallafiltroplasma': 'Indique si tiene mediante booleano, no hace falta version'
+        }
+        widgets = {
+            "hz" : forms.NumberInput(),
+        }
+        
+    def clean_hz(self): 
+        hz = self.cleaned_data.get("hz")
+        if hz is not None:  
+            try:
+                hz = int(hz)  # Convertir a entero, da error en form si se pasa como string.
+            except ValueError:
+                raise forms.ValidationError("La tasa de refresco debe ser un número entero válido.")
+            if hz <= 0:
+                raise forms.ValidationError("La tasa de refresco debe ser un valor mayor que 0.")
+        return hz
+
+    
+    def clean_calidad_respuesta(self):  
+        calidad_respuesta = self.cleaned_data.get("calidad_respuesta")  
+        if calidad_respuesta is not None:  # Asegurarnos de que el campo no esté vacío  
+            if calidad_respuesta <= 0:  
+                raise forms.ValidationError("La calidad de respuesta debe ser un valor mayor que 0.")  
+        return calidad_respuesta  
+    
+    
+from django import forms
+
+from django import forms
+
+from django import forms
+
+class BusquedaAvanzadaMonitor(forms.Form):
+    # Campos de búsqueda avanzada
+    hz_min = forms.IntegerField(
+        required=False,
+        label="Tasa de refresco mínima (Hz)",
+        min_value=1,
+        widget=forms.NumberInput(attrs={"placeholder": "Ej. 60"})
+    )
+    hz_max = forms.IntegerField(
+        required=False,
+        label="Tasa de refresco máxima (Hz)",
+        min_value=1,
+        widget=forms.NumberInput(attrs={"placeholder": "Ej. 320"})
+    )
+    calidad_respuesta = forms.IntegerField(
+        required=False,
+        label="Calidad de respuesta máxima (ms)",
+        min_value=1,
+        widget=forms.NumberInput(attrs={"placeholder": "Ej. 1"})
+    )
+    curvo = forms.CharField(
+        required=False,
+        label="¿Es curvo?",
+        widget=forms.RadioSelect(choices=[('1', 'Sí'), ('0', 'No')])
+    )
+    pantallafiltroplasma = forms.CharField(
+        required=False,
+        label="¿Tiene filtro plasma HDR?",
+        widget=forms.RadioSelect(choices=[('1', 'Sí'), ('0', 'No')])
+    )
+
+    # Validaciones adicionales
+    def clean(self):
+        cleaned_data = super().clean()
+        hz_min = cleaned_data.get("hz_min")
+        hz_max = cleaned_data.get("hz_max")
+        calidad_respuesta = cleaned_data.get("calidad_respuesta")
+        curvo = cleaned_data.get("curvo")
+        pantallafiltroplasma = cleaned_data.get("pantallafiltroplasma")
+
+        # Validación 1: hz_min no debe ser mayor que hz_max
+        if hz_min and hz_max and hz_min > hz_max:
+            self.add_error("hz_max", "La tasa de refresco máxima debe ser mayor o igual a la mínima.")
+
+        # Validación 2: calidad_respuesta no debe ser negativa
+        if calidad_respuesta and calidad_respuesta <= 0:
+            self.add_error("calidad_respuesta", "La calidad de respuesta debe ser mayor que 0.")
+
+        # Validación adicional: Asegurar que todos los campos están llenos
+        if not (hz_min or hz_max or calidad_respuesta or curvo or pantallafiltroplasma):
+            self.add_error(None, "Por favor, rellene al menos un campo para realizar la búsqueda.")
+        
+        return cleaned_data
+
+

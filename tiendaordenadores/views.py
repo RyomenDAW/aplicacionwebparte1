@@ -332,3 +332,100 @@ def editar_grafica(request, id_grafica):
     
     return render(request, 'graficas/editar_grafica.html', {'form': form, 'grafica': grafica})
 
+def eliminar_grafica(request, id_grafica):
+    # Usamos get_object_or_404 para manejar objetos inexistentes
+    grafica = get_object_or_404(Grafica, id_grafica=id_grafica)
+    
+    if request.method == 'POST':
+        try:
+            grafica.delete()  
+            return redirect('lista_graficas')  # Redirigir a la lista de graficas
+        except Exception as e:
+            # Manejar cualquier error de eliminación (aunque no es común)
+            print(f"Error al eliminar la grafica: {e}")
+            return render(request, 'eliminar_grafica.html', {'grafica': grafica, 'error': 'Hubo un error al eliminar la grafica.'})
+    
+    # Si el método es GET, mostramos la página de confirmación
+    return render(request, 'graficas/eliminar_grafica.html', {'grafica': grafica})
+
+#=================================================================================================================================================================
+
+def crear_monitor(request):
+    if request.method == 'POST':
+        form = MonitorForm(request.POST)
+        if form.is_valid():
+            form.save()  # Guarda el nuevo procesador en la base de datos
+            return redirect('inicio')  # Redirige usando el nombre de la vista
+    else:
+        form = MonitorForm()
+
+    return render(request, 'monitores/crear_monitor.html', {'form': form})
+
+def read_monitor(request):
+    form = BusquedaAvanzadaMonitor(request.GET)
+    monitor = Monitor.objects.all()
+
+    if form.is_valid():
+        hz_min = form.cleaned_data.get('hz_min')
+        hz_max = form.cleaned_data.get('hz_max')
+        calidad_respuesta = form.cleaned_data.get('calidad_respuesta')
+        curvo = form.cleaned_data.get('curvo')
+        pantallafiltroplasma = form.cleaned_data.get('pantallafiltroplasma')
+
+        # Convertir curvo y pantallafiltroplasma a booleanos
+        curvo = curvo == '1'
+        pantallafiltroplasma = pantallafiltroplasma == '1'
+
+
+        if hz_min is not None:
+            monitor = monitor.filter(hz__gte=hz_min)
+        if hz_max is not None:
+            monitor = monitor.filter(hz__lte=hz_max)
+        if calidad_respuesta is not None:
+            monitor = monitor.filter(calidad_respuesta__lte=calidad_respuesta)
+        if curvo is not None:
+            monitor = monitor.filter(curvo=curvo)
+        if pantallafiltroplasma is not None:
+            monitor = monitor.filter(pantallafiltroplasma=pantallafiltroplasma)
+    print(f"hz_min: {hz_min}, hz_max: {hz_max}, calidad_respuesta: {calidad_respuesta}, curvo: {curvo}, pantallafiltroplasma: {pantallafiltroplasma}")
+
+    return render(request, 'monitores/read_monitor.html', {'form': form, 'monitor': monitor})
+
+#Preguntarle a jorge porque en la consulta aparece y no en el read, este falla.
+
+def editar_monitor(request, id_monitor):
+    monitor = get_object_or_404(Monitor, id_monitor=id_monitor)
+    
+    if request.method == "POST":
+        # Crear el formulario con los datos del POST y la instancia del monitor
+        form = MonitorForm(request.POST, instance=monitor)
+        
+        if form.is_valid():
+            # Si el formulario es válido, guardar los cambios
+            form.save()
+            return redirect('inicio')
+
+
+    else:
+        # Si no es un POST, simplemente cargar el formulario con los valores actuales del monitor
+        form = MonitorForm(instance=monitor)
+
+    return render(request, 'monitores/editar_monitor.html', {'form': form, 'monitor': monitor})
+
+
+def eliminar_monitor(request, id_monitor):
+    # Usamos get_object_or_404 para manejar objetos inexistentes
+    monitor = get_object_or_404(Monitor, id_monitor=id_monitor)
+    
+    if request.method == 'POST':
+        try:
+            monitor.delete()  
+            return redirect('inicio')  # Redirigir a la lista de graficas
+        except Exception as e:
+            # Manejar cualquier error de eliminación (aunque no es común)
+            print(f"Error al eliminar el monitor: {e}")
+            return render(request, 'eliminar_monitor.html', {'monitor': monitor, 'error': 'Hubo un error al eliminar el monitor.'})
+    
+    # Si el método es GET, mostramos la página de confirmación
+    return render(request, 'monitores/eliminar_monitor.html', {'monitor': monitor})
+

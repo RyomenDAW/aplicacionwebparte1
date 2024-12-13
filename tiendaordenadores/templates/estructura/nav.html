@@ -41,8 +41,17 @@
                 <li><a href="{% url 'crear_grafica' %}">Crear una grafica</a></li>
                 <li><a href="{% url 'read_graficas' %}">Buscar una grafica (Read)</a></li>
                 <li><a href="{% url 'editar_grafica' id_grafica=2 %}">Editar una grafica (ID: 2)</a></li>
-
+                <li><a href="{% url 'eliminar_grafica' id_grafica=2 %}">Eliminar una grafica (ID: 2)</a></li>
             </ul>
+
+            <ul class="nav-section">
+                <li class="nav-header">CRUD Monitor</li>
+                <li><a href="{% url 'crear_monitor' %}">Crear un monitor</a></li>
+                <li><a href="{% url 'read_monitor' %}">Buscar un monitor (Read)</a></li>
+                <li><a href="{% url 'editar_monitor' id_monitor=2 %}">Editar un monitor (ID: 2)</a></li>
+                <li><a href="{% url 'eliminar_monitor' id_monitor=98 %}">Eliminar un monitor (ID: 98)</a></li>
+
+
         </nav>
     </div>
     <div class="rtx-logo">
