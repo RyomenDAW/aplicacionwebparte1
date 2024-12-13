@@ -27,6 +27,8 @@ urlpatterns = [
         path('monitores/read_monitor/', views.read_monitor, name='read_monitor'),
     path('monitores/editar_monitor/<int:id_monitor>/', views.editar_monitor, name='editar_monitor'),
         path('monitores/eliminar_monitor/<int:id_monitor>/', views.eliminar_monitor, name='eliminar_monitor'),    
+        path('fuentes/crear_fuente/', views.crear_fuente, name='crear_fuente'),
+        path('monitores/read_fuente/', views.read_fuente, name='read_fuente'),
 
 
     ] 

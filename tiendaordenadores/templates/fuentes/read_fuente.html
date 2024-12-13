@@ -1,0 +1,50 @@
+
+
+<h1>Búsqueda Avanzada de Fuentes</h1>
+
+<!-- Formulario de búsqueda avanzada -->
+<form method="get" action="{% url 'read_fuente' %}">
+    {{ form.non_field_errors }}
+    
+    <div>
+        <label for="id_vatios">Vatios:</label>
+        {{ form.vatios }}
+        {{ form.vatios.errors }}
+    </div>
+    
+    <div>
+        <label for="id_amperaje">Amperaje:</label>
+        {{ form.amperaje }}
+        {{ form.amperaje.errors }}
+    </div>
+    
+    <div>
+        <label for="id_conectoresdisponibles">Conectores disponibles:</label>
+        {{ form.conectoresdisponibles }}
+        {{ form.conectoresdisponibles.errors }}
+    </div>
+    
+    <div>
+        <label for="id_calidadfuente">Sello de calidad de la fuente:</label>
+        {{ form.calidadfuente }}
+        {{ form.calidadfuente.errors }}
+    </div>
+    
+    <button type="submit">Buscar</button>
+</form>
+<h3>Resultados</h3>
+<ul>
+    {% for fuente in fuentes %}
+        <li>
+            <p>Fuente:</p>
+            Vatios:{{ fuente.vatios }} <hr>
+            Amperaje: {{ fuente.amperaje }} A - <hr> 
+            Conectores: {{ fuente.conectoresdisponibles }} - <hr>
+            Calidad: {{ fuente.calidadfuente }} <hr>
+        </li>
+    {% empty %}
+        <li>No se encontraron fuentes</li>
+    {% endfor %}
+</ul>
+
+

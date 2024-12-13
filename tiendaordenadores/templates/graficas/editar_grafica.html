@@ -11,7 +11,7 @@
     <div class="container mt-5">
         <h1 class="text-center">Editar una grafica</h1>
 
-        <!-- Formulario para editar un procesador -->
+        <!-- Formulario para editar una grafica -->
         <form method="post" action="{% url 'editar_grafica' id_grafica=grafica.id_grafica %}">
             {% csrf_token %}
             
@@ -22,7 +22,7 @@
             <button type="submit" class="btn btn-primary mt-3">Guardar cambios</button>
         </form>
 
-        <!-- Botón para volver a la lista de procesadores -->
+        <!-- Botón para volver a la lista de graficas -->
         <a href="{% url 'lista_graficas' %}" class="btn btn-secondary mt-3">Volver a la lista</a>
     </div>
 

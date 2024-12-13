@@ -363,7 +363,14 @@ def crear_monitor(request):
 
 def read_monitor(request):
     form = BusquedaAvanzadaMonitor(request.GET)
-    monitor = Monitor.objects.all()
+    monitor = Monitor.objects
+
+    # Inicializar variables con valores predeterminados
+    hz_min = None
+    hz_max = None
+    calidad_respuesta = None
+    curvo = None
+    pantallafiltroplasma = None
 
     if form.is_valid():
         hz_min = form.cleaned_data.get('hz_min')
@@ -376,7 +383,6 @@ def read_monitor(request):
         curvo = curvo == '1'
         pantallafiltroplasma = pantallafiltroplasma == '1'
 
-
         if hz_min is not None:
             monitor = monitor.filter(hz__gte=hz_min)
         if hz_max is not None:
@@ -387,9 +393,12 @@ def read_monitor(request):
             monitor = monitor.filter(curvo=curvo)
         if pantallafiltroplasma is not None:
             monitor = monitor.filter(pantallafiltroplasma=pantallafiltroplasma)
+
+    # La impresión ahora no genera errores, incluso si el formulario no es válido
     print(f"hz_min: {hz_min}, hz_max: {hz_max}, calidad_respuesta: {calidad_respuesta}, curvo: {curvo}, pantallafiltroplasma: {pantallafiltroplasma}")
 
-    return render(request, 'monitores/read_monitor.html', {'form': form, 'monitor': monitor})
+    return render(request, 'monitores/read_monitor.html', {'form': form, 'monitors': monitor.all()})
+
 
 #Preguntarle a jorge porque en la consulta aparece y no en el read, este falla.
 
@@ -428,4 +437,51 @@ def eliminar_monitor(request, id_monitor):
     
     # Si el método es GET, mostramos la página de confirmación
     return render(request, 'monitores/eliminar_monitor.html', {'monitor': monitor})
+
+#=================================================================================================================================================================
+
+def crear_fuente(request):
+    if request.method == 'POST':
+        form = FuenteForm(request.POST)
+        if form.is_valid():
+            form.save()  # Guarda el nuevo procesador en la base de datos
+            return redirect('inicio')  # Redirige usando el nombre de la vista
+    else:
+        form = FuenteForm()
+
+    return render(request, 'fuentes/crear_fuente.html', {'form': form})
+
+from django.shortcuts import render
+from .forms import BusquedaAvanzadaFuente
+from .models import FuenteAlimentacion
+
+from django.shortcuts import render
+from .forms import BusquedaAvanzadaFuente
+from .models import FuenteAlimentacion
+
+def read_fuente(request):
+    form = BusquedaAvanzadaFuente(request.GET)
+    fuentes = FuenteAlimentacion.objects.all()  # Comienza con todas las fuentes
+    
+    if form.is_valid():
+        vatios = form.cleaned_data.get('vatios')
+        amperaje = form.cleaned_data.get('amperaje')
+        conectoresdisponibles = form.cleaned_data.get('conectoresdisponibles')
+        calidadfuente = form.cleaned_data.get('calidadfuente')
+
+        # Si vatios tiene un valor y no es vacío, se filtra exactamente por ese valor
+        if vatios:
+            fuentes = fuentes.filter(vatios=vatios)
+
+        # Otros filtros se aplican de la misma manera, pero no afectarán el resultado si vatios no coincide
+        if amperaje:
+            fuentes = fuentes.filter(amperaje=amperaje)
+        if conectoresdisponibles:
+            fuentes = fuentes.filter(conectoresdisponibles__icontains=conectoresdisponibles)
+        if calidadfuente:
+            fuentes = fuentes.filter(calidadfuente=calidadfuente)
+
+    # Renderizamos la página con el formulario y las fuentes filtradas
+    return render(request, 'fuentes/read_fuente.html', {'form': form, 'fuentes': fuentes})
+
 

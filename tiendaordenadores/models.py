@@ -86,7 +86,7 @@ class Grafica (models.Model):
 class FuenteAlimentacion(models.Model):
     id_fuente = models.AutoField(primary_key=True)
     urlcompra = models.URLField(max_length=100)
-    vatios = models.TextField(max_length=4)
+    vatios = models.PositiveIntegerField()
     amperaje = models.FloatField(max_length=20)
     conectoresdisponibles = models.TextField(max_length=100)
     calidadfuente = models.TextField(max_length=20, choices=SELLO_CALIDAD_FUENTE)

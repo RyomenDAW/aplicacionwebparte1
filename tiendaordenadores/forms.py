@@ -189,12 +189,6 @@ class MonitorForm(forms.ModelForm): #MODEL FORM
                 raise forms.ValidationError("La calidad de respuesta debe ser un valor mayor que 0.")  
         return calidad_respuesta  
     
-    
-from django import forms
-
-from django import forms
-
-from django import forms
 
 class BusquedaAvanzadaMonitor(forms.Form):
     # Campos de búsqueda avanzada
@@ -251,3 +245,101 @@ class BusquedaAvanzadaMonitor(forms.Form):
         return cleaned_data
 
 
+#================================================================================================================================
+
+class FuenteForm(forms.ModelForm): #MODEL FORM
+    class Meta:
+        model = FuenteAlimentacion
+        fields = 'vatios', 'urlcompra', 'amperaje', 'conectoresdisponibles', 'calidadfuente',  # Incluir todos los campos del modelo
+
+        # Configuración opcional para personalizar etiquetas o mensajes de ayuda
+        labels = {
+            'vatios': 'Vatios de la fuente',
+            'urlcompra': 'URL de compra',
+            'amperaje': 'Amperaje de la fuente',
+            'conectoresdisponibles': 'Conectores disponibles',
+            'calidadfuente': 'Calidad de la fuente',
+
+        }
+        help_texts = {
+            'vatios': 'Cuantos vatios tiene la fuente',
+            'urlcompra': 'Introduce una URL válida donde se pueda comprar este procesador.',
+            'calidadfuente': 'Recuerda que hay varias clasificaciones'
+        }
+        widgets = {
+            "urlcompra" : forms.URLInput(),
+        }
+        
+        
+    # Validación simplificada para el campo 'vatios' (Debe ser mayor que 0)
+    def clean_vatios(self):
+        vatios = self.cleaned_data.get('vatios')
+        if vatios is None or vatios <= 0:
+            raise forms.ValidationError("El valor de vatios debe ser mayor que 0.")
+        return vatios
+
+    # Validación simplificada para el campo 'urlcompra' (Debe ser una URL válida)
+    def clean_urlcompra(self):
+        urlcompra = self.cleaned_data.get('urlcompra')
+        if not urlcompra or not urlcompra.startswith(('http://', 'https://')):
+            raise forms.ValidationError("La URL debe ser válida y comenzar con 'http://' o 'https://'.")
+        return urlcompra
+  
+
+
+SELLO_CALIDAD_FUENTE = (
+    ("80Bronce", "80Bronce"),
+    ("80Silver", "80Silver"),
+    ("80Gold", "80Gold"),
+    ("80Plat", "80Plat"),
+    ("80Titanium", "80Titanium"),
+)
+
+
+class BusquedaAvanzadaFuente(forms.Form):
+    # Campos de búsqueda avanzada
+    vatios = forms.IntegerField(
+        required=False,
+        label="Vatios",
+        min_value=1,
+        widget=forms.NumberInput(attrs={"placeholder": "Ej. Deep."})
+    )
+    amperaje = forms.IntegerField(
+        required=False,
+        label="Amperaje (A)",
+        min_value=0,
+        widget=forms.NumberInput(attrs={"placeholder": "Ej. 20"})
+    )
+    conectoresdisponibles = forms.CharField(  # Cambié a CharField para poder verificar la longitud
+        required=False,
+        label="Conectores disponibles",
+        widget=forms.TextInput(attrs={"placeholder": "Ej. This one"})
+    )
+    calidadfuente = forms.ChoiceField(
+        required=False,
+        label="Calidad de la fuente",
+        choices=SELLO_CALIDAD_FUENTE,
+        widget=forms.Select(attrs={"placeholder": "Selecciona una opción"})
+    )
+
+    # Validaciones adicionales
+    def clean(self):
+        cleaned_data = super().clean()
+        vatios = cleaned_data.get("vatios")
+        amperaje = cleaned_data.get("amperaje")
+        conectoresdisponibles = cleaned_data.get("conectoresdisponibles")
+        calidadfuente = cleaned_data.get("calidadfuente")
+
+        # Validación adicional 1: Asegurarse de que al menos esta todo relleno (esta no cuenta como validacion)
+        if not (vatios and amperaje and conectoresdisponibles and calidadfuente):
+            self.add_error(None, "Por favor, rellene campos para realizar la búsqueda.")
+
+        # Validación adicional 2: El amperaje debe ser mayor que 0 si está presente
+        if amperaje is not None and amperaje <= 0:
+            self.add_error('amperaje', "El amperaje debe ser mayor que 0.")
+        
+        # Validación adicional 3: La longitud de 'conectoresdisponibles' debe ser mayor que 1
+        if conectoresdisponibles and len(conectoresdisponibles) <= 1:
+            self.add_error('conectoresdisponibles', "El campo de conectores disponibles debe tener una longitud mayor que 1.")
+
+        return cleaned_data
