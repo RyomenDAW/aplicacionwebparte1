@@ -208,7 +208,7 @@ def crear_procesador(request):
         form = ProcesadorForm(request.POST)
         if form.is_valid():
             form.save()  # Guarda el nuevo procesador en la base de datos
-            return redirect('lista_procesadores.html')  # Cambia al nombre de tu URL para la lista
+            return redirect('procesadores/lista_procesadores.html')  # Cambia al nombre de tu URL para la lista
     else:
         form = ProcesadorForm()
 
