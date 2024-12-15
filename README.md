@@ -497,3 +497,76 @@ Suma un valor al original. Puede utilizarse para realizar cálculos dentro de la
 
 Cómo usar los filtros
 Estos filtros pueden ser aplicados a cualquier variable dentro de las plantillas de Django para modificar su formato, mostrar valores predeterminados, o realizar operaciones como sumar valores. Solo es necesario usar el operador de filtro |, seguido del nombre del filtro y sus parámetros si los hubiera (como en el caso de truncatewords:10 o date:"d M Y").
+
+
+
+
+
+
+
+WIDGETS:
+
+PROCESADOR:
+Para el ProcesadorForm, utilicé widgets como TextInput para el nombre del procesador, URLInput para la URL de compra, y Select para las familias de procesadores.
+
+
+En el BusquedaAvanzadaProcesador, utilicé TextInput para la búsqueda de nombre, NumberInput para los valores numéricos de núcleos y hilos, y CheckboxSelectMultiple para seleccionar las familias de procesadores.
+
+
+
+GRAFICA:
+En este formulario, vamos a usar widgets como NumberInput (que ya hemos utilizado), Select y TextInput para los campos de texto, y también un CheckboxInput para la opción de trazado de rayos.
+
+
+Usaremos TextInput para nombreBusqueda, NumberInput para los campos numéricos de potencia de cálculo y memoria VRAM, y CheckboxSelectMultiple para las familias de gráficas.
+
+Hasta ahora llevamos estos:
+
+Resumen de Widgets Usados:
+TextInput: Para nombre y nombreBusqueda en ambos formularios.
+URLInput: Para urlcompra en GraficaForm.
+Select: Para la familia de la gráfica en GraficaForm.
+NumberInput: Para campos numéricos como potenciacalculo y memoriavram en ambos formularios.
+CheckboxInput: Para el campo de trazado de rayos en GraficaForm.
+CheckboxSelectMultiple: Para las familias de gráfica en BusquedaAvanzadaGrafica.
+
+
+Y añadimos uno mas para monitor:
+
+El nuevo widget que hemos añadido en el formulario MonitorForm y en el formulario BusquedaAvanzadaMonitor es el RadioSelect. Este widget se utiliza para los campos booleanos curvo y pantallafiltroplasma, donde el usuario puede seleccionar entre las opciones "Sí" o "No".
+
+No hace falta que te diga donde mas he utilizado widgets, ya que simplemente se iran repitiendo, puedes verlo aun asi en el programa.
+
+Aun asi son estos:
+
+Widgets Usados:
+1. forms.TextInput
+Propósito: Campo de texto simple.
+Ejemplos:
+Usado en campos como mhz en RamForm, capacidad en HDDForm, rpm en HDDForm.
+Widget con attrs={'placeholder': 'Ej. 7200'} y similar para otros campos.
+2. forms.NumberInput
+Propósito: Campo de entrada numérica.
+Ejemplos:
+Usado en campos como tiempomediofallos en HDDForm para aceptar números con decimales (step='0.01').
+Usado en campos como pulgadas en HDDForm para valores numéricos con límites (min='1', max='10').
+3. forms.DateInput
+Propósito: Campo de entrada para fechas.
+Ejemplos:
+Usado en el campo fecha_fabricacion en RamForm, donde se establece el tipo de entrada a date.
+4. forms.CheckboxInput
+Propósito: Campo de entrada tipo checkbox (booleano).
+Ejemplos:
+Usado en el campo rgb en RamForm y en HDDForm para indicar si tiene o no luces RGB.
+5. forms.ClearableFileInput
+Propósito: Campo para subir archivos (como imágenes).
+Ejemplos:
+Usado en el campo imagen en ProcesadorForm para cargar imágenes (usado con multiple=True para permitir múltiples archivos si es necesario).
+6. forms.URLInput
+Propósito: Campo de entrada para URLs.
+Ejemplos:
+Usado en urlcompra en FuenteForm, para especificar la URL de compra de un procesador o fuente.
+7. forms.Select
+Propósito: Campo de selección desplegable.
+Ejemplos:
+Usado en campos como calidadfuente en FuenteForm, familiaram en RamForm, y en BuscadorAvanzado para seleccionar una opción entre varias.

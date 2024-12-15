@@ -451,13 +451,6 @@ def crear_fuente(request):
 
     return render(request, 'fuentes/crear_fuente.html', {'form': form})
 
-from django.shortcuts import render
-from .forms import BusquedaAvanzadaFuente
-from .models import FuenteAlimentacion
-
-from django.shortcuts import render
-from .forms import BusquedaAvanzadaFuente
-from .models import FuenteAlimentacion
 
 def read_fuente(request):
     form = BusquedaAvanzadaFuente(request.GET)
@@ -484,4 +477,190 @@ def read_fuente(request):
     # Renderizamos la página con el formulario y las fuentes filtradas
     return render(request, 'fuentes/read_fuente.html', {'form': form, 'fuentes': fuentes})
 
+def editar_fuente(request, id_fuente):
+    fuente = get_object_or_404(FuenteAlimentacion, id_fuente=id_fuente) 
+    
+    if request.method == "POST":
+        # Crear el formulario con los datos del POST y la instancia del monitor
+        form = FuenteForm(request.POST, instance=fuente)
+        
+        if form.is_valid():
+            # Si el formulario es válido, guardar los cambios
+            form.save()
+            return redirect('inicio')
 
+
+    else:
+        # Si no es un POST, simplemente cargar el formulario con los valores actuales del monitor
+        form = FuenteForm(instance=fuente)
+
+    return render(request, 'fuentes/editar_fuente.html', {'form': form, 'fuente': fuente})
+
+def eliminar_fuente(request, id_fuente):
+    # Usamos get_object_or_404 para manejar objetos inexistentes
+    fuente = get_object_or_404(FuenteAlimentacion, id_fuente=id_fuente)
+    
+    if request.method == 'POST':
+        try:
+            fuente.delete()  
+            return redirect('inicio')  # Redirigir a la lista de graficas
+        except Exception as e:
+            # Manejar cualquier error de eliminación (aunque no es común)
+            print(f"Error al eliminar la fuente: {e}")
+            return render(request, 'eliminar_fuente.html', {'fuente': fuente, 'error': 'Hubo un error al eliminar la fuente.'})
+    
+    # Si el método es GET, mostramos la página de confirmación
+    return render(request, 'fuentes/eliminar_fuente.html', {'fuente': fuente})
+
+
+
+def crear_ram(request):
+    if request.method == 'POST':
+        form = RamForm(request.POST)
+        if form.is_valid():
+            form.save()  # Guarda el nuevo procesador en la base de datos
+            return redirect('inicio')  # Redirige usando el nombre de la vista
+    else:
+        form = RamForm()
+
+    return render(request, 'ram/crear_ram.html', {'form': form})
+
+
+def read_ram(request):
+    form = RamAvanzadaForm(request.GET)  # Usamos request.GET para recibir datos de búsqueda
+    rams = Ram.objects.all()  # Comienza con todas las RAM
+    
+    if form.is_valid():
+        mhz = form.cleaned_data.get('mhz')
+        familiaram = form.cleaned_data.get('familiaram')
+        fecha_fabricacion = form.cleaned_data.get('fecha_fabricacion')
+        rgb = form.cleaned_data.get('rgb')
+        factormemoria = form.cleaned_data.get('factormemoria')
+
+        # Filtramos por MHz si se proporciona. Aquí usamos 'icontains' ya que mhz es texto ahora.
+        if mhz:
+            rams = rams.filter(mhz__icontains=mhz)
+
+        # Filtramos por familia de RAM si se proporciona
+        if familiaram:
+            rams = rams.filter(familiaram=familiaram)
+        
+        # Filtramos por fecha de fabricación si se proporciona
+        if fecha_fabricacion:
+            rams = rams.filter(fecha_fabricacion=fecha_fabricacion)
+
+        # Filtramos por RGB si se proporciona
+        if rgb is not None:
+            rams = rams.filter(rgb=rgb)
+
+        # Filtramos por factor de memoria si se proporciona
+        if factormemoria:
+            rams = rams.filter(factormemoria__icontains=factormemoria)
+
+    # Renderizamos la página con el formulario y las RAM filtradas
+    return render(request, 'ram/read_ram.html', {'form': form, 'rams': rams})
+
+
+def editar_ram(request, id_ram):
+    # Recupera el objeto RAM específico
+    ram = get_object_or_404(Ram, id_ram=id_ram)
+    
+    # Si el método de la solicitud es POST, procesamos el formulario con los datos del usuario
+    if request.method == 'POST':
+        form = RamForm(request.POST, instance=ram)
+        if form.is_valid():
+            form.save()
+            return redirect('inicio') 
+    else:
+        form = RamForm(instance=ram)  # Cargar el formulario con los datos actuales de la RAM
+
+    # Siempre devolver una respuesta (renderiza el formulario de edición)
+    return render(request, 'ram/editar_ram.html', {'form': form, 'ram': ram})
+
+
+def eliminar_ram(request, id_ram):
+    # Usamos get_object_or_404 para manejar objetos inexistentes
+    ram = get_object_or_404(Ram, id_ram=id_ram)
+    
+    if request.method == 'POST':
+        try:
+            ram.delete()  
+            return redirect('inicio')  # Redirigir a la lista de graficas
+        except Exception as e:
+            # Manejar cualquier error de eliminación (aunque no es común)
+            print(f"Error al eliminar la RAM: {e}")
+            return render(request, 'eliminar_ram.html', {'ram': ram, 'error': 'Hubo un error al eliminar la RAM.'})
+    
+    # Si el método es GET, mostramos la página de confirmación
+    return render(request, 'ram/eliminar_ram.html', {'ram': ram})
+
+def crear_hdd(request):
+    if request.method == 'POST':
+        form = HDDForm(request.POST)
+        if form.is_valid():
+            form.save()  # Guarda el nuevo procesador en la base de datos
+            return redirect('inicio')  # Redirige usando el nombre de la vista
+    else:
+        form = HDDForm()
+
+    return render(request, 'discoshdd/crear_hdd.html', {'form': form})
+
+
+
+def read_hdd(request):
+    hdds = DiscoDuroHdd.objects.all()  # Empieza con todos los discos duros
+    form = HDDBusquedaAvanzadaForm(request.GET)
+
+    if form.is_valid():
+        # Obtener los datos del formulario
+        rpm = form.cleaned_data.get('rpm')
+        capacidad = form.cleaned_data.get('capacidad')
+        peso = form.cleaned_data.get('peso')
+        tiempomediofallos = form.cleaned_data.get('tiempomediofallos')
+        pulgadas = form.cleaned_data.get('pulgadas')
+
+        # Filtrado eliminatorio: Solo se filtra por el primer campo con valor no vacío
+        if rpm and rpm.isdigit() and int(rpm) > 0:
+            hdds = hdds.filter(rpm=rpm)  # Filtra los discos que coincidan con el valor de rpm
+        elif capacidad and capacidad.isdigit() and int(capacidad) > 0:
+            hdds = hdds.filter(capacidad=capacidad)  # Filtra los discos que coincidan con la capacidad
+        elif peso and peso.isdigit() and int(peso) > 0:
+            hdds = hdds.filter(peso=peso)  # Filtra los discos que coincidan con el peso
+        elif tiempomediofallos and tiempomediofallos.isdigit() and int(tiempomediofallos) > 0:
+            hdds = hdds.filter(tiempomediofallos=tiempomediofallos)  # Filtra los discos que coincidan con el tiempo medio entre fallos
+        elif pulgadas and pulgadas.replace('.', '', 1).isdigit() and float(pulgadas) > 0 and float(pulgadas) <= 35000:
+            hdds = hdds.filter(pulgadas=pulgadas)  # Filtra los discos que tengan un tamaño de pulgadas válido
+
+    return render(request, 'discoshdd/read_hdd.html', {'form': form, 'hdds': hdds})
+
+def editar_hdd(request, id_hdd):
+    # Recupera el objeto RAM específico
+    hdd = get_object_or_404(DiscoDuroHdd, id_hdd=id_hdd)
+    
+    # Si el método de la solicitud es POST, procesamos el formulario con los datos del usuario
+    if request.method == 'POST':
+        form = HDDForm(request.POST, instance=hdd)
+        if form.is_valid():
+            form.save()
+            return redirect('inicio') 
+    else:
+        form = HDDForm(instance=hdd)  # Cargar el formulario con los datos actuales de la RAM
+
+    # Siempre devolver una respuesta (renderiza el formulario de edición)
+    return render(request, 'discoshdd/editar_hdd.html', {'form': form, 'hdd': hdd})
+
+def eliminar_hdd(request, id_hdd):
+    # Usamos get_object_or_404 para manejar objetos inexistentes
+    hdd = get_object_or_404(DiscoDuroHdd, id_hdd=id_hdd)
+    
+    if request.method == 'POST':
+        try:
+            hdd.delete()  
+            return redirect('inicio')  # Redirigir a la lista de graficas
+        except Exception as e:
+            # Manejar cualquier error de eliminación (aunque no es común)
+            print(f"Error al eliminar el HDD: {e}")
+            return render(request, 'eliminar_hdd.html', {'hdd': hdd, 'error': 'Hubo un error al eliminar el HDD.'})
+    
+    # Si el método es GET, mostramos la página de confirmación
+    return render(request, 'discoshdd/eliminar_hdd.html', {'hdd': hdd})

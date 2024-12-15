@@ -1,6 +1,6 @@
 <form method="POST">
     {% csrf_token %}
-    <p>¿Estás seguro de que quieres eliminar la fuente "{{ fuente.id_fuente }}"?</p>
+    <p>¿Estás seguro de que quieres eliminar la RAM "{{ ram.id_ram }}"?</p>
     {% if error %}
         <p style="color: red;">{{ error }}</p>
     {% endif %}
@@ -11,7 +11,7 @@
 <script>
     function eliminar() {
         // Confirmación de eliminación
-        var x = confirm("¿Estás seguro de que quieres eliminar la fuente ?");
+        var x = confirm("¿Estás seguro de que quieres eliminar la RAM ?");
         if (x) {
             // Si el usuario confirma, enviar el formulario
             document.getElementById("eliminar-form").onclick();

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultados de Búsqueda de RAM</title>
+</head>
+<body>
+    <h1>Resultados de la Búsqueda Avanzada de RAM</h1>
+    <a href="{% url 'read_ram' %}">Volver a la búsqueda avanzada</a>
+    
+    <form method="GET">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Buscar</button>
+    </form>
+    
+    {% if rams %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Fecha de Fabricación</th>
+                    <th>MHz</th>
+                    <th>Familia RAM</th>
+                    <th>RGB</th>
+                    <th>Factor de Memoria</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ram in rams %}
+                    <tr>
+                        <td>{{ ram.fecha_fabricacion }}</td>
+                        <td>{{ ram.mhz }}</td>
+                        <td>{{ ram.familiaram }}</td>
+                        <td>{{ ram.rgb }}</td>
+                        <td>{{ ram.factormemoria }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No se encontraron resultados para los criterios proporcionados.</p>
+    {% endif %}
+</body>
+</html>

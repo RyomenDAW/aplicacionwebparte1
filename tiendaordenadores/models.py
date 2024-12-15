@@ -52,7 +52,7 @@ SELLO_CALIDAD_FUENTE = (
 FAMILIA_RAM = (
     ("DDR3", "Formato DDR3"),
     ("DDR4", "Formato DDR4"),
-    ("DDR5","FOrmato DDR5"),
+    ("DDR5","Formato DDR5"),
 )
 
 class Procesador (models.Model):

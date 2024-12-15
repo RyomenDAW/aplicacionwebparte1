@@ -55,6 +55,22 @@
                 <li class="nav-header">CRUD Fuentes Alimentacion</li>
                 <li><a href="{% url 'crear_fuente' %}">Crear una fuente de alimentacion</a></li>
                 <li><a href="{% url 'read_fuente' %}">Buscar una fuente (Read)</a></li>
+                <li><a href="{% url 'editar_fuente' id_fuente=2 %}">Editar una fuente (ID: 2)</a></li>
+                <li><a href="{% url 'eliminar_fuente' id_fuente=95 %}">Eliminar una fuente (ID: 95)</a></li>
+            </ul>
+            <ul class="nav-section">
+                <li class="nav-header">CRUD Memorias Ram </li>
+                <li><a href="{% url 'crear_ram' %}">Crear una memoria RAM</a></li>
+                <li><a href="{% url 'read_ram' %}">Buscar una RAM (Read)</a></li>
+                <li><a href="{% url 'editar_ram' id_ram=4 %}">Editar una RAM (ID: 4)</a></li>
+                <li><a href="{% url 'eliminar_ram' id_ram=93 %}">Eliminar una RAM (ID: 93)</a></li>
+            </ul>
+            <ul class="nav-section">
+                <li class="nav-header">CRUD Discos Duros HDD </li>
+                <li><a href="{% url 'crear_hdd' %}">Crear un disco duro HDD</a></li>
+                <li><a href="{% url 'read_hdd' %}">Buscar un disco HDD (Read)</a></li>
+                <li><a href="{% url 'editar_hdd' id_hdd=6 %}">Editar un disco HDD (ID: 6)</a></li>
+                <li><a href="{% url 'eliminar_hdd' id_hdd=10 %}">Eliminar un disco HDD (ID: 10)</a></li>
 
 
         </nav>

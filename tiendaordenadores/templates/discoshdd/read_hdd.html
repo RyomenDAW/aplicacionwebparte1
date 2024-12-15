@@ -1,0 +1,54 @@
+<h1>Búsqueda Avanzada de Discos Duros</h1>
+
+<!-- Formulario de búsqueda avanzada -->
+<form method="get" action="{% url 'discoshdd/read_hdd' %}">
+    {{ form.non_field_errors }}
+    
+    <div>
+        <label for="id_rpm">Revoluciones por minuto:</label>
+        {{ form.rpm }}
+        {{ form.rpm.errors }}
+    </div>
+    
+    <div>
+        <label for="id_capacidad">Capacidad:</label>
+        {{ form.capacidad }}
+        {{ form.capacidad.errors }}
+    </div>
+    
+    <div>
+        <label for="id_peso">Peso:</label>
+        {{ form.peso }}
+        {{ form.peso.errors }}
+    </div>
+    
+    <div>
+        <label for="id_tiempomediofallos">Tiempo medio entre fallos:</label>
+        {{ form.tiempomediofallos }}
+        {{ form.tiempomediofallos.errors }}
+    </div>
+
+    <div>
+        <label for="id_pulgadas">Tamaño en pulgadas:</label>
+        {{ form.pulgadas }}
+        {{ form.pulgadas.errors }}
+    </div>
+    
+    <button type="submit">Buscar</button>
+</form>
+
+<h3>Resultados</h3>
+<ul>
+    {% for hdd in hdds %}
+        <li>
+            <p>Disco Duro:</p>
+            RPM: {{ hdd.rpm }} <hr>
+            Capacidad: {{ hdd.capacidad }} GB <hr> 
+            Peso: {{ hdd.peso }} gramos <hr>
+            Tiempo medio entre fallos: {{ hdd.tiempomediofallos }} horas <hr>
+            Tamaño: {{ hdd.pulgadas }} pulgadas <hr>
+        </li>
+    {% empty %}
+        <li>No se encontraron discos duros</li>
+    {% endfor %}
+</ul>
