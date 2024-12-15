@@ -4,10 +4,10 @@ from datetime import date
 
 #================================================================================================================================
 
-class ProcesadorForm(forms.ModelForm): #MODEL FORM
+class ProcesadorForm(forms.ModelForm):  # MODEL FORM
     class Meta:
         model = Procesador
-        fields = 'nombre', 'urlcompra', 'familiaprocesador', 'potenciacalculo', 'nucleos', 'hilos', 'placabase'  # Incluir todos los campos del modelo
+        fields = ['nombre', 'urlcompra', 'familiaprocesador', 'potenciacalculo', 'nucleos', 'hilos', 'placabase', 'imagen']
 
         # Configuración opcional para personalizar etiquetas o mensajes de ayuda
         labels = {
@@ -18,18 +18,24 @@ class ProcesadorForm(forms.ModelForm): #MODEL FORM
             'nucleos': 'Número de Núcleos',
             'hilos': 'Número de Hilos',
             'placabase': 'Placa Base',
+            'imagen': 'Imagen del Procesador',
         }
         help_texts = {
             'familiaprocesador': 'Selecciona la familia a la que pertenece el procesador, sea Intel o Ryzen',
             'urlcompra': 'Introduce una URL válida donde se pueda comprar este procesador.',
         }
+
+        # Personalización de widgets
         widgets = {
             'nombre': forms.TextInput(attrs={'class': 'form-control'}),  # Campo de texto para el nombre
             'urlcompra': forms.URLInput(attrs={'class': 'form-control'}),  # Campo para la URL de compra
             'familiaprocesador': forms.Select(choices=[('Intel', 'Intel'), ('Ryzen', 'Ryzen')], attrs={'class': 'form-control'}),  # Dropdown para familia
             'nucleos': forms.NumberInput(attrs={'class': 'form-control', 'min': 1, 'max': 100}),  # Campo numérico para núcleos
             'hilos': forms.NumberInput(attrs={'class': 'form-control', 'min': 1, 'max': 100}),  # Campo numérico para hilos
+            'imagen': forms.ClearableFileInput(),  # Sin el atributo multiple
         }
+
+
         
 class BusquedaAvanzadaProcesador(forms.Form):
     FAMILIA_PROCESADOR = (

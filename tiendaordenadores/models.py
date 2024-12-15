@@ -62,7 +62,9 @@ class Procesador (models.Model):
     familiaprocesador = models.TextField(max_length=6, choices=FAMILIA_PROCESADOR)
     potenciacalculo = models.PositiveBigIntegerField()
     nucleos = models.PositiveSmallIntegerField()
-    hilos = models.PositiveIntegerField(validators=[MinValueValidator(35000)])  # Mínimo 100 para 'hilos'
+    hilos = models.PositiveIntegerField(validators=[MinValueValidator(35000)])  # Este validator luego se suprime por el form y view xd
+    imagen = models.ImageField(upload_to='procesadores/', blank=True, null=True)
+
     # Relación OneToOne con PlacaBase
     placabase = models.OneToOneField('PlacaBase', on_delete=models.CASCADE, null=True, blank=True)
 
