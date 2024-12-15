@@ -570,3 +570,5 @@ Usado en urlcompra en FuenteForm, para especificar la URL de compra de un proces
 Propósito: Campo de selección desplegable.
 Ejemplos:
 Usado en campos como calidadfuente en FuenteForm, familiaram en RamForm, y en BuscadorAvanzado para seleccionar una opción entre varias.
+
+Todas las validaciones estan comentadas en el forms debidamente, ya que estan ordenadas con comentarios 

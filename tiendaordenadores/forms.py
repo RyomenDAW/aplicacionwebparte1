@@ -30,8 +30,8 @@ class ProcesadorForm(forms.ModelForm):  # MODEL FORM
             'nombre': forms.TextInput(attrs={'class': 'form-control'}),  # Campo de texto para el nombre
             'urlcompra': forms.URLInput(attrs={'class': 'form-control'}),  # Campo para la URL de compra
             'familiaprocesador': forms.Select(choices=[('Intel', 'Intel'), ('Ryzen', 'Ryzen')], attrs={'class': 'form-control'}),  # Dropdown para familia
-            'nucleos': forms.NumberInput(attrs={'class': 'form-control', 'min': 1, 'max': 100}),  # Campo numérico para núcleos
-            'hilos': forms.NumberInput(attrs={'class': 'form-control', 'min': 1, 'max': 100}),  # Campo numérico para hilos
+            'nucleos': forms.NumberInput(attrs={'class': 'form-control', 'min': 1, 'max': 1000000}),  # Campo numérico para núcleos
+            'hilos': forms.NumberInput(attrs={'class': 'form-control', 'min': 1, 'max': 100000000}),  # Campo numérico para hilos
             'imagen': forms.ClearableFileInput(),  # Sin el atributo multiple
         }
 
@@ -495,7 +495,7 @@ class HDDForm(forms.ModelForm):  # MODEL FORM
             'capacidad': forms.NumberInput(attrs={'placeholder': 'Ej. 500'}),
             'peso': forms.NumberInput(attrs={'placeholder': 'Ej. 700'}),
             'tiempomediofallos': forms.NumberInput(attrs={'step': '0.01', 'placeholder': 'Ej. 15000'}),
-            'pulgadas': forms.NumberInput(attrs={'min': '1', 'max': '10', 'placeholder': 'Ej. 2.5'}),
+            'pulgadas': forms.NumberInput(attrs={'min': '1', 'max': '100000', 'placeholder': 'Ej. 2.5'}),
         }
 
     def clean_peso(self):
