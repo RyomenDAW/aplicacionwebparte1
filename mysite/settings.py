@@ -45,17 +45,17 @@ INSTALLED_APPS = [
     'django_seed',
     'django_bootstrap5',
     'django_bootstrap_icons',
+
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+    'django.middleware.security.SecurityMiddleware',]
 
 ROOT_URLCONF = 'mysite.urls'
 
@@ -92,6 +92,8 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
+
+AUTH_USER_MODEL = 'tiendaordenadores.Usuario'
 
 AUTH_PASSWORD_VALIDATORS = [
     {

@@ -49,6 +49,10 @@ from .models import (
 
 #ESTA ES LA PAGINA INDEX, AQUI IRA TODAN LAS URLS, EN TOTAL 10.
 def inicio(request):
+    
+    if(not "fecha_inicio" in request.session):
+        request.session["fecha_inicio"] = datetime.now().strftime('%d/%m/%Y %H:%M')
+    
     return render(request, 'home/index.html')
 #=================================================================================================================================================================
 

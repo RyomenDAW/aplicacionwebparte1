@@ -2,7 +2,7 @@ from django.conf import settings
 from django.db import models
 from django.utils import timezone
 from django.core.validators import MinValueValidator
-
+from django.contrib.auth.models import AbstractUser
 # Definir 10 modelos de mi página Web que cumpla los siguientes requisitos.
 # Al menos 3 relaciones OneToOne, 3 relaciones ManytoOne, 3 relaciones ManyToMany
 
@@ -217,3 +217,20 @@ class PlacaBaseDisipador(models.Model):
 
 # Descripción: Esta relación representa la conexión entre una Placa Base y un Disipador. Cada placa base puede ser compatible con diferentes modelos de disipadores, y un disipador específico puede ser utilizado en varias placas base. Esta flexibilidad es crucial para garantizar que el sistema se mantenga refrigerado, especialmente en configuraciones de alto rendimiento.
 # Atributo extra: Al igual que en el caso anterior, puedes considerar agregar un atributo extra como tipo_refrigeracion (por ejemplo, aire o líquida) para detallar el tipo de refrigeración que proporciona el disipador.
+
+class Usuario(AbstractUser):
+    ADMINISTRADOR = 1
+    CLIENTE = 2
+    TECNICOINFORMATICO = 3
+    VENDEDOR = 4
+    
+    ROLES=(
+        (ADMINISTRADOR, 'administrador'),
+        (CLIENTE, 'cliente'),
+        (TECNICOINFORMATICO, 'tecnicoinformatico')
+        (VENDEDOR, 'vendedor')
+    )
+    
+    rol = models.PositiveSmallIntegerField(
+        choices=ROLES, default=1
+    )
