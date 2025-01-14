@@ -1,7 +1,8 @@
 from django import forms
 from .models import Procesador, Grafica, Monitor, FuenteAlimentacion, Ram, DiscoDuroHdd
 from datetime import date
-
+from django.contrib.auth.forms import UserCreationForm
+from .models import *
 #================================================================================================================================
 
 class ProcesadorForm(forms.ModelForm):  # MODEL FORM
@@ -536,4 +537,21 @@ class HDDBusquedaAvanzadaForm(forms.Form):
             raise forms.ValidationError("El tamaño en pulgadas debe ser un número válido y mayor que 0 y menor o igual a 35000.")
         return pulgadas
     
-#retorna en 2 diferentes porque si no me daba un error raro, no se, eso se lo pedi a lord gpt.
+#Retorna en 2 diferentes porque si no me daba un error raro.
+
+
+#======================================================================================================================================================
+
+
+class RegistroForm(UserCreationForm):
+    roles = (
+        (Usuario.CLIENTE, 'cliente'),
+        (Usuario.TECNICOINFORMATICO, 'tecnicoinformatico'),
+        (Usuario.VENDEDOR, 'vendedor'),
+    )
+    rol = forms.ChoiceField(choices = roles)
+    class Meta:
+        model = Usuario
+        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', 'rol')
+        
+        

@@ -572,3 +572,35 @@ Ejemplos:
 Usado en campos como calidadfuente en FuenteForm, familiaram en RamForm, y en BuscadorAvanzado para seleccionar una opción entre varias.
 
 Todas las validaciones estan comentadas en el forms debidamente, ya que estan ordenadas con comentarios 
+
+===========================================================================================================================================================================================================
+
+MODIFACIONES PARTE V: 14 DE ENERO -->
+
+En nuestra aplicación debemos incluir al menos dos tipos de usuarios claramente diferenciados(No cuenta el usuario administrador) (1 puntos)
+
+class Usuario(AbstractUser):
+    ADMINISTRADOR = 1
+    CLIENTE = 2
+    TECNICOINFORMATICO = 3
+    VENDEDOR = 4
+    
+    ROLES=(
+        (ADMINISTRADOR, 'administrador'),
+        (CLIENTE, 'cliente'),
+        (TECNICOINFORMATICO, 'tecnicoinformatico'),
+        (VENDEDOR, 'vendedor'),
+    )
+    
+    rol = models.PositiveSmallIntegerField(
+        choices=ROLES, default=1
+    )
+
+Funcionalidad de Cliente --> No puede crear nada, ni borrar, ni editar, si puede buscar.
+
+Funcionalidad de Tecnico Informatico --> No puede crear nada, si puede editar, si puede buscar.
+
+Funcionalidad de Vendedor --> Si puede crear, si puede borrar, si puede editar, si puede buscar. (No es asi supersuser, es decir, administrador)
+
+Se entiende vendedor aquellas marcas como ASUS, ROG, MSI, entre otras, no a un vendedor físico como puede ser Mark Johnson, nos referimos a la figura judicial que representa.
+

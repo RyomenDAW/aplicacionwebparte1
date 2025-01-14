@@ -11,7 +11,7 @@ from django.contrib import messages
 from datetime import datetime
 from django.views.generic import ListView
 from django.views.defaults import page_not_found
-
+from django.contrib.auth import login
 
 def mi_error_404(request, exception=None):
     # ERROR 404: NO SE ENCUENTRA LA PÁGINA SOLICITADA.
@@ -668,3 +668,23 @@ def eliminar_hdd(request, id_hdd):
     
     # Si el método es GET, mostramos la página de confirmación
     return render(request, 'discoshdd/eliminar_hdd.html', {'hdd': hdd})
+
+#====================================================================================================================================
+def registrar_usuario(request):
+    if request.method == 'POST':
+        formulario = RegistroForm(request.POST)
+        if formulario.is_valid():
+            user = formulario.save()
+            rol = int(formulario.cleaned_data.get('rol'))
+            if (rol == Usuario.CLIENTE):
+                cliente = Cliente.objects.create ( usuario = user)
+                cliente.save()
+            elif (rol == Usuario.TECNICOINFORMATICO):
+                tecnicoinformatico = TecnicoInformatico.objects.create ( tecnicoinformatico = user)
+                tecnicoinformatico.save()
+            elif (rol == Usuario.VENDEDOR):
+                vendedor = Vendedor.objects.create ( vendedor = user)
+                vendedor.save()
+    else: 
+        formulario = RegistroForm()
+    return render(request, 'registration/signup.html', {'formulario': formulario })

@@ -7,6 +7,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('home/', views.inicio, name ='inicio'),
     path('', views.inicio, name='inicio'),  # Página de inicio
+    #=====================================================================================================================================
     path ('procesadores/', views.lista_procesadores, name='lista_procesadores'),
     path ('procesadores/<int:numero_hilos>', views.lista_procesadores_segunhilos, name='lista_procesadores_segunhilos'),
     path ('procesadores/<nombre_familia>', views.lista_procesadores_segunfamilia, name='lista_procesadores_segunfamilia'),
@@ -17,31 +18,39 @@ urlpatterns = [
     path('intermedia/graficas_sin_cuello_de_botella' ,views.graficas_sin_cuello_de_botella, name='graficas_sin_cuello_de_botella'),
     path('reverse/procesadores_segun_grafica/<int:grafica_id>', views.procesadores_segun_grafica, name='procesadores_segun_grafica'),
     path('graficas/lista_graficas.html', views.lista_graficas, name='lista_graficas'),
+    #=====================================================================================================================================
     path('procesadores/crear_procesador/', views.crear_procesador, name='crear_procesador'),
-    #path('procesadores/', lista_procesadores, name='read_procesadores'),  # URL para la búsqueda de procesadores
-    path('editar_procesador/<int:id_procesador>/', views.editar_procesador, name='editar_procesador'),
-    path('procesadores/eliminar_procesador/<int:id_procesador>/', views.eliminar_procesador, name='eliminar_procesador'),    
     path('procesadores/read_procesadores/', views.read_procesadores, name='read_procesadores'),
+    path('editar_procesador/<int:id_procesador>/', views.editar_procesador, name='editar_procesador'),
+    path('procesadores/eliminar_procesador/<int:id_procesador>/', views.eliminar_procesador, name='eliminar_procesador'),   
+    #=====================================================================================================================================
     path('procesadores/crear_grafica/', views.crear_grafica, name='crear_grafica'),
     path('procesadores/read_graficas/', views.read_graficas, name='read_graficas'),
     path('editar_grafica/<int:id_grafica>/', views.editar_grafica, name='editar_grafica'),
-    path('graficas/eliminar_grafica/<int:id_grafica>/', views.eliminar_grafica, name='eliminar_grafica'),    
+    path('graficas/eliminar_grafica/<int:id_grafica>/', views.eliminar_grafica, name='eliminar_grafica'),   
+    #===================================================================================================================================== 
     path('monitores/crear_monitor/', views.crear_monitor, name='crear_monitor'),
     path('monitores/read_monitor/', views.read_monitor, name='read_monitor'),
     path('monitores/editar_monitor/<int:id_monitor>/', views.editar_monitor, name='editar_monitor'),
-    path('monitores/eliminar_monitor/<int:id_monitor>/', views.eliminar_monitor, name='eliminar_monitor'),    
+    path('monitores/eliminar_monitor/<int:id_monitor>/', views.eliminar_monitor, name='eliminar_monitor'),
+    #=====================================================================================================================================    
     path('fuentes/crear_fuente/', views.crear_fuente, name='crear_fuente'),
     path('monitores/read_fuente/', views.read_fuente, name='read_fuente'),
     path('fuentes/editar_fuente/<int:id_fuente>/', views.editar_fuente, name='editar_fuente'),
-    path('fuentes/eliminar_fuente/<int:id_fuente>/', views.eliminar_fuente, name='eliminar_fuente'),    
+    path('fuentes/eliminar_fuente/<int:id_fuente>/', views.eliminar_fuente, name='eliminar_fuente'),  
+    #===================================================================================================================================== 
     path('ram/crear_ram/', views.crear_ram, name='crear_ram'),
     path('buscar_ram/', views.read_ram, name='read_ram'),
     path('ram/editar_ram/<int:id_ram>/', views.editar_ram, name='editar_ram'),
-    path('ram/eliminar_ram/<int:id_ram>/', views.eliminar_ram, name='eliminar_ram'),    
+    path('ram/eliminar_ram/<int:id_ram>/', views.eliminar_ram, name='eliminar_ram'),  
+    #=====================================================================================================================================  
     path('discoshdd/crear_hdd/', views.crear_hdd, name='crear_hdd'),
     path('discoshdd/read_hdd/', views.read_hdd, name='read_hdd'),
     path('discoshdd/editar_hdd/<int:id_hdd>/', views.editar_hdd, name='editar_hdd'),
     path('discoshdd/eliminar_hdd/<int:id_hdd>/', views.eliminar_hdd, name='eliminar_hdd'),    
+    #=====================================================================================================================================
+    path('registrar',views.registrar_usuario, name='registrar_usuario'),
+    
 
 
     ] 

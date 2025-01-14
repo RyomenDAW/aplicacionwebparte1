@@ -3,15 +3,16 @@
     <div class="logo">
         <img src="{% static 'imagenes/logo.png' %}" alt="Imagen de Cool Components">
     </div>
-    <p>
-        Fecha De Conexion:
-        </br>
-        {{ request.session.fecha_inicio}}
-    </p>
+    <div class="registro">
+        <a class="btn btn-outline-warning" href="{% url 'registrar_usuario' %}">
+            Sign in 
+        </a>
     <div class="navigation">
         <nav>
             <ul class="nav-section">
                 <li class="nav-header">Procesadores</li>
+                <li>Fecha de conexion: {{ request.session.fecha_inicio}}</li>
+
                 <li><a href="{% url 'lista_procesadores' %}">Ver Lista de Procesadores</a></li>
                 <li><a href="{% url 'lista_procesadores_segunhilos' numero_hilos=46040 %}">Procesadores Según Hilos (46040)</a></li>
                 <li><a href="{% url 'lista_procesadores_segunfamilia' nombre_familia='Intel' %}">Procesadores Según Familia (Intel)</a></li>

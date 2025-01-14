@@ -55,6 +55,41 @@ FAMILIA_RAM = (
     ("DDR5","Formato DDR5"),
 )
 
+
+
+class Usuario(AbstractUser):
+    ADMINISTRADOR = 1
+    CLIENTE = 2
+    TECNICOINFORMATICO = 3
+    VENDEDOR = 4
+    
+    ROLES=(
+        (ADMINISTRADOR, 'administrador'),
+        (CLIENTE, 'cliente'),
+        (TECNICOINFORMATICO, 'tecnicoinformatico'),
+        (VENDEDOR, 'vendedor'),
+    )
+    
+    rol = models.PositiveSmallIntegerField(
+        choices=ROLES, default=1
+    )
+    
+class Cliente(models.Model):
+    usuario = models.OneToOneField(Usuario, on_delete= models.CASCADE)
+    wallet = models.FloatField(default= 0.0, db_column= "wallet_tiendaordenadores")
+    compras_realizadas = models.PositiveIntegerField(default=0, db_column="comprasrealizadas_tiendaordenadores")
+
+class TecnicoInformatico(models.Model):
+    usuario = models.OneToOneField(Usuario, on_delete = models.CASCADE)
+    incidencias_resueltas = models.PositiveSmallIntegerField(default= 0, db_column = "incidenciasresueltas_tiendaordenadores")
+    
+class Vendedor(models.Model):
+    usuario = models.OneToOneField(Usuario, on_delete= models.CASCADE)
+    ventas_realizadas = models.PositiveIntegerField(default=0, db_column="ventasrealizadas_tiendaordenadores")
+    comision = models.FloatField(default=0.0, db_column="comision_tiendaordenadores")
+    region = models.CharField(max_length=100, default="Europa/General", db_column="region_tiendaordenadores")
+    
+
 class Procesador (models.Model):
     id_procesador = models.AutoField(primary_key=True)
     urlcompra = models.URLField(max_length=100)
@@ -217,20 +252,3 @@ class PlacaBaseDisipador(models.Model):
 
 # Descripción: Esta relación representa la conexión entre una Placa Base y un Disipador. Cada placa base puede ser compatible con diferentes modelos de disipadores, y un disipador específico puede ser utilizado en varias placas base. Esta flexibilidad es crucial para garantizar que el sistema se mantenga refrigerado, especialmente en configuraciones de alto rendimiento.
 # Atributo extra: Al igual que en el caso anterior, puedes considerar agregar un atributo extra como tipo_refrigeracion (por ejemplo, aire o líquida) para detallar el tipo de refrigeración que proporciona el disipador.
-
-class Usuario(AbstractUser):
-    ADMINISTRADOR = 1
-    CLIENTE = 2
-    TECNICOINFORMATICO = 3
-    VENDEDOR = 4
-    
-    ROLES=(
-        (ADMINISTRADOR, 'administrador'),
-        (CLIENTE, 'cliente'),
-        (TECNICOINFORMATICO, 'tecnicoinformatico')
-        (VENDEDOR, 'vendedor')
-    )
-    
-    rol = models.PositiveSmallIntegerField(
-        choices=ROLES, default=1
-    )
