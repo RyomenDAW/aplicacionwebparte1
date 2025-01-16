@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+import environ
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Directorio para archivos subidos
@@ -24,12 +26,17 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-$bpw3g$3ta7rvo*)4w0af&uadir(e)zmq5&k=vc(z5cpwzw)ce'
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'),True)
+env = environ.Env()
+SECRET_KEY =  env("SECRET_KEY")
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env("DEBUG")
+ALLOWED_HOSTS = [env("ALLOWED_HOST")]
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com','0.0.0.0']
+
+#ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com','0.0.0.0']
 
 
 # Application definition
