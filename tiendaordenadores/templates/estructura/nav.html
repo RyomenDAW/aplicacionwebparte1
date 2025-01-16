@@ -1,88 +1,111 @@
 {%load static %}
+<div class="header-top">
+    <div class="header-logo">
+        <img src="{% static 'imagenes/logo.png' %}" alt="Logo Principal">
+    </div>
+    <div class="header-rtxlogo">
+        <img src="{% static 'imagenes/grafica.png' %}" alt="Imagen RTX 4090">
+    </div>
+</div>
+
 <div class="nav-container">
     <div class="logo">
-        <img src="{% static 'imagenes/logo.png' %}" alt="Imagen de Cool Components">
+        <!--<img src="{% static 'imagenes/logo.png' %}" alt="Imagen de Cool Components">-->
     </div>
+    <li>Fecha de conexión: {{ request.session.fecha_inicio }}</li>
     <div class="registro">
         <a class="btn btn-outline-warning" href="{% url 'registrar_usuario' %}">
             Sign in 
         </a>
-    <div class="navigation">
-        <nav>
-            <ul class="nav-section">
-                <li class="nav-header">Procesadores</li>
-                <li>Fecha de conexion: {{ request.session.fecha_inicio}}</li>
-
-                <li><a href="{% url 'lista_procesadores' %}">Ver Lista de Procesadores</a></li>
-                <li><a href="{% url 'lista_procesadores_segunhilos' numero_hilos=46040 %}">Procesadores Según Hilos (46040)</a></li>
-                <li><a href="{% url 'lista_procesadores_segunfamilia' nombre_familia='Intel' %}">Procesadores Según Familia (Intel)</a></li>
-                <li><a href="{% url 'promedio_nucleos' %}">Promedio de Núcleos</a></li>
-            </ul>
-            <ul class="nav-section">
-                <li class="nav-header">Gráficas</li>
-                <li><a href="{% url 'lista_graficas_segunfamilia_y_vram' nombre_familia='Nvidia' cantidad_vram='14060' %}">Gráficas Según Familia (Nvidia) y VRAM '14060'</a></li>
-                <li><a href="{% url 'filtrargraficas_segunvram' %}">Filtrar Gráficas por VRAM</a></li>
-                <li><a href="{% url 'graficas_sin_cuello_de_botella' %}">Gráficas Sin Cuello de Botella</a></li>
-                <li><a href="{% url 'lista_graficas' %}">Lista Completa de Gráficas</a></li>
-            </ul>
-            <ul class="nav-section">
-                <li class="nav-header">SSD</li>
-                <li><a href="{% url 'primeros_5_ssd' %}">Primeros 5 SSD Según ID</a></li>
-            </ul>
-            <ul class="nav-section">
-                <li class="nav-header">Relaciones</li>
-                <li><a href="{% url 'procesadores_segun_grafica' grafica_id=1 %}">Procesadores Según Su Gráfica (ID=1)</a></li>
-            </ul>
-
-            <ul class="nav-section">
-                <li class="nav-header">CRUD Procesador</li>
-                <li><a href="{% url 'crear_procesador' %}">Crear un procesador</a></li>
-                <li><a href="{% url 'read_procesadores' %}">Buscar un procesador (Read)</a></li>
-                <li><a href="{% url 'editar_procesador' id_procesador=2 %}">Editar un procesador (ID: 2)</a></li>
-                <li><a href="{% url 'eliminar_procesador' id_procesador=2 %}">Eliminar un procesador (ID: 2)</a></li>
-            </ul>
-
-            <ul class="nav-section">
-                <li class="nav-header">CRUD Graficas</li>
-                <li><a href="{% url 'crear_grafica' %}">Crear una grafica</a></li>
-                <li><a href="{% url 'read_graficas' %}">Buscar una grafica (Read)</a></li>
-                <li><a href="{% url 'editar_grafica' id_grafica=2 %}">Editar una grafica (ID: 2)</a></li>
-                <li><a href="{% url 'eliminar_grafica' id_grafica=2 %}">Eliminar una grafica (ID: 2)</a></li>
-            </ul>
-
-            <ul class="nav-section">
-                <li class="nav-header">CRUD Monitor</li>
-                <li><a href="{% url 'crear_monitor' %}">Crear un monitor</a></li>
-                <li><a href="{% url 'read_monitor' %}">Buscar un monitor (Read)</a></li>
-                <li><a href="{% url 'editar_monitor' id_monitor=2 %}">Editar un monitor (ID: 2)</a></li>
-                <li><a href="{% url 'eliminar_monitor' id_monitor=98 %}">Eliminar un monitor (ID: 98)</a></li>
-            </ul>
-            <ul class="nav-section">
-                <li class="nav-header">CRUD Fuentes Alimentacion</li>
-                <li><a href="{% url 'crear_fuente' %}">Crear una fuente de alimentacion</a></li>
-                <li><a href="{% url 'read_fuente' %}">Buscar una fuente (Read)</a></li>
-                <li><a href="{% url 'editar_fuente' id_fuente=2 %}">Editar una fuente (ID: 2)</a></li>
-                <li><a href="{% url 'eliminar_fuente' id_fuente=95 %}">Eliminar una fuente (ID: 95)</a></li>
-            </ul>
-            <ul class="nav-section">
-                <li class="nav-header">CRUD Memorias Ram </li>
-                <li><a href="{% url 'crear_ram' %}">Crear una memoria RAM</a></li>
-                <li><a href="{% url 'read_ram' %}">Buscar una RAM (Read)</a></li>
-                <li><a href="{% url 'editar_ram' id_ram=4 %}">Editar una RAM (ID: 4)</a></li>
-                <li><a href="{% url 'eliminar_ram' id_ram=93 %}">Eliminar una RAM (ID: 93)</a></li>
-            </ul>
-            <ul class="nav-section">
-                <li class="nav-header">CRUD Discos Duros HDD </li>
-                <li><a href="{% url 'crear_hdd' %}">Crear un disco duro HDD</a></li>
-                <li><a href="{% url 'read_hdd' %}">Buscar un disco HDD (Read)</a></li>
-                <li><a href="{% url 'editar_hdd' id_hdd=6 %}">Editar un disco HDD (ID: 6)</a></li>
-                <li><a href="{% url 'eliminar_hdd' id_hdd=10 %}">Eliminar un disco HDD (ID: 10)</a></li>
-
-
-        </nav>
-    </div>
-    <div class="rtx-logo">
-        <img src="{% static 'imagenes/grafica.png' %}" alt="Nvidia RTX 4090, imagen cool components">
-    </div>
+        <div class="navigation">
+            <nav class="nav-sections-grid">
+                <!-- Fila 1: Listas y Relaciones -->
+                <div class="nav-column">
+                    <ul class="nav-section">
+                        <li class="nav-header">Listas de Procesadores</li>
+                        <li>Fecha de conexión: {{ request.session.fecha_inicio }}</li>
+                        <li><a href="{% url 'lista_procesadores' %}">Ver Lista de Procesadores</a></li>
+                        <li><a href="{% url 'lista_procesadores_segunhilos' numero_hilos=46040 %}">Procesadores Según Hilos (46040)</a></li>
+                        <li><a href="{% url 'lista_procesadores_segunfamilia' nombre_familia='Intel' %}">Procesadores Según Familia (Intel)</a></li>
+                        <li><a href="{% url 'promedio_nucleos' %}">Promedio de Núcleos</a></li>
+                    </ul>
+                </div>
+                <div class="nav-column">
+                    <ul class="nav-section">
+                        <li class="nav-header">Listas de Gráficas</li>
+                        <li><a href="{% url 'lista_graficas_segunfamilia_y_vram' nombre_familia='Nvidia' cantidad_vram='14060' %}">Gráficas Según Familia (Nvidia) y VRAM '14060'</a></li>
+                        <li><a href="{% url 'filtrargraficas_segunvram' %}">Filtrar Gráficas por VRAM</a></li>
+                        <li><a href="{% url 'graficas_sin_cuello_de_botella' %}">Gráficas Sin Cuello de Botella</a></li>
+                        <li><a href="{% url 'lista_graficas' %}">Lista Completa de Gráficas</a></li>
+                    </ul>
+                </div>
+                <div class="nav-column">
+                    <ul class="nav-section">
+                        <li class="nav-header">Otras Listas</li>
+                        <li><a href="{% url 'primeros_5_ssd' %}">Primeros 5 SSD Según ID</a></li>
+                        <li><a href="{% url 'procesadores_segun_grafica' grafica_id=1 %}">Procesadores Según Su Gráfica (ID=1)</a></li>
+                    </ul>
+                </div>
+        
+                <!-- Fila 2: CRUDs -->
+                <div class="nav-column">
+                    <ul class="nav-section">
+                        <li class="nav-header">CRUD Procesadores</li>
+                        <li><a href="{% url 'crear_procesador' %}">Crear un procesador</a></li>
+                        <li><a href="{% url 'read_procesadores' %}">Buscar un procesador (Read)</a></li>
+                        <li><a href="{% url 'editar_procesador' id_procesador=2 %}">Editar un procesador (ID: 2)</a></li>
+                        <li><a href="{% url 'eliminar_procesador' id_procesador=2 %}">Eliminar un procesador (ID: 2)</a></li>
+                    </ul>
+                </div>
+                <div class="nav-column">
+                    <ul class="nav-section">
+                        <li class="nav-header">CRUD Gráficas</li>
+                        <li><a href="{% url 'crear_grafica' %}">Crear una gráfica</a></li>
+                        <li><a href="{% url 'read_graficas' %}">Buscar una gráfica (Read)</a></li>
+                        <li><a href="{% url 'editar_grafica' id_grafica=2 %}">Editar una gráfica (ID: 2)</a></li>
+                        <li><a href="{% url 'eliminar_grafica' id_grafica=2 %}">Eliminar una gráfica (ID: 2)</a></li>
+                    </ul>
+                </div>
+                <div class="nav-column">
+                    <ul class="nav-section">
+                        <li class="nav-header">CRUD Monitores</li>
+                        <li><a href="{% url 'crear_monitor' %}">Crear un monitor</a></li>
+                        <li><a href="{% url 'read_monitor' %}">Buscar un monitor (Read)</a></li>
+                        <li><a href="{% url 'editar_monitor' id_monitor=2 %}">Editar un monitor (ID: 2)</a></li>
+                        <li><a href="{% url 'eliminar_monitor' id_monitor=98 %}">Eliminar un monitor (ID: 98)</a></li>
+                    </ul>
+                </div>
+        
+                <!-- Fila 3: Más CRUDs -->
+                <div class="nav-column">
+                    <ul class="nav-section">
+                        <li class="nav-header">CRUD Fuentes de Alimentación</li>
+                        <li><a href="{% url 'crear_fuente' %}">Crear una fuente de alimentación</a></li>
+                        <li><a href="{% url 'read_fuente' %}">Buscar una fuente (Read)</a></li>
+                        <li><a href="{% url 'editar_fuente' id_fuente=2 %}">Editar una fuente (ID: 2)</a></li>
+                        <li><a href="{% url 'eliminar_fuente' id_fuente=95 %}">Eliminar una fuente (ID: 95)</a></li>
+                    </ul>
+                </div>
+                <div class="nav-column">
+                    <ul class="nav-section">
+                        <li class="nav-header">CRUD Memorias RAM</li>
+                        <li><a href="{% url 'crear_ram' %}">Crear una memoria RAM</a></li>
+                        <li><a href="{% url 'read_ram' %}">Buscar una RAM (Read)</a></li>
+                        <li><a href="{% url 'editar_ram' id_ram=4 %}">Editar una RAM (ID: 4)</a></li>
+                        <li><a href="{% url 'eliminar_ram' id_ram=93 %}">Eliminar una RAM (ID: 93)</a></li>
+                    </ul>
+                </div>
+                <div class="nav-column">
+                    <ul class="nav-section">
+                        <li class="nav-header">CRUD Discos Duros HDD</li>
+                        <li><a href="{% url 'crear_hdd' %}">Crear un disco duro HDD</a></li>
+                        <li><a href="{% url 'read_hdd' %}">Buscar un disco HDD (Read)</a></li>
+                        <li><a href="{% url 'editar_hdd' id_hdd=6 %}">Editar un disco HDD (ID: 6)</a></li>
+                        <li><a href="{% url 'eliminar_hdd' id_hdd=10 %}">Eliminar un disco HDD (ID: 10)</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        
 </div>
     

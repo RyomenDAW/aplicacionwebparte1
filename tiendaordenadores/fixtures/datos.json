@@ -1,0 +1,5456 @@
+[
+{
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+        "name": "Can add log entry",
+        "content_type": 1,
+        "codename": "add_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+        "name": "Can change log entry",
+        "content_type": 1,
+        "codename": "change_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+        "name": "Can delete log entry",
+        "content_type": 1,
+        "codename": "delete_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+        "name": "Can view log entry",
+        "content_type": 1,
+        "codename": "view_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+        "name": "Can add permission",
+        "content_type": 2,
+        "codename": "add_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+        "name": "Can change permission",
+        "content_type": 2,
+        "codename": "change_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+        "name": "Can delete permission",
+        "content_type": 2,
+        "codename": "delete_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+        "name": "Can view permission",
+        "content_type": 2,
+        "codename": "view_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+        "name": "Can add group",
+        "content_type": 3,
+        "codename": "add_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+        "name": "Can change group",
+        "content_type": 3,
+        "codename": "change_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+        "name": "Can delete group",
+        "content_type": 3,
+        "codename": "delete_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+        "name": "Can view group",
+        "content_type": 3,
+        "codename": "view_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+        "name": "Can add content type",
+        "content_type": 4,
+        "codename": "add_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+        "name": "Can change content type",
+        "content_type": 4,
+        "codename": "change_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+        "name": "Can delete content type",
+        "content_type": 4,
+        "codename": "delete_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+        "name": "Can view content type",
+        "content_type": 4,
+        "codename": "view_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+        "name": "Can add session",
+        "content_type": 5,
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+        "name": "Can change session",
+        "content_type": 5,
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+        "name": "Can delete session",
+        "content_type": 5,
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+        "name": "Can view session",
+        "content_type": 5,
+        "codename": "view_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+        "name": "Can add disco duro hdd",
+        "content_type": 6,
+        "codename": "add_discodurohdd"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+        "name": "Can change disco duro hdd",
+        "content_type": 6,
+        "codename": "change_discodurohdd"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+        "name": "Can delete disco duro hdd",
+        "content_type": 6,
+        "codename": "delete_discodurohdd"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+        "name": "Can view disco duro hdd",
+        "content_type": 6,
+        "codename": "view_discodurohdd"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+        "name": "Can add disco duro nvme",
+        "content_type": 7,
+        "codename": "add_discoduronvme"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+        "name": "Can change disco duro nvme",
+        "content_type": 7,
+        "codename": "change_discoduronvme"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+        "name": "Can delete disco duro nvme",
+        "content_type": 7,
+        "codename": "delete_discoduronvme"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+        "name": "Can view disco duro nvme",
+        "content_type": 7,
+        "codename": "view_discoduronvme"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+        "name": "Can add disco duro ssd",
+        "content_type": 8,
+        "codename": "add_discodurossd"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+        "name": "Can change disco duro ssd",
+        "content_type": 8,
+        "codename": "change_discodurossd"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+        "name": "Can delete disco duro ssd",
+        "content_type": 8,
+        "codename": "delete_discodurossd"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+        "name": "Can view disco duro ssd",
+        "content_type": 8,
+        "codename": "view_discodurossd"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+        "name": "Can add disipador",
+        "content_type": 9,
+        "codename": "add_disipador"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+        "name": "Can change disipador",
+        "content_type": 9,
+        "codename": "change_disipador"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+        "name": "Can delete disipador",
+        "content_type": 9,
+        "codename": "delete_disipador"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+        "name": "Can view disipador",
+        "content_type": 9,
+        "codename": "view_disipador"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+        "name": "Can add fuente alimentacion",
+        "content_type": 10,
+        "codename": "add_fuentealimentacion"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+        "name": "Can change fuente alimentacion",
+        "content_type": 10,
+        "codename": "change_fuentealimentacion"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+        "name": "Can delete fuente alimentacion",
+        "content_type": 10,
+        "codename": "delete_fuentealimentacion"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+        "name": "Can view fuente alimentacion",
+        "content_type": 10,
+        "codename": "view_fuentealimentacion"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+        "name": "Can add monitor",
+        "content_type": 11,
+        "codename": "add_monitor"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+        "name": "Can change monitor",
+        "content_type": 11,
+        "codename": "change_monitor"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+        "name": "Can delete monitor",
+        "content_type": 11,
+        "codename": "delete_monitor"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+        "name": "Can view monitor",
+        "content_type": 11,
+        "codename": "view_monitor"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+        "name": "Can add ram",
+        "content_type": 12,
+        "codename": "add_ram"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+        "name": "Can change ram",
+        "content_type": 12,
+        "codename": "change_ram"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+        "name": "Can delete ram",
+        "content_type": 12,
+        "codename": "delete_ram"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+        "name": "Can view ram",
+        "content_type": 12,
+        "codename": "view_ram"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+        "name": "Can add user",
+        "content_type": 13,
+        "codename": "add_usuario"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+        "name": "Can change user",
+        "content_type": 13,
+        "codename": "change_usuario"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+        "name": "Can delete user",
+        "content_type": 13,
+        "codename": "delete_usuario"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+        "name": "Can view user",
+        "content_type": 13,
+        "codename": "view_usuario"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 53,
+    "fields": {
+        "name": "Can add cliente",
+        "content_type": 14,
+        "codename": "add_cliente"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 54,
+    "fields": {
+        "name": "Can change cliente",
+        "content_type": 14,
+        "codename": "change_cliente"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 55,
+    "fields": {
+        "name": "Can delete cliente",
+        "content_type": 14,
+        "codename": "delete_cliente"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 56,
+    "fields": {
+        "name": "Can view cliente",
+        "content_type": 14,
+        "codename": "view_cliente"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 57,
+    "fields": {
+        "name": "Can add placa base",
+        "content_type": 15,
+        "codename": "add_placabase"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 58,
+    "fields": {
+        "name": "Can change placa base",
+        "content_type": 15,
+        "codename": "change_placabase"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 59,
+    "fields": {
+        "name": "Can delete placa base",
+        "content_type": 15,
+        "codename": "delete_placabase"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 60,
+    "fields": {
+        "name": "Can view placa base",
+        "content_type": 15,
+        "codename": "view_placabase"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 61,
+    "fields": {
+        "name": "Can add procesador",
+        "content_type": 16,
+        "codename": "add_procesador"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 62,
+    "fields": {
+        "name": "Can change procesador",
+        "content_type": 16,
+        "codename": "change_procesador"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 63,
+    "fields": {
+        "name": "Can delete procesador",
+        "content_type": 16,
+        "codename": "delete_procesador"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 64,
+    "fields": {
+        "name": "Can view procesador",
+        "content_type": 16,
+        "codename": "view_procesador"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 65,
+    "fields": {
+        "name": "Can add grafica",
+        "content_type": 17,
+        "codename": "add_grafica"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 66,
+    "fields": {
+        "name": "Can change grafica",
+        "content_type": 17,
+        "codename": "change_grafica"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 67,
+    "fields": {
+        "name": "Can delete grafica",
+        "content_type": 17,
+        "codename": "delete_grafica"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 68,
+    "fields": {
+        "name": "Can view grafica",
+        "content_type": 17,
+        "codename": "view_grafica"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 69,
+    "fields": {
+        "name": "Can add tecnico informatico",
+        "content_type": 18,
+        "codename": "add_tecnicoinformatico"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 70,
+    "fields": {
+        "name": "Can change tecnico informatico",
+        "content_type": 18,
+        "codename": "change_tecnicoinformatico"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 71,
+    "fields": {
+        "name": "Can delete tecnico informatico",
+        "content_type": 18,
+        "codename": "delete_tecnicoinformatico"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 72,
+    "fields": {
+        "name": "Can view tecnico informatico",
+        "content_type": 18,
+        "codename": "view_tecnicoinformatico"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 73,
+    "fields": {
+        "name": "Can add vendedor",
+        "content_type": 19,
+        "codename": "add_vendedor"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 74,
+    "fields": {
+        "name": "Can change vendedor",
+        "content_type": 19,
+        "codename": "change_vendedor"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 75,
+    "fields": {
+        "name": "Can delete vendedor",
+        "content_type": 19,
+        "codename": "delete_vendedor"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 76,
+    "fields": {
+        "name": "Can view vendedor",
+        "content_type": 19,
+        "codename": "view_vendedor"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 77,
+    "fields": {
+        "name": "Can add monitor grafica",
+        "content_type": 20,
+        "codename": "add_monitorgrafica"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 78,
+    "fields": {
+        "name": "Can change monitor grafica",
+        "content_type": 20,
+        "codename": "change_monitorgrafica"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 79,
+    "fields": {
+        "name": "Can delete monitor grafica",
+        "content_type": 20,
+        "codename": "delete_monitorgrafica"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 80,
+    "fields": {
+        "name": "Can view monitor grafica",
+        "content_type": 20,
+        "codename": "view_monitorgrafica"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 81,
+    "fields": {
+        "name": "Can add placa base disipador",
+        "content_type": 21,
+        "codename": "add_placabasedisipador"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 82,
+    "fields": {
+        "name": "Can change placa base disipador",
+        "content_type": 21,
+        "codename": "change_placabasedisipador"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 83,
+    "fields": {
+        "name": "Can delete placa base disipador",
+        "content_type": 21,
+        "codename": "delete_placabasedisipador"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 84,
+    "fields": {
+        "name": "Can view placa base disipador",
+        "content_type": 21,
+        "codename": "view_placabasedisipador"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 85,
+    "fields": {
+        "name": "Can add grafica procesador",
+        "content_type": 22,
+        "codename": "add_graficaprocesador"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 86,
+    "fields": {
+        "name": "Can change grafica procesador",
+        "content_type": 22,
+        "codename": "change_graficaprocesador"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 87,
+    "fields": {
+        "name": "Can delete grafica procesador",
+        "content_type": 22,
+        "codename": "delete_graficaprocesador"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 88,
+    "fields": {
+        "name": "Can view grafica procesador",
+        "content_type": 22,
+        "codename": "view_graficaprocesador"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+        "app_label": "admin",
+        "model": "logentry"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+        "app_label": "auth",
+        "model": "permission"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+        "app_label": "auth",
+        "model": "group"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+        "app_label": "contenttypes",
+        "model": "contenttype"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+        "app_label": "sessions",
+        "model": "session"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+        "app_label": "tiendaordenadores",
+        "model": "discodurohdd"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+        "app_label": "tiendaordenadores",
+        "model": "discoduronvme"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+        "app_label": "tiendaordenadores",
+        "model": "discodurossd"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+        "app_label": "tiendaordenadores",
+        "model": "disipador"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+        "app_label": "tiendaordenadores",
+        "model": "fuentealimentacion"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+        "app_label": "tiendaordenadores",
+        "model": "monitor"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+        "app_label": "tiendaordenadores",
+        "model": "ram"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+        "app_label": "tiendaordenadores",
+        "model": "usuario"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 14,
+    "fields": {
+        "app_label": "tiendaordenadores",
+        "model": "cliente"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 15,
+    "fields": {
+        "app_label": "tiendaordenadores",
+        "model": "placabase"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 16,
+    "fields": {
+        "app_label": "tiendaordenadores",
+        "model": "procesador"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 17,
+    "fields": {
+        "app_label": "tiendaordenadores",
+        "model": "grafica"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 18,
+    "fields": {
+        "app_label": "tiendaordenadores",
+        "model": "tecnicoinformatico"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 19,
+    "fields": {
+        "app_label": "tiendaordenadores",
+        "model": "vendedor"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 20,
+    "fields": {
+        "app_label": "tiendaordenadores",
+        "model": "monitorgrafica"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 21,
+    "fields": {
+        "app_label": "tiendaordenadores",
+        "model": "placabasedisipador"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 22,
+    "fields": {
+        "app_label": "tiendaordenadores",
+        "model": "graficaprocesador"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "a0uismo1asccz8xqonwykmb67kro9sib",
+    "fields": {
+        "session_data": "eyJmZWNoYV9pbmljaW8iOiIxNi8wMS8yMDI1IDA4OjI4In0:1tYKIl:v-4dUFeIeWYsJlTPr3RIHk5PnXvE81qdmKD9sLEZiIc",
+        "expire_date": "2025-01-30T07:28:27.017Z"
+    }
+},
+{
+    "model": "tiendaordenadores.usuario",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$JM8dhBk111lFqseBP03xU1$TIMlRbil3VWgyRUt1tH0nL4jz3zQp8eMkaHGS/KvwoU=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "victor",
+        "first_name": "Victor",
+        "last_name": "Erazkin",
+        "email": "israel.hernandez.chacon.al@iespoligonosur.org",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-01-16T07:29:23.171Z",
+        "rol": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "tiendaordenadores.cliente",
+    "pk": 1,
+    "fields": {
+        "usuario": 1,
+        "wallet": 0.0,
+        "compras_realizadas": 0
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 1,
+    "fields": {
+        "urlcompra": "http://www.young.com/wp-contentauthor.php",
+        "nombre": "Event list office organization fill over. Property apply success large two develop director.",
+        "familiaprocesador": "Intel",
+        "potenciacalculo": 4511757936136753263,
+        "nucleos": 11106,
+        "hilos": 13353,
+        "imagen": "job.jpeg",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 2,
+    "fields": {
+        "urlcompra": "http://porter.com/blog/list/postsprivacy.html",
+        "nombre": "Suddenly after need data. Interesting visit never join. Health instead model build.\nCultural price n",
+        "familiaprocesador": "Intel",
+        "potenciacalculo": 196811263292737799,
+        "nucleos": 16875,
+        "hilos": 19598,
+        "imagen": "worker.webm",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 3,
+    "fields": {
+        "urlcompra": "https://www.gross.org/categories/searchregister.html",
+        "nombre": "From account defense back human per. Natural area matter apply turn enough serious.\nGreat each evide",
+        "familiaprocesador": "Ryzen",
+        "potenciacalculo": 3041932294414085839,
+        "nucleos": 12537,
+        "hilos": 23214,
+        "imagen": "picture.jpg",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 4,
+    "fields": {
+        "urlcompra": "https://www.cook.info/explore/postshomepage.jsp",
+        "nombre": "Measure too these good. Movement present agree. System sell pass commercial.\nWestern cup director pa",
+        "familiaprocesador": "Ryzen",
+        "potenciacalculo": 3762949904567902954,
+        "nucleos": 27900,
+        "hilos": 17681,
+        "imagen": "learn.tiff",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 5,
+    "fields": {
+        "urlcompra": "http://www.hamilton.net/list/list/tagfaq.html",
+        "nombre": "Else politics power whether resource. General to board similar blue tell. Support information ball t",
+        "familiaprocesador": "Intel",
+        "potenciacalculo": 2760183768805247150,
+        "nucleos": 14994,
+        "hilos": 31969,
+        "imagen": "rise.txt",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 6,
+    "fields": {
+        "urlcompra": "https://potter-warren.com/category/wp-content/appmain.html",
+        "nombre": "Finish responsibility type ready book support mention. National argue good and remember.",
+        "familiaprocesador": "Intel",
+        "potenciacalculo": 4924195160294811440,
+        "nucleos": 3541,
+        "hilos": 2618,
+        "imagen": "culture.css",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 7,
+    "fields": {
+        "urlcompra": "http://harris.net/tagsfaq.html",
+        "nombre": "Program industry information family range research gun. Region good true understand. Stuff nice skil",
+        "familiaprocesador": "Ryzen",
+        "potenciacalculo": 5856987856976653707,
+        "nucleos": 29227,
+        "hilos": 29575,
+        "imagen": "director.png",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 8,
+    "fields": {
+        "urlcompra": "https://www.armstrong.com/app/listhomepage.html",
+        "nombre": "Itself water most yard affect site until market. Moment tell ground beautiful. Practice fish mouth w",
+        "familiaprocesador": "Ryzen",
+        "potenciacalculo": 7247088954398398950,
+        "nucleos": 17071,
+        "hilos": 23305,
+        "imagen": "prevent.bmp",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 9,
+    "fields": {
+        "urlcompra": "https://www.fields.org/posts/categories/categoryhomepage.htm",
+        "nombre": "President wear the president. Machine speak seven former.\nArrive ask military. Understand central fi",
+        "familiaprocesador": "Ryzen",
+        "potenciacalculo": 2080066618666100527,
+        "nucleos": 10673,
+        "hilos": 14837,
+        "imagen": "century.wav",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 10,
+    "fields": {
+        "urlcompra": "https://www.jones.com/posts/categories/exploremain.php",
+        "nombre": "Around push admit perhaps.\nRadio success cost wait radio. Reach right interest father do.\nAgain prof",
+        "familiaprocesador": "Intel",
+        "potenciacalculo": 1070158950763889698,
+        "nucleos": 22715,
+        "hilos": 12437,
+        "imagen": "page.csv",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 11,
+    "fields": {
+        "urlcompra": "http://lee.com/main/category/postsauthor.jsp",
+        "nombre": "College hand feel call much not moment. Usually father hard realize game citizen.\nOk other book keep",
+        "familiaprocesador": "Ryzen",
+        "potenciacalculo": 1842803759366180368,
+        "nucleos": 17723,
+        "hilos": 1606,
+        "imagen": "sing.bmp",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 12,
+    "fields": {
+        "urlcompra": "https://www.tucker-campbell.com/tag/apppost.htm",
+        "nombre": "Mind again plan require he eight goal sure. Speak mouth country official energy.\nBoy find figure the",
+        "familiaprocesador": "Ryzen",
+        "potenciacalculo": 6247841222138036301,
+        "nucleos": 15989,
+        "hilos": 19974,
+        "imagen": "help.gif",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 13,
+    "fields": {
+        "urlcompra": "http://www.ruiz.com/tag/tags/categoriesabout.jsp",
+        "nombre": "Nothing security top arrive. Group sport beautiful fund. Wish never marriage particularly.\nThere can",
+        "familiaprocesador": "Ryzen",
+        "potenciacalculo": 6699417857440670903,
+        "nucleos": 16241,
+        "hilos": 26656,
+        "imagen": "star.jpg",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 14,
+    "fields": {
+        "urlcompra": "https://www.wong-arias.com/bloghomepage.html",
+        "nombre": "Tend with miss picture house total. Safe pressure white of myself eat. Choice deal entire charge con",
+        "familiaprocesador": "Ryzen",
+        "potenciacalculo": 2293984411125196565,
+        "nucleos": 30405,
+        "hilos": 7756,
+        "imagen": "condition.tiff",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 15,
+    "fields": {
+        "urlcompra": "http://www.shah.com/tag/categories/mainfaq.asp",
+        "nombre": "Deal score drop control. Who impact industry seem drive. Discussion participant free approach.\nReali",
+        "familiaprocesador": "Ryzen",
+        "potenciacalculo": 8333651678270930244,
+        "nucleos": 671,
+        "hilos": 5202,
+        "imagen": "key.jpeg",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 16,
+    "fields": {
+        "urlcompra": "http://www.watson.biz/app/categorylogin.html",
+        "nombre": "Argue thing image century catch. Memory maybe difficult long attack.\nApproach street and care fall. ",
+        "familiaprocesador": "Ryzen",
+        "potenciacalculo": 4183807957012931439,
+        "nucleos": 6698,
+        "hilos": 28964,
+        "imagen": "medical.csv",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 17,
+    "fields": {
+        "urlcompra": "http://www.gonzalez.com/explorelogin.htm",
+        "nombre": "Sense recently network player million condition black seat. Bag west through college culture term.\nS",
+        "familiaprocesador": "Ryzen",
+        "potenciacalculo": 7047780018677441613,
+        "nucleos": 12384,
+        "hilos": 32752,
+        "imagen": "own.css",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 18,
+    "fields": {
+        "urlcompra": "https://www.richardson.com/posts/tags/categoryhomepage.php",
+        "nombre": "First baby type make. Everything test stand purpose among investment. Attention arm early.\nCompare p",
+        "familiaprocesador": "Ryzen",
+        "potenciacalculo": 3479302513342068007,
+        "nucleos": 16,
+        "hilos": 20223,
+        "imagen": "wait.csv",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 19,
+    "fields": {
+        "urlcompra": "http://miller.net/categorysearch.html",
+        "nombre": "Parent bad join. Exactly arm property total billion reflect. Range surface court.\nSeat look mind all",
+        "familiaprocesador": "Ryzen",
+        "potenciacalculo": 4672313907337345812,
+        "nucleos": 5441,
+        "hilos": 23426,
+        "imagen": "must.webm",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 20,
+    "fields": {
+        "urlcompra": "http://mcintyre-henry.info/main/list/tagsauthor.htm",
+        "nombre": "Compare science prepare fall deal boy poor.\nSupport country about design whom woman positive. Method",
+        "familiaprocesador": "Intel",
+        "potenciacalculo": 8658848617733507642,
+        "nucleos": 31518,
+        "hilos": 18116,
+        "imagen": "court.js",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 21,
+    "fields": {
+        "urlcompra": "https://rosales.com/searchfaq.html",
+        "nombre": "Sort general check citizen sister share. Particularly certain reason.\nHowever require already little",
+        "familiaprocesador": "Ryzen",
+        "potenciacalculo": 8789921255285315287,
+        "nucleos": 19255,
+        "hilos": 11782,
+        "imagen": "he.csv",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 22,
+    "fields": {
+        "urlcompra": "https://www.hart.info/categories/tag/searchmain.asp",
+        "nombre": "Space relate need me want agree program. Relate beautiful various region. Wife ask five many Mr cost",
+        "familiaprocesador": "Ryzen",
+        "potenciacalculo": 2989160233132757222,
+        "nucleos": 29930,
+        "hilos": 16191,
+        "imagen": "purpose.mov",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 23,
+    "fields": {
+        "urlcompra": "https://herrera-clark.com/categories/list/categoryindex.htm",
+        "nombre": "Term down poor still health.\nMake page read song. Lay enter treat simply. Chair feel company.\nSeven ",
+        "familiaprocesador": "Intel",
+        "potenciacalculo": 6460659464100875428,
+        "nucleos": 11920,
+        "hilos": 22000,
+        "imagen": "agent.jpeg",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 24,
+    "fields": {
+        "urlcompra": "https://www.rogers.org/wp-contentregister.html",
+        "nombre": "Summer fact magazine move myself traditional almost what. Run cup century fight.",
+        "familiaprocesador": "Intel",
+        "potenciacalculo": 8084615477284152299,
+        "nucleos": 32377,
+        "hilos": 9969,
+        "imagen": "game.mp3",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 25,
+    "fields": {
+        "urlcompra": "http://cross.com/categoriesabout.html",
+        "nombre": "Concern pressure same involve everyone. People produce money city.\nCell option such international ba",
+        "familiaprocesador": "Ryzen",
+        "potenciacalculo": 2259120744404690255,
+        "nucleos": 24443,
+        "hilos": 7608,
+        "imagen": "factor.json",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 26,
+    "fields": {
+        "urlcompra": "http://www.whitney.org/posts/tag/tagmain.html",
+        "nombre": "Keep yes main garden begin tell life cause. Matter improve total them. Chance those all area. Someon",
+        "familiaprocesador": "Intel",
+        "potenciacalculo": 7835562431389028533,
+        "nucleos": 24836,
+        "hilos": 16125,
+        "imagen": "market.flac",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 27,
+    "fields": {
+        "urlcompra": "http://davis.com/wp-contenthome.jsp",
+        "nombre": "Support main year minute. Tax professor though two.\nEducation man worker along grow. Letter pull pre",
+        "familiaprocesador": "Intel",
+        "potenciacalculo": 2221204643434468916,
+        "nucleos": 23428,
+        "hilos": 24034,
+        "imagen": "general.csv",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 28,
+    "fields": {
+        "urlcompra": "http://www.mckinney.com/blog/listfaq.asp",
+        "nombre": "Attack some section lawyer their nice other. Cover happy power pattern without.",
+        "familiaprocesador": "Ryzen",
+        "potenciacalculo": 3529048425700582109,
+        "nucleos": 8801,
+        "hilos": 20841,
+        "imagen": "any.bmp",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 29,
+    "fields": {
+        "urlcompra": "http://martinez.com/tag/exploreindex.htm",
+        "nombre": "Yard probably section find turn pressure security. Evidence here deep continue. Seem laugh such onto",
+        "familiaprocesador": "Intel",
+        "potenciacalculo": 784888775169450927,
+        "nucleos": 9675,
+        "hilos": 24244,
+        "imagen": "system.csv",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 30,
+    "fields": {
+        "urlcompra": "https://clay.com/app/main/explorehomepage.html",
+        "nombre": "Can party school majority already system.\nQuite town brother question foreign. Show tonight player n",
+        "familiaprocesador": "Intel",
+        "potenciacalculo": 8312101947693504467,
+        "nucleos": 16177,
+        "hilos": 6899,
+        "imagen": "tell.avi",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 31,
+    "fields": {
+        "urlcompra": "http://www.richards.org/taglogin.asp",
+        "nombre": "Hit example season project live science. Left foot part stock clear debate value.\nSituation cut othe",
+        "familiaprocesador": "Ryzen",
+        "potenciacalculo": 8916409914881119110,
+        "nucleos": 10673,
+        "hilos": 12153,
+        "imagen": "officer.gif",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 32,
+    "fields": {
+        "urlcompra": "http://www.lowe.com/app/category/tagsauthor.html",
+        "nombre": "Like take middle cut smile program. Be represent computer to.\nStore score also common. Hand stay rea",
+        "familiaprocesador": "Intel",
+        "potenciacalculo": 6455209677892723623,
+        "nucleos": 11285,
+        "hilos": 2560,
+        "imagen": "argue.flac",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 33,
+    "fields": {
+        "urlcompra": "https://www.evans.info/appfaq.htm",
+        "nombre": "Specific option nice bit until. State full medical hundred. Decide sell himself chair money. Probabl",
+        "familiaprocesador": "Ryzen",
+        "potenciacalculo": 3496239477434893881,
+        "nucleos": 6062,
+        "hilos": 25543,
+        "imagen": "rest.mp4",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 34,
+    "fields": {
+        "urlcompra": "https://thompson-boyle.com/app/wp-content/explorepost.php",
+        "nombre": "Story language doctor trouble every at. Assume peace central employee laugh.\nDrive may young dinner ",
+        "familiaprocesador": "Intel",
+        "potenciacalculo": 7108195833520897875,
+        "nucleos": 19898,
+        "hilos": 3,
+        "imagen": "executive.css",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 35,
+    "fields": {
+        "urlcompra": "https://garcia.org/tagabout.html",
+        "nombre": "Happen more another coach. Cup tell civil happen detail name.\nProbably dog common far pattern.\nAdmin",
+        "familiaprocesador": "Intel",
+        "potenciacalculo": 6759494034004121180,
+        "nucleos": 7681,
+        "hilos": 24829,
+        "imagen": "rich.gif",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 36,
+    "fields": {
+        "urlcompra": "http://elliott-jackson.com/main/category/postshomepage.html",
+        "nombre": "Adult wall short reason build. Oil late organization.\nFree risk institution study. Cup computer wall",
+        "familiaprocesador": "Ryzen",
+        "potenciacalculo": 7484490503548576333,
+        "nucleos": 10624,
+        "hilos": 24778,
+        "imagen": "finish.json",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 37,
+    "fields": {
+        "urlcompra": "http://solis.org/wp-contentpost.html",
+        "nombre": "Agree either let success college necessary. Environmental share population control production. Infor",
+        "familiaprocesador": "Ryzen",
+        "potenciacalculo": 8499350220589537480,
+        "nucleos": 17098,
+        "hilos": 29860,
+        "imagen": "tend.png",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 38,
+    "fields": {
+        "urlcompra": "http://www.pierce.com/tagprivacy.jsp",
+        "nombre": "Field a alone picture. Some make among star off receive respond.\nProbably think push entire well off",
+        "familiaprocesador": "Ryzen",
+        "potenciacalculo": 8055808432646455106,
+        "nucleos": 23055,
+        "hilos": 17127,
+        "imagen": "science.webm",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 39,
+    "fields": {
+        "urlcompra": "https://lewis-fuller.com/blog/categoriespost.asp",
+        "nombre": "Choose off toward building operation forget machine. Reflect student without test that. Air strong p",
+        "familiaprocesador": "Ryzen",
+        "potenciacalculo": 5372549675158407993,
+        "nucleos": 20926,
+        "hilos": 12603,
+        "imagen": "behind.wav",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 40,
+    "fields": {
+        "urlcompra": "https://www.stephens.com/tag/category/searchprivacy.html",
+        "nombre": "Ready summer bit show focus. Minute local occur method four nature. Between sell real decide minute ",
+        "familiaprocesador": "Ryzen",
+        "potenciacalculo": 2070614957303518684,
+        "nucleos": 32677,
+        "hilos": 15658,
+        "imagen": "yes.avi",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 41,
+    "fields": {
+        "urlcompra": "http://guerrero.net/search/app/tagspost.html",
+        "nombre": "Rest myself military fire lose democratic stay. Strategy can account join sell community program. Me",
+        "familiaprocesador": "Ryzen",
+        "potenciacalculo": 117402828629601917,
+        "nucleos": 6202,
+        "hilos": 19727,
+        "imagen": "door.mp3",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 42,
+    "fields": {
+        "urlcompra": "http://saunders.com/mainprivacy.asp",
+        "nombre": "Provide per manage film politics have meeting. Third include place foot provide table rise. Moment s",
+        "familiaprocesador": "Ryzen",
+        "potenciacalculo": 2760239214906513858,
+        "nucleos": 29009,
+        "hilos": 21473,
+        "imagen": "ahead.avi",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 43,
+    "fields": {
+        "urlcompra": "https://www.rodriguez.com/listauthor.jsp",
+        "nombre": "Them man purpose conference indicate in whose guy. Always best push economy soon miss most. None abl",
+        "familiaprocesador": "Intel",
+        "potenciacalculo": 3774483037594952804,
+        "nucleos": 16135,
+        "hilos": 5265,
+        "imagen": "impact.avi",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 44,
+    "fields": {
+        "urlcompra": "https://www.smith.org/mainhome.asp",
+        "nombre": "Along degree well order reality. Feel partner pass wear concern. Go when sea send paper. Between dee",
+        "familiaprocesador": "Intel",
+        "potenciacalculo": 5831813568863438759,
+        "nucleos": 8103,
+        "hilos": 15567,
+        "imagen": "collection.txt",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 45,
+    "fields": {
+        "urlcompra": "http://www.bailey-harrington.com/tagscategory.html",
+        "nombre": "Begin full left between.\nBody ever color usually. Price may unit light cold but.\nFloor also attentio",
+        "familiaprocesador": "Intel",
+        "potenciacalculo": 1026886559439656355,
+        "nucleos": 17868,
+        "hilos": 17123,
+        "imagen": "economic.webm",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 46,
+    "fields": {
+        "urlcompra": "http://www.roman.com/tag/app/searchterms.php",
+        "nombre": "History green information class explain every there your. Measure last example organization field ge",
+        "familiaprocesador": "Ryzen",
+        "potenciacalculo": 6134247534154367236,
+        "nucleos": 9961,
+        "hilos": 16231,
+        "imagen": "more.bmp",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 47,
+    "fields": {
+        "urlcompra": "http://www.tanner-parker.com/posts/list/blogindex.jsp",
+        "nombre": "Nor social late. About analysis each red else relationship pass. Determine cultural risk challenge r",
+        "familiaprocesador": "Intel",
+        "potenciacalculo": 4605410898472496026,
+        "nucleos": 4886,
+        "hilos": 21434,
+        "imagen": "every.png",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 48,
+    "fields": {
+        "urlcompra": "http://obrien-cummings.biz/categorieshome.htm",
+        "nombre": "Realize maintain of fill. To under ten message throw. History rather up wide.\nArticle reflect wait. ",
+        "familiaprocesador": "Ryzen",
+        "potenciacalculo": 4985573761400441868,
+        "nucleos": 27503,
+        "hilos": 6308,
+        "imagen": "how.gif",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 49,
+    "fields": {
+        "urlcompra": "http://www.cox.com/wp-content/tagprivacy.htm",
+        "nombre": "Type these history traditional degree college only. Want system shake defense recent table big. Trut",
+        "familiaprocesador": "Intel",
+        "potenciacalculo": 6880309904135639509,
+        "nucleos": 10186,
+        "hilos": 6283,
+        "imagen": "project.html",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.procesador",
+    "pk": 50,
+    "fields": {
+        "urlcompra": "https://rivera.com/exploreindex.php",
+        "nombre": "Politics citizen conference wish want check. Relate western million support particular. Check anyone",
+        "familiaprocesador": "Intel",
+        "potenciacalculo": 4389856790629306291,
+        "nucleos": 14740,
+        "hilos": 6622,
+        "imagen": "network.css",
+        "placabase": null
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 1,
+    "fields": {
+        "urlcompra": "https://www.patel-donaldson.org/category/categorylogin.html",
+        "vatios": 32456,
+        "amperaje": 0.8407096348605312,
+        "conectoresdisponibles": "Management top management better. Rich agree him very glass. Support ball government worker.",
+        "calidadfuente": "80Titanium"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 2,
+    "fields": {
+        "urlcompra": "https://www.vargas-bradley.com/list/app/categorysearch.html",
+        "vatios": 31431,
+        "amperaje": 0.49647105903032673,
+        "conectoresdisponibles": "Do control pull nothing better fill easy film.\nEver themselves provide difficult never. When common ",
+        "calidadfuente": "80Silver"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 3,
+    "fields": {
+        "urlcompra": "http://www.gentry-holt.com/categorypost.php",
+        "vatios": 6070,
+        "amperaje": 0.2385719708776789,
+        "conectoresdisponibles": "Until which drive hair financial. Rule also very. Catch article again thing soon.\nEffort beyond thro",
+        "calidadfuente": "80Titanium"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 4,
+    "fields": {
+        "urlcompra": "https://www.wells.info/app/tag/explorelogin.html",
+        "vatios": 21115,
+        "amperaje": 0.750769111519734,
+        "conectoresdisponibles": "Order identify clear clear best. Long third theory perform see decide result city. Think music all s",
+        "calidadfuente": "80Silver"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 5,
+    "fields": {
+        "urlcompra": "http://cruz.com/search/taghomepage.jsp",
+        "vatios": 7485,
+        "amperaje": 0.4696976951166756,
+        "conectoresdisponibles": "Safe public big successful ok despite. Either economic painting blue. Almost economic consumer. Numb",
+        "calidadfuente": "80Silver"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 6,
+    "fields": {
+        "urlcompra": "http://www.johnson.com/blog/exploreabout.php",
+        "vatios": 264,
+        "amperaje": 0.19703480814270635,
+        "conectoresdisponibles": "Wait interest successful three relationship. Day seven majority she why high along positive.\nProduct",
+        "calidadfuente": "80Plat"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 7,
+    "fields": {
+        "urlcompra": "http://www.dyer-tucker.com/blog/mainfaq.htm",
+        "vatios": 19189,
+        "amperaje": 0.22534415811583897,
+        "conectoresdisponibles": "Change senior hair thank away day. Around especially attorney concern.\nCheck design assume kind. Him",
+        "calidadfuente": "80Silver"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 8,
+    "fields": {
+        "urlcompra": "https://www.hill.com/categorypost.htm",
+        "vatios": 15996,
+        "amperaje": 0.7545719315401334,
+        "conectoresdisponibles": "Strong force address travel offer effect certain race. Hot benefit these seven rate. Matter win soon",
+        "calidadfuente": "80Bronce"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 9,
+    "fields": {
+        "urlcompra": "http://www.zavala-rivera.com/categories/tag/categoriesabout.php",
+        "vatios": 12622,
+        "amperaje": 0.21027380331083823,
+        "conectoresdisponibles": "Fine forget body. Land once management participant.\nNot actually ready record tonight. East importan",
+        "calidadfuente": "80Plat"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 10,
+    "fields": {
+        "urlcompra": "https://www.hogan.com/listlogin.php",
+        "vatios": 2153,
+        "amperaje": 0.3507902898473416,
+        "conectoresdisponibles": "Become we too want firm.\nOutside how reduce. Get produce test dark store building. Professor himself",
+        "calidadfuente": "80Titanium"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 11,
+    "fields": {
+        "urlcompra": "http://www.baker.com/app/tagsprivacy.html",
+        "vatios": 18325,
+        "amperaje": 0.7050247701709828,
+        "conectoresdisponibles": "Big energy order color. Team degree only find particularly business. Gun real relationship design Mr",
+        "calidadfuente": "80Silver"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 12,
+    "fields": {
+        "urlcompra": "http://www.hughes.com/tags/blog/wp-contentauthor.htm",
+        "vatios": 16056,
+        "amperaje": 0.28392568149285036,
+        "conectoresdisponibles": "Idea us day detail agreement at help. Message type fight.\nLawyer between even action investment huma",
+        "calidadfuente": "80Plat"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 13,
+    "fields": {
+        "urlcompra": "https://www.silva-warner.com/category/search/exploreterms.php",
+        "vatios": 21229,
+        "amperaje": 0.31512758181586287,
+        "conectoresdisponibles": "Listen charge firm enough establish. This sport out.\nTurn personal animal not phone. Often note far ",
+        "calidadfuente": "80Plat"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 14,
+    "fields": {
+        "urlcompra": "http://www.pennington.info/search/list/wp-contentmain.html",
+        "vatios": 22956,
+        "amperaje": 0.7692285845898441,
+        "conectoresdisponibles": "Industry cell analysis action career agency hot. Movie from situation cost join between argue. Card ",
+        "calidadfuente": "80Bronce"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 15,
+    "fields": {
+        "urlcompra": "http://williams.com/wp-contentfaq.htm",
+        "vatios": 6439,
+        "amperaje": 0.7358039927721586,
+        "conectoresdisponibles": "Item yes school city war consumer. Whose weight industry however thus.\nMe top sound scientist recent",
+        "calidadfuente": "80Silver"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 16,
+    "fields": {
+        "urlcompra": "https://bowen.net/categories/apphomepage.html",
+        "vatios": 6312,
+        "amperaje": 0.3103104690343367,
+        "conectoresdisponibles": "Foot out green again step.\nEvidence loss their health point management beat first. Son much seven th",
+        "calidadfuente": "80Plat"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 17,
+    "fields": {
+        "urlcompra": "http://williams.biz/main/tags/tagshomepage.htm",
+        "vatios": 23595,
+        "amperaje": 0.7018527135030854,
+        "conectoresdisponibles": "Allow manage strategy woman including Mrs. Organization expert after note. Tend hand trip page preve",
+        "calidadfuente": "80Plat"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 18,
+    "fields": {
+        "urlcompra": "http://williams.net/wp-contentsearch.html",
+        "vatios": 7854,
+        "amperaje": 0.7175001581827956,
+        "conectoresdisponibles": "Still time most face receive theory debate. Perform remain up last carry.\nMachine your country four ",
+        "calidadfuente": "80Titanium"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 19,
+    "fields": {
+        "urlcompra": "http://www.martinez.org/posts/categoryfaq.php",
+        "vatios": 8886,
+        "amperaje": 0.403582379709982,
+        "conectoresdisponibles": "Laugh red attack join or. While medical risk evening how effect receive.\nPart nothing reason style c",
+        "calidadfuente": "80Gold"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 20,
+    "fields": {
+        "urlcompra": "https://www.brown-aguirre.com/wp-contentpost.html",
+        "vatios": 19424,
+        "amperaje": 0.1223292027600994,
+        "conectoresdisponibles": "Rock hit hundred group room. Cause stop student film food. Close water court quality chair thing pla",
+        "calidadfuente": "80Plat"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 21,
+    "fields": {
+        "urlcompra": "https://young.com/posts/categorylogin.html",
+        "vatios": 21228,
+        "amperaje": 0.025596866031487364,
+        "conectoresdisponibles": "He appear remain article herself. Big it particular organization will national. Recognize difficult ",
+        "calidadfuente": "80Silver"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 22,
+    "fields": {
+        "urlcompra": "https://goodman.com/tags/search/searchabout.asp",
+        "vatios": 8079,
+        "amperaje": 0.9517110520927781,
+        "conectoresdisponibles": "Weight PM should machine run. Course suddenly stock example recently chair drop. Economy their insid",
+        "calidadfuente": "80Bronce"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 23,
+    "fields": {
+        "urlcompra": "https://www.reynolds.com/app/tagsearch.php",
+        "vatios": 30555,
+        "amperaje": 0.5377160092485912,
+        "conectoresdisponibles": "Back plan group oil believe son tax. Effect head say total. Including trial start hospital staff thi",
+        "calidadfuente": "80Bronce"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 24,
+    "fields": {
+        "urlcompra": "https://www.thomas.biz/tagsindex.html",
+        "vatios": 2712,
+        "amperaje": 0.4836605110752066,
+        "conectoresdisponibles": "Card various race any common. When bring specific home. Choice wear decision the bed.",
+        "calidadfuente": "80Bronce"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 25,
+    "fields": {
+        "urlcompra": "http://www.brown-wiley.com/category/searchhomepage.html",
+        "vatios": 26475,
+        "amperaje": 0.32976214746885724,
+        "conectoresdisponibles": "Health every tell. Which thought friend home consider.\nPhone southern everybody true about Democrat ",
+        "calidadfuente": "80Titanium"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 26,
+    "fields": {
+        "urlcompra": "http://www.quinn.net/tagsprivacy.jsp",
+        "vatios": 16798,
+        "amperaje": 0.2521597908341605,
+        "conectoresdisponibles": "Team over husband prepare program now.\nBeyond guy health fear. Describe sense lead civil any skill i",
+        "calidadfuente": "80Bronce"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 27,
+    "fields": {
+        "urlcompra": "http://www.perez.info/wp-content/blog/mainregister.html",
+        "vatios": 1680,
+        "amperaje": 0.004166361682609865,
+        "conectoresdisponibles": "Energy environmental cover section fall. Possible challenge bar treatment seat determine provide. Gr",
+        "calidadfuente": "80Silver"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 28,
+    "fields": {
+        "urlcompra": "https://www.mitchell.net/blog/tag/tagsabout.html",
+        "vatios": 14506,
+        "amperaje": 0.8938892169782146,
+        "conectoresdisponibles": "Many rich then add. Skill card lawyer treatment up. Source fact among cover smile.\nHouse under shoul",
+        "calidadfuente": "80Bronce"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 29,
+    "fields": {
+        "urlcompra": "http://www.cervantes-werner.biz/postsfaq.htm",
+        "vatios": 17384,
+        "amperaje": 0.3993605130520319,
+        "conectoresdisponibles": "Wish their ready front toward. Strategy already Congress listen yeah town early war.\nStudent again s",
+        "calidadfuente": "80Titanium"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 30,
+    "fields": {
+        "urlcompra": "http://owens-sharp.com/wp-contentfaq.php",
+        "vatios": 18197,
+        "amperaje": 0.9684006451292805,
+        "conectoresdisponibles": "Former may none try. Order front family Mr ahead. Out hope season if.\nHalf necessary stop same exper",
+        "calidadfuente": "80Titanium"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 31,
+    "fields": {
+        "urlcompra": "https://www.garner.biz/categoryindex.php",
+        "vatios": 18671,
+        "amperaje": 0.8956940736553111,
+        "conectoresdisponibles": "Identify street employee catch tree age focus. Piece open support message experience direction black",
+        "calidadfuente": "80Bronce"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 32,
+    "fields": {
+        "urlcompra": "http://www.miller-bass.com/wp-contentauthor.php",
+        "vatios": 30694,
+        "amperaje": 0.44909754153390835,
+        "conectoresdisponibles": "Win safe interest let minute when computer. Operation between always part treatment. Page result sys",
+        "calidadfuente": "80Gold"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 33,
+    "fields": {
+        "urlcompra": "https://taylor-white.info/tags/categoriesprivacy.html",
+        "vatios": 14481,
+        "amperaje": 0.1335960942029143,
+        "conectoresdisponibles": "Pull of black factor three. Friend argue either source out store. Happy goal focus agreement whose.\n",
+        "calidadfuente": "80Silver"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 34,
+    "fields": {
+        "urlcompra": "https://white.com/list/explorehome.jsp",
+        "vatios": 30349,
+        "amperaje": 0.8240518955342495,
+        "conectoresdisponibles": "He drop ok include both ready.\nSpace science hotel bank product order. Without high them clearly. Te",
+        "calidadfuente": "80Gold"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 35,
+    "fields": {
+        "urlcompra": "http://www.smith-prince.org/search/category/tagsterms.html",
+        "vatios": 8880,
+        "amperaje": 0.10852205945736404,
+        "conectoresdisponibles": "Significant mouth study newspaper hit down. Begin morning standard approach throughout suggest lose.",
+        "calidadfuente": "80Titanium"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 36,
+    "fields": {
+        "urlcompra": "https://www.hoover-olson.net/explorehomepage.html",
+        "vatios": 20998,
+        "amperaje": 0.39110862274630187,
+        "conectoresdisponibles": "Guy able around. Knowledge speak middle expert. Successful become successful great magazine time.\nPe",
+        "calidadfuente": "80Titanium"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 37,
+    "fields": {
+        "urlcompra": "http://garcia.com/explore/tagsprivacy.htm",
+        "vatios": 15548,
+        "amperaje": 0.89672787089197,
+        "conectoresdisponibles": "Hot nearly always station set visit. Eight we dog customer very. Your throw green wind.",
+        "calidadfuente": "80Bronce"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 38,
+    "fields": {
+        "urlcompra": "https://www.warren-brown.com/exploreabout.htm",
+        "vatios": 26247,
+        "amperaje": 0.25088977782902666,
+        "conectoresdisponibles": "Nation local nice late. Ability themselves amount sometimes along find.\nTell summer class. Bit land ",
+        "calidadfuente": "80Bronce"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 39,
+    "fields": {
+        "urlcompra": "http://gomez.com/category/list/mainsearch.htm",
+        "vatios": 19902,
+        "amperaje": 0.7153109935781784,
+        "conectoresdisponibles": "Power full dog seek production reflect exist. Model factor budget science up free fast.\nAlways red o",
+        "calidadfuente": "80Gold"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 40,
+    "fields": {
+        "urlcompra": "http://ramos-davis.com/tags/categoriesfaq.asp",
+        "vatios": 25626,
+        "amperaje": 0.9021644557050577,
+        "conectoresdisponibles": "Catch left away through show store. Room maybe ten everyone.\nPhone just American. On defense particu",
+        "calidadfuente": "80Titanium"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 41,
+    "fields": {
+        "urlcompra": "https://www.leblanc-smith.net/appfaq.html",
+        "vatios": 23566,
+        "amperaje": 0.21153983952247624,
+        "conectoresdisponibles": "Eight how certainly worry son car. Smile business throw entire big people south.\nAttention follow mi",
+        "calidadfuente": "80Bronce"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 42,
+    "fields": {
+        "urlcompra": "http://www.koch-jones.info/blog/category/postsabout.htm",
+        "vatios": 15160,
+        "amperaje": 0.8099806167269666,
+        "conectoresdisponibles": "Technology ago industry increase most trouble debate. Character strategy consider. Question arrive p",
+        "calidadfuente": "80Titanium"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 43,
+    "fields": {
+        "urlcompra": "http://wagner.com/category/categorymain.jsp",
+        "vatios": 28103,
+        "amperaje": 0.6658476497936735,
+        "conectoresdisponibles": "Behind talk quite build leg space information reality. Reduce realize music again. Several range bil",
+        "calidadfuente": "80Gold"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 44,
+    "fields": {
+        "urlcompra": "https://www.raymond-coleman.com/category/postsprivacy.asp",
+        "vatios": 14931,
+        "amperaje": 0.6282327384150137,
+        "conectoresdisponibles": "Special public remember. Yet former eye nor trial.",
+        "calidadfuente": "80Bronce"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 45,
+    "fields": {
+        "urlcompra": "http://www.gray.com/blog/explore/wp-contentregister.html",
+        "vatios": 13000,
+        "amperaje": 0.6553511097867243,
+        "conectoresdisponibles": "Right foot money just nearly blue. Available likely fly Mrs seek bill million. Around spend event.\nO",
+        "calidadfuente": "80Bronce"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 46,
+    "fields": {
+        "urlcompra": "http://johnson.com/categories/tags/categoriesfaq.php",
+        "vatios": 11291,
+        "amperaje": 0.7696806605402602,
+        "conectoresdisponibles": "Seven anyone rich method budget rock make. Mrs story skill research current. Owner point activity on",
+        "calidadfuente": "80Bronce"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 47,
+    "fields": {
+        "urlcompra": "http://salinas.com/appauthor.htm",
+        "vatios": 27568,
+        "amperaje": 0.7746299445935063,
+        "conectoresdisponibles": "Level his task seek market alone.\nAgreement certain young. Relate might item especially. According s",
+        "calidadfuente": "80Plat"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 48,
+    "fields": {
+        "urlcompra": "http://washington.com/listindex.html",
+        "vatios": 20733,
+        "amperaje": 0.3770690469254504,
+        "conectoresdisponibles": "Perhaps reality suddenly personal general day. Outside save threat there with.\nThemselves everybody ",
+        "calidadfuente": "80Titanium"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 49,
+    "fields": {
+        "urlcompra": "http://stafford.com/explore/explore/explorecategory.jsp",
+        "vatios": 4030,
+        "amperaje": 0.9510342470809613,
+        "conectoresdisponibles": "Simple mention activity minute impact. In relate drop source piece campaign.\nPhysical onto new. Atto",
+        "calidadfuente": "80Titanium"
+    }
+},
+{
+    "model": "tiendaordenadores.fuentealimentacion",
+    "pk": 50,
+    "fields": {
+        "urlcompra": "https://rodriguez.net/category/explore/tagslogin.htm",
+        "vatios": 27842,
+        "amperaje": 0.7195014059834196,
+        "conectoresdisponibles": "Plant nice perhaps. Country small father eye draw purpose drop.\nCourse physical throughout mouth mee",
+        "calidadfuente": "80Plat"
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 1,
+    "fields": {
+        "urlcompra": "http://www.rivera.com/category/wp-contentpost.html",
+        "hz": "Sure",
+        "calidad_respuesta": "0.80849",
+        "curvo": false,
+        "pantallafiltroplasma": true
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 2,
+    "fields": {
+        "urlcompra": "https://young.org/categorieshomepage.php",
+        "hz": "Grow",
+        "calidad_respuesta": "0.18023",
+        "curvo": false,
+        "pantallafiltroplasma": false
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 3,
+    "fields": {
+        "urlcompra": "https://www.cortez.com/categoriesmain.html",
+        "hz": "Spri",
+        "calidad_respuesta": "0.08932",
+        "curvo": false,
+        "pantallafiltroplasma": false
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 4,
+    "fields": {
+        "urlcompra": "http://torres.com/tagabout.html",
+        "hz": "Deba",
+        "calidad_respuesta": "0.27257",
+        "curvo": true,
+        "pantallafiltroplasma": false
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 5,
+    "fields": {
+        "urlcompra": "http://www.nichols-griffith.com/wp-contenthome.htm",
+        "hz": "Guy ",
+        "calidad_respuesta": "0.50467",
+        "curvo": false,
+        "pantallafiltroplasma": true
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 6,
+    "fields": {
+        "urlcompra": "http://www.gutierrez-alvarado.com/search/exploresearch.php",
+        "hz": "Work",
+        "calidad_respuesta": "0.36152",
+        "curvo": false,
+        "pantallafiltroplasma": true
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 7,
+    "fields": {
+        "urlcompra": "http://www.robinson.com/exploreregister.htm",
+        "hz": "Toni",
+        "calidad_respuesta": "0.44532",
+        "curvo": true,
+        "pantallafiltroplasma": true
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 8,
+    "fields": {
+        "urlcompra": "http://rose.info/search/blog/postsmain.php",
+        "hz": "Have",
+        "calidad_respuesta": "0.21448",
+        "curvo": false,
+        "pantallafiltroplasma": true
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 9,
+    "fields": {
+        "urlcompra": "https://miller-perry.com/categorymain.htm",
+        "hz": "Grou",
+        "calidad_respuesta": "0.07203",
+        "curvo": true,
+        "pantallafiltroplasma": false
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 10,
+    "fields": {
+        "urlcompra": "https://www.miller-collins.com/categories/blog/searchauthor.jsp",
+        "hz": "Rise",
+        "calidad_respuesta": "0.49226",
+        "curvo": true,
+        "pantallafiltroplasma": false
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 11,
+    "fields": {
+        "urlcompra": "https://www.ross.net/categoryauthor.html",
+        "hz": "Unit",
+        "calidad_respuesta": "0.72104",
+        "curvo": true,
+        "pantallafiltroplasma": false
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 12,
+    "fields": {
+        "urlcompra": "http://green.com/search/search/tagabout.jsp",
+        "hz": "Wind",
+        "calidad_respuesta": "0.25831",
+        "curvo": false,
+        "pantallafiltroplasma": true
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 13,
+    "fields": {
+        "urlcompra": "https://www.webb-armstrong.com/categories/searchhomepage.asp",
+        "hz": "Amou",
+        "calidad_respuesta": "0.07225",
+        "curvo": false,
+        "pantallafiltroplasma": false
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 14,
+    "fields": {
+        "urlcompra": "http://torres.com/posts/categoriesauthor.asp",
+        "hz": "None",
+        "calidad_respuesta": "0.02977",
+        "curvo": true,
+        "pantallafiltroplasma": true
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 15,
+    "fields": {
+        "urlcompra": "http://www.carlson.com/posts/tagfaq.asp",
+        "hz": "Stor",
+        "calidad_respuesta": "0.82697",
+        "curvo": true,
+        "pantallafiltroplasma": true
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 16,
+    "fields": {
+        "urlcompra": "https://www.burton-lopez.com/category/wp-contentfaq.html",
+        "hz": "Stud",
+        "calidad_respuesta": "0.18732",
+        "curvo": true,
+        "pantallafiltroplasma": true
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 17,
+    "fields": {
+        "urlcompra": "http://miller-dean.net/tag/category/categoryabout.jsp",
+        "hz": "Piec",
+        "calidad_respuesta": "0.24805",
+        "curvo": true,
+        "pantallafiltroplasma": false
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 18,
+    "fields": {
+        "urlcompra": "http://www.madden-burch.com/search/main/searchterms.html",
+        "hz": "Figh",
+        "calidad_respuesta": "0.54974",
+        "curvo": false,
+        "pantallafiltroplasma": true
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 19,
+    "fields": {
+        "urlcompra": "http://www.fitzgerald.com/tags/wp-contentlogin.asp",
+        "hz": "Task",
+        "calidad_respuesta": "0.42330",
+        "curvo": true,
+        "pantallafiltroplasma": false
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 20,
+    "fields": {
+        "urlcompra": "https://williams-baker.com/wp-contentregister.html",
+        "hz": "Seco",
+        "calidad_respuesta": "0.60521",
+        "curvo": true,
+        "pantallafiltroplasma": true
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 21,
+    "fields": {
+        "urlcompra": "https://www.browning-barnett.net/categories/explorecategory.php",
+        "hz": "Look",
+        "calidad_respuesta": "0.21872",
+        "curvo": false,
+        "pantallafiltroplasma": false
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 22,
+    "fields": {
+        "urlcompra": "http://www.johnston.info/list/tagsindex.htm",
+        "hz": "Too ",
+        "calidad_respuesta": "0.84098",
+        "curvo": true,
+        "pantallafiltroplasma": false
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 23,
+    "fields": {
+        "urlcompra": "http://craig.com/main/apppost.htm",
+        "hz": "Rath",
+        "calidad_respuesta": "0.22083",
+        "curvo": true,
+        "pantallafiltroplasma": false
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 24,
+    "fields": {
+        "urlcompra": "https://allen.com/explore/category/tagauthor.html",
+        "hz": "Weig",
+        "calidad_respuesta": "0.73752",
+        "curvo": true,
+        "pantallafiltroplasma": false
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 25,
+    "fields": {
+        "urlcompra": "http://richardson.com/posts/maincategory.asp",
+        "hz": "Imag",
+        "calidad_respuesta": "0.01736",
+        "curvo": false,
+        "pantallafiltroplasma": false
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 26,
+    "fields": {
+        "urlcompra": "http://franklin-barnes.info/wp-contentauthor.php",
+        "hz": "Sout",
+        "calidad_respuesta": "0.70399",
+        "curvo": true,
+        "pantallafiltroplasma": true
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 27,
+    "fields": {
+        "urlcompra": "https://www.duke.biz/search/wp-contentpost.html",
+        "hz": "Ever",
+        "calidad_respuesta": "0.83723",
+        "curvo": false,
+        "pantallafiltroplasma": true
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 28,
+    "fields": {
+        "urlcompra": "http://payne.com/tags/tag/searchindex.asp",
+        "hz": "Spea",
+        "calidad_respuesta": "0.14285",
+        "curvo": true,
+        "pantallafiltroplasma": false
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 29,
+    "fields": {
+        "urlcompra": "http://kim-dawson.org/app/list/tagregister.html",
+        "hz": "Bed ",
+        "calidad_respuesta": "0.42416",
+        "curvo": true,
+        "pantallafiltroplasma": true
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 30,
+    "fields": {
+        "urlcompra": "http://irwin.com/search/applogin.html",
+        "hz": "Can ",
+        "calidad_respuesta": "0.61499",
+        "curvo": true,
+        "pantallafiltroplasma": true
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 31,
+    "fields": {
+        "urlcompra": "http://larson.com/listterms.php",
+        "hz": "Big ",
+        "calidad_respuesta": "0.74206",
+        "curvo": true,
+        "pantallafiltroplasma": false
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 32,
+    "fields": {
+        "urlcompra": "https://valdez.com/explore/posts/blogcategory.html",
+        "hz": "Crim",
+        "calidad_respuesta": "0.70680",
+        "curvo": false,
+        "pantallafiltroplasma": false
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 33,
+    "fields": {
+        "urlcompra": "https://oconnor.biz/tags/wp-content/categoryregister.asp",
+        "hz": "Heal",
+        "calidad_respuesta": "0.75711",
+        "curvo": false,
+        "pantallafiltroplasma": false
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 34,
+    "fields": {
+        "urlcompra": "http://ho-schultz.com/tags/listmain.php",
+        "hz": "Size",
+        "calidad_respuesta": "0.71124",
+        "curvo": false,
+        "pantallafiltroplasma": true
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 35,
+    "fields": {
+        "urlcompra": "https://www.gordon-diaz.info/listcategory.jsp",
+        "hz": "Even",
+        "calidad_respuesta": "0.32527",
+        "curvo": false,
+        "pantallafiltroplasma": true
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 36,
+    "fields": {
+        "urlcompra": "https://johnson.com/search/mainhome.html",
+        "hz": "Invo",
+        "calidad_respuesta": "0.82805",
+        "curvo": false,
+        "pantallafiltroplasma": true
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 37,
+    "fields": {
+        "urlcompra": "http://www.cowan.com/mainhomepage.htm",
+        "hz": "Term",
+        "calidad_respuesta": "0.80879",
+        "curvo": false,
+        "pantallafiltroplasma": false
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 38,
+    "fields": {
+        "urlcompra": "http://www.garcia.net/taglogin.html",
+        "hz": "For ",
+        "calidad_respuesta": "0.42976",
+        "curvo": false,
+        "pantallafiltroplasma": true
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 39,
+    "fields": {
+        "urlcompra": "http://fuentes.com/listauthor.htm",
+        "hz": "Food",
+        "calidad_respuesta": "0.38316",
+        "curvo": false,
+        "pantallafiltroplasma": true
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 40,
+    "fields": {
+        "urlcompra": "https://benton.net/mainindex.html",
+        "hz": "Trou",
+        "calidad_respuesta": "0.39995",
+        "curvo": true,
+        "pantallafiltroplasma": true
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 41,
+    "fields": {
+        "urlcompra": "http://smith-wilson.net/wp-content/categorysearch.htm",
+        "hz": "Wear",
+        "calidad_respuesta": "0.96656",
+        "curvo": true,
+        "pantallafiltroplasma": false
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 42,
+    "fields": {
+        "urlcompra": "https://oconnor.com/bloghomepage.html",
+        "hz": "Itse",
+        "calidad_respuesta": "0.96866",
+        "curvo": false,
+        "pantallafiltroplasma": true
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 43,
+    "fields": {
+        "urlcompra": "http://www.cooley.com/bloghomepage.html",
+        "hz": "Prod",
+        "calidad_respuesta": "0.69025",
+        "curvo": false,
+        "pantallafiltroplasma": false
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 44,
+    "fields": {
+        "urlcompra": "https://rice-davis.com/list/search/postsregister.htm",
+        "hz": "Live",
+        "calidad_respuesta": "0.58422",
+        "curvo": false,
+        "pantallafiltroplasma": true
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 45,
+    "fields": {
+        "urlcompra": "http://www.cowan.org/mainindex.html",
+        "hz": "Acco",
+        "calidad_respuesta": "0.01421",
+        "curvo": true,
+        "pantallafiltroplasma": true
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 46,
+    "fields": {
+        "urlcompra": "http://www.williams.com/tags/categoryauthor.html",
+        "hz": "Spee",
+        "calidad_respuesta": "0.43380",
+        "curvo": true,
+        "pantallafiltroplasma": false
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 47,
+    "fields": {
+        "urlcompra": "https://www.mayer-johnson.com/tag/categoryauthor.jsp",
+        "hz": "Lead",
+        "calidad_respuesta": "0.10860",
+        "curvo": true,
+        "pantallafiltroplasma": false
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 48,
+    "fields": {
+        "urlcompra": "https://www.mata-long.com/wp-content/tagprivacy.htm",
+        "hz": "Try ",
+        "calidad_respuesta": "0.89406",
+        "curvo": false,
+        "pantallafiltroplasma": true
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 49,
+    "fields": {
+        "urlcompra": "https://www.owens.org/list/mainregister.jsp",
+        "hz": "Coup",
+        "calidad_respuesta": "0.69997",
+        "curvo": false,
+        "pantallafiltroplasma": false
+    }
+},
+{
+    "model": "tiendaordenadores.monitor",
+    "pk": 50,
+    "fields": {
+        "urlcompra": "http://www.wilson.info/categories/categoryprivacy.php",
+        "hz": "Actu",
+        "calidad_respuesta": "0.94690",
+        "curvo": false,
+        "pantallafiltroplasma": false
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 1,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Professor.",
+        "familiaram": "DDR3",
+        "rgb": true,
+        "factormemoria": -16670
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 2,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Dog.",
+        "familiaram": "DDR5",
+        "rgb": true,
+        "factormemoria": 17971
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 3,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Up show.",
+        "familiaram": "DDR5",
+        "rgb": true,
+        "factormemoria": -9447
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 4,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "To raise.",
+        "familiaram": "DDR5",
+        "rgb": true,
+        "factormemoria": 9976
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 5,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Policy.",
+        "familiaram": "DDR4",
+        "rgb": true,
+        "factormemoria": -9285
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 6,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Including.",
+        "familiaram": "DDR3",
+        "rgb": true,
+        "factormemoria": -16952
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 7,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Its act.",
+        "familiaram": "DDR5",
+        "rgb": true,
+        "factormemoria": 30877
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 8,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Road.",
+        "familiaram": "DDR3",
+        "rgb": true,
+        "factormemoria": 1062
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 9,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Staff.",
+        "familiaram": "DDR5",
+        "rgb": true,
+        "factormemoria": 5528
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 10,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Fish.",
+        "familiaram": "DDR3",
+        "rgb": true,
+        "factormemoria": 37
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 11,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Short.",
+        "familiaram": "DDR4",
+        "rgb": true,
+        "factormemoria": -10307
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 12,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Man nice.",
+        "familiaram": "DDR4",
+        "rgb": true,
+        "factormemoria": -30812
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 13,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Military.",
+        "familiaram": "DDR3",
+        "rgb": true,
+        "factormemoria": -17983
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 14,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Tonight.",
+        "familiaram": "DDR4",
+        "rgb": true,
+        "factormemoria": -30599
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 15,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Suddenly.",
+        "familiaram": "DDR5",
+        "rgb": true,
+        "factormemoria": -6099
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 16,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Recent.",
+        "familiaram": "DDR4",
+        "rgb": true,
+        "factormemoria": -18692
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 17,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Require.",
+        "familiaram": "DDR3",
+        "rgb": true,
+        "factormemoria": 19365
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 18,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Win.",
+        "familiaram": "DDR3",
+        "rgb": true,
+        "factormemoria": 28371
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 19,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Nearly.",
+        "familiaram": "DDR3",
+        "rgb": true,
+        "factormemoria": 24565
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 20,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Write.",
+        "familiaram": "DDR3",
+        "rgb": true,
+        "factormemoria": -27254
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 21,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Cut in.",
+        "familiaram": "DDR4",
+        "rgb": true,
+        "factormemoria": -32462
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 22,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Drive.",
+        "familiaram": "DDR3",
+        "rgb": true,
+        "factormemoria": 24717
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 23,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Base.",
+        "familiaram": "DDR3",
+        "rgb": true,
+        "factormemoria": -11035
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 24,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "A man.",
+        "familiaram": "DDR3",
+        "rgb": true,
+        "factormemoria": 2021
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 25,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Table bag.",
+        "familiaram": "DDR3",
+        "rgb": true,
+        "factormemoria": -24436
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 26,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Task lose.",
+        "familiaram": "DDR5",
+        "rgb": true,
+        "factormemoria": -8112
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 27,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Beyond.",
+        "familiaram": "DDR4",
+        "rgb": true,
+        "factormemoria": 20774
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 28,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Focus I.",
+        "familiaram": "DDR3",
+        "rgb": true,
+        "factormemoria": -26021
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 29,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Service.",
+        "familiaram": "DDR3",
+        "rgb": true,
+        "factormemoria": -432
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 30,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Herself.",
+        "familiaram": "DDR4",
+        "rgb": true,
+        "factormemoria": -2664
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 31,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Easy.",
+        "familiaram": "DDR3",
+        "rgb": true,
+        "factormemoria": -23877
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 32,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Money.",
+        "familiaram": "DDR4",
+        "rgb": true,
+        "factormemoria": 1163
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 33,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Talk.",
+        "familiaram": "DDR3",
+        "rgb": true,
+        "factormemoria": -21887
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 34,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Respond.",
+        "familiaram": "DDR4",
+        "rgb": true,
+        "factormemoria": -19804
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 35,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Treatment.",
+        "familiaram": "DDR4",
+        "rgb": true,
+        "factormemoria": -11005
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 36,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Trade.",
+        "familiaram": "DDR4",
+        "rgb": true,
+        "factormemoria": -25496
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 37,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "North.",
+        "familiaram": "DDR4",
+        "rgb": true,
+        "factormemoria": 2216
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 38,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "And per.",
+        "familiaram": "DDR3",
+        "rgb": true,
+        "factormemoria": 1000
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 39,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Discover.",
+        "familiaram": "DDR5",
+        "rgb": true,
+        "factormemoria": -2329
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 40,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Time.",
+        "familiaram": "DDR3",
+        "rgb": true,
+        "factormemoria": -3597
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 41,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Group our.",
+        "familiaram": "DDR4",
+        "rgb": true,
+        "factormemoria": -17229
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 42,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Stuff.",
+        "familiaram": "DDR3",
+        "rgb": true,
+        "factormemoria": -24785
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 43,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Family.",
+        "familiaram": "DDR4",
+        "rgb": true,
+        "factormemoria": -16964
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 44,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Wall.",
+        "familiaram": "DDR4",
+        "rgb": true,
+        "factormemoria": 14966
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 45,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Range.",
+        "familiaram": "DDR3",
+        "rgb": true,
+        "factormemoria": 32452
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 46,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Change.",
+        "familiaram": "DDR4",
+        "rgb": true,
+        "factormemoria": -3239
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 47,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Catch.",
+        "familiaram": "DDR5",
+        "rgb": true,
+        "factormemoria": 26028
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 48,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Source.",
+        "familiaram": "DDR3",
+        "rgb": true,
+        "factormemoria": -7998
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 49,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Answer.",
+        "familiaram": "DDR3",
+        "rgb": true,
+        "factormemoria": -6289
+    }
+},
+{
+    "model": "tiendaordenadores.ram",
+    "pk": 50,
+    "fields": {
+        "fecha_fabricacion": "2025-01-14",
+        "mhz": "Take.",
+        "familiaram": "DDR5",
+        "rgb": true,
+        "factormemoria": -22942
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 1,
+    "fields": {
+        "rpm": "Network agent presid",
+        "capacidad": "Treatment nice.",
+        "peso": "Event arm.",
+        "tiempomediofallos": "0.95",
+        "pulgadas": -19233
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 2,
+    "fields": {
+        "rpm": "Particular mouth bor",
+        "capacidad": "Can whether chance.",
+        "peso": "Interview.",
+        "tiempomediofallos": "0.18",
+        "pulgadas": -19600
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 3,
+    "fields": {
+        "rpm": "Position include fie",
+        "capacidad": "Control miss when.",
+        "peso": "Others.",
+        "tiempomediofallos": "0.63",
+        "pulgadas": 20458
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 4,
+    "fields": {
+        "rpm": "Save affect hour mov",
+        "capacidad": "Study blue above.",
+        "peso": "Project.",
+        "tiempomediofallos": "0.98",
+        "pulgadas": -24308
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 5,
+    "fields": {
+        "rpm": "Rule hospital should",
+        "capacidad": "Safe ago apply new.",
+        "peso": "Question.",
+        "tiempomediofallos": "0.45",
+        "pulgadas": 8390
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 6,
+    "fields": {
+        "rpm": "Cell standard safe m",
+        "capacidad": "Free determine land.",
+        "peso": "Forward.",
+        "tiempomediofallos": "0.24",
+        "pulgadas": 14497
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 7,
+    "fields": {
+        "rpm": "Early bag standard e",
+        "capacidad": "Perhaps gun head.",
+        "peso": "House.",
+        "tiempomediofallos": "0.12",
+        "pulgadas": 2214
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 8,
+    "fields": {
+        "rpm": "Science source none ",
+        "capacidad": "Especially believe.",
+        "peso": "Positive.",
+        "tiempomediofallos": "0.39",
+        "pulgadas": -31749
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 9,
+    "fields": {
+        "rpm": "Sing over hair lawye",
+        "capacidad": "Economic authority.",
+        "peso": "Parent.",
+        "tiempomediofallos": "0.12",
+        "pulgadas": -7056
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 10,
+    "fields": {
+        "rpm": "Loss these wonder ti",
+        "capacidad": "Scene cost green.",
+        "peso": "Expect.",
+        "tiempomediofallos": "0.31",
+        "pulgadas": -19140
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 11,
+    "fields": {
+        "rpm": "Stuff person yet hea",
+        "capacidad": "Majority central.",
+        "peso": "Teach.",
+        "tiempomediofallos": "0.89",
+        "pulgadas": -16419
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 12,
+    "fields": {
+        "rpm": "Major carry owner. D",
+        "capacidad": "Network price.",
+        "peso": "Agency.",
+        "tiempomediofallos": "0.63",
+        "pulgadas": -2837
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 13,
+    "fields": {
+        "rpm": "Keep market around c",
+        "capacidad": "Key more place.",
+        "peso": "Until.",
+        "tiempomediofallos": "0.76",
+        "pulgadas": -8265
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 14,
+    "fields": {
+        "rpm": "Cut night record old",
+        "capacidad": "Whom follow despite.",
+        "peso": "Person.",
+        "tiempomediofallos": "0.78",
+        "pulgadas": -25620
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 15,
+    "fields": {
+        "rpm": "Unit either site usu",
+        "capacidad": "Since campaign blue.",
+        "peso": "Number.",
+        "tiempomediofallos": "0.26",
+        "pulgadas": 33
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 16,
+    "fields": {
+        "rpm": "Experience big newsp",
+        "capacidad": "Off will mention.",
+        "peso": "PM deep.",
+        "tiempomediofallos": "0.19",
+        "pulgadas": 21423
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 17,
+    "fields": {
+        "rpm": "Set improve there fo",
+        "capacidad": "Role test often.",
+        "peso": "Turn year.",
+        "tiempomediofallos": "0.71",
+        "pulgadas": 11385
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 18,
+    "fields": {
+        "rpm": "Officer key study gr",
+        "capacidad": "Answer since.",
+        "peso": "Degree.",
+        "tiempomediofallos": "0.46",
+        "pulgadas": -16189
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 19,
+    "fields": {
+        "rpm": "Store live teach sho",
+        "capacidad": "Senior sort range.",
+        "peso": "Kid pass.",
+        "tiempomediofallos": "0.95",
+        "pulgadas": -11770
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 20,
+    "fields": {
+        "rpm": "Raise institution bu",
+        "capacidad": "Product ready.",
+        "peso": "Career.",
+        "tiempomediofallos": "0.68",
+        "pulgadas": 32412
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 21,
+    "fields": {
+        "rpm": "Animal different cit",
+        "capacidad": "Idea ago around.",
+        "peso": "Give mean.",
+        "tiempomediofallos": "0.30",
+        "pulgadas": 4508
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 22,
+    "fields": {
+        "rpm": "Arrive small agreeme",
+        "capacidad": "Energy political.",
+        "peso": "Probably.",
+        "tiempomediofallos": "0.97",
+        "pulgadas": -17786
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 23,
+    "fields": {
+        "rpm": "Office spend seat mo",
+        "capacidad": "Me book affect home.",
+        "peso": "Group nor.",
+        "tiempomediofallos": "0.79",
+        "pulgadas": -17573
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 24,
+    "fields": {
+        "rpm": "Court adult yet offi",
+        "capacidad": "Three have sister.",
+        "peso": "New food.",
+        "tiempomediofallos": "0.45",
+        "pulgadas": -9469
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 25,
+    "fields": {
+        "rpm": "Floor along health. ",
+        "capacidad": "Black rule race.",
+        "peso": "Safe live.",
+        "tiempomediofallos": "0.71",
+        "pulgadas": -26797
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 26,
+    "fields": {
+        "rpm": "North thus issue sta",
+        "capacidad": "Reveal prove that.",
+        "peso": "Low four.",
+        "tiempomediofallos": "0.73",
+        "pulgadas": -7080
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 27,
+    "fields": {
+        "rpm": "Me state those water",
+        "capacidad": "Media probably.",
+        "peso": "Federal.",
+        "tiempomediofallos": "0.86",
+        "pulgadas": -6088
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 28,
+    "fields": {
+        "rpm": "Dream behind hospita",
+        "capacidad": "Could way this kid.",
+        "peso": "Trial.",
+        "tiempomediofallos": "0.61",
+        "pulgadas": 13135
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 29,
+    "fields": {
+        "rpm": "Meet station team wi",
+        "capacidad": "Recent finally.",
+        "peso": "Free.",
+        "tiempomediofallos": "0.16",
+        "pulgadas": -6058
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 30,
+    "fields": {
+        "rpm": "Power help front spe",
+        "capacidad": "Run tax around.",
+        "peso": "Site.",
+        "tiempomediofallos": "0.95",
+        "pulgadas": -20372
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 31,
+    "fields": {
+        "rpm": "Pressure development",
+        "capacidad": "Skill your as any.",
+        "peso": "Laugh.",
+        "tiempomediofallos": "0.90",
+        "pulgadas": 6338
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 32,
+    "fields": {
+        "rpm": "Oil economic agree f",
+        "capacidad": "Water important old.",
+        "peso": "Cultural.",
+        "tiempomediofallos": "0.39",
+        "pulgadas": 24595
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 33,
+    "fields": {
+        "rpm": "Upon piece manager s",
+        "capacidad": "Trade still.",
+        "peso": "Thank.",
+        "tiempomediofallos": "0.79",
+        "pulgadas": -31710
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 34,
+    "fields": {
+        "rpm": "If collection includ",
+        "capacidad": "Economy whatever.",
+        "peso": "Serve.",
+        "tiempomediofallos": "0.36",
+        "pulgadas": -16706
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 35,
+    "fields": {
+        "rpm": "Produce interview mu",
+        "capacidad": "Story include bank.",
+        "peso": "Always.",
+        "tiempomediofallos": "0.70",
+        "pulgadas": -24533
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 36,
+    "fields": {
+        "rpm": "General environmenta",
+        "capacidad": "Fish air cold.",
+        "peso": "Direction.",
+        "tiempomediofallos": "0.24",
+        "pulgadas": 20635
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 37,
+    "fields": {
+        "rpm": "Remain maybe exactly",
+        "capacidad": "Doctor response.",
+        "peso": "If.",
+        "tiempomediofallos": "0.05",
+        "pulgadas": -10412
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 38,
+    "fields": {
+        "rpm": "As make produce eat ",
+        "capacidad": "Scene floor first.",
+        "peso": "Put about.",
+        "tiempomediofallos": "0.19",
+        "pulgadas": -2691
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 39,
+    "fields": {
+        "rpm": "Seven team imagine f",
+        "capacidad": "Right worry.",
+        "peso": "Produce.",
+        "tiempomediofallos": "0.38",
+        "pulgadas": -20181
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 40,
+    "fields": {
+        "rpm": "Provide popular meet",
+        "capacidad": "Late add suggest.",
+        "peso": "Budget.",
+        "tiempomediofallos": "0.79",
+        "pulgadas": -9265
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 41,
+    "fields": {
+        "rpm": "Sell something nice.",
+        "capacidad": "Say budget agree.",
+        "peso": "Into.",
+        "tiempomediofallos": "0.97",
+        "pulgadas": 6498
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 42,
+    "fields": {
+        "rpm": "Police whether be ye",
+        "capacidad": "Professor send.",
+        "peso": "Ability.",
+        "tiempomediofallos": "0.18",
+        "pulgadas": 16351
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 43,
+    "fields": {
+        "rpm": "Hold police camera f",
+        "capacidad": "Serve understand.",
+        "peso": "Civil.",
+        "tiempomediofallos": "0.27",
+        "pulgadas": 4262
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 44,
+    "fields": {
+        "rpm": "Full rock carry powe",
+        "capacidad": "Edge once however.",
+        "peso": "Treatment.",
+        "tiempomediofallos": "0.70",
+        "pulgadas": -5273
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 45,
+    "fields": {
+        "rpm": "Toward federal minut",
+        "capacidad": "Admit experience.",
+        "peso": "Go throw.",
+        "tiempomediofallos": "0.75",
+        "pulgadas": -12019
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 46,
+    "fields": {
+        "rpm": "Relate heavy stock t",
+        "capacidad": "Administration.",
+        "peso": "Red score.",
+        "tiempomediofallos": "0.56",
+        "pulgadas": -7710
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 47,
+    "fields": {
+        "rpm": "He expert small big.",
+        "capacidad": "Pressure home.",
+        "peso": "Physical.",
+        "tiempomediofallos": "0.42",
+        "pulgadas": -31279
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 48,
+    "fields": {
+        "rpm": "Specific green lot. ",
+        "capacidad": "Realize you forward.",
+        "peso": "Family.",
+        "tiempomediofallos": "0.76",
+        "pulgadas": -29389
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 49,
+    "fields": {
+        "rpm": "Question admit under",
+        "capacidad": "Including anything.",
+        "peso": "Hit.",
+        "tiempomediofallos": "0.44",
+        "pulgadas": -27196
+    }
+},
+{
+    "model": "tiendaordenadores.discodurohdd",
+    "pk": 50,
+    "fields": {
+        "rpm": "Human hot go detail.",
+        "capacidad": "Employee sea.",
+        "peso": "Old.",
+        "tiempomediofallos": "0.36",
+        "pulgadas": -26957
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 1,
+    "fields": {
+        "amperaje": "Us lot such police m",
+        "capacidad": "Here without rise.",
+        "peso": "Help.",
+        "tiempomediofallos": "0.03"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 2,
+    "fields": {
+        "amperaje": "Scientist possible a",
+        "capacidad": "Sing happy second.",
+        "peso": "While.",
+        "tiempomediofallos": "0.14"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 3,
+    "fields": {
+        "amperaje": "Capital list left af",
+        "capacidad": "Analysis population.",
+        "peso": "Knowledge.",
+        "tiempomediofallos": "0.99"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 4,
+    "fields": {
+        "amperaje": "Goal best smile affe",
+        "capacidad": "Former while skin.",
+        "peso": "Most new.",
+        "tiempomediofallos": "0.12"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 5,
+    "fields": {
+        "amperaje": "Fear purpose live. S",
+        "capacidad": "Road laugh husband.",
+        "peso": "End.",
+        "tiempomediofallos": "0.78"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 6,
+    "fields": {
+        "amperaje": "May risk several dar",
+        "capacidad": "Win soon heavy.",
+        "peso": "Offer.",
+        "tiempomediofallos": "0.48"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 7,
+    "fields": {
+        "amperaje": "Concern security sud",
+        "capacidad": "Participant last.",
+        "peso": "Trade.",
+        "tiempomediofallos": "0.86"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 8,
+    "fields": {
+        "amperaje": "Stay capital specifi",
+        "capacidad": "History treatment.",
+        "peso": "From.",
+        "tiempomediofallos": "0.29"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 9,
+    "fields": {
+        "amperaje": "Late safe stay exist",
+        "capacidad": "Official through.",
+        "peso": "Will.",
+        "tiempomediofallos": "0.96"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 10,
+    "fields": {
+        "amperaje": "It parent themselves",
+        "capacidad": "Center baby apply.",
+        "peso": "Charge.",
+        "tiempomediofallos": "0.34"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 11,
+    "fields": {
+        "amperaje": "Sport dog imagine as",
+        "capacidad": "Line choice lot.",
+        "peso": "Watch.",
+        "tiempomediofallos": "0.33"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 12,
+    "fields": {
+        "amperaje": "Style challenge like",
+        "capacidad": "Try the civil occur.",
+        "peso": "Ball foot.",
+        "tiempomediofallos": "0.34"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 13,
+    "fields": {
+        "amperaje": "Something somebody h",
+        "capacidad": "Former risk PM.",
+        "peso": "Late.",
+        "tiempomediofallos": "0.86"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 14,
+    "fields": {
+        "amperaje": "Decide admit TV set.",
+        "capacidad": "Suggest teacher.",
+        "peso": "Win child.",
+        "tiempomediofallos": "0.36"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 15,
+    "fields": {
+        "amperaje": "Not win walk catch i",
+        "capacidad": "Animal education.",
+        "peso": "Among.",
+        "tiempomediofallos": "0.90"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 16,
+    "fields": {
+        "amperaje": "Stage seven thousand",
+        "capacidad": "Newspaper majority.",
+        "peso": "Analysis.",
+        "tiempomediofallos": "0.23"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 17,
+    "fields": {
+        "amperaje": "Protect us part alth",
+        "capacidad": "And business argue.",
+        "peso": "Maybe.",
+        "tiempomediofallos": "0.69"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 18,
+    "fields": {
+        "amperaje": "Field somebody indic",
+        "capacidad": "Leader hot prevent.",
+        "peso": "Minute.",
+        "tiempomediofallos": "0.82"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 19,
+    "fields": {
+        "amperaje": "Really challenge key",
+        "capacidad": "Maintain never not.",
+        "peso": "Visit.",
+        "tiempomediofallos": "0.39"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 20,
+    "fields": {
+        "amperaje": "Nor experience claim",
+        "capacidad": "Serve film itself.",
+        "peso": "Event.",
+        "tiempomediofallos": "0.77"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 21,
+    "fields": {
+        "amperaje": "Director miss when l",
+        "capacidad": "Century as around.",
+        "peso": "Product.",
+        "tiempomediofallos": "0.68"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 22,
+    "fields": {
+        "amperaje": "Defense action growt",
+        "capacidad": "Around may every.",
+        "peso": "Quite.",
+        "tiempomediofallos": "0.92"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 23,
+    "fields": {
+        "amperaje": "Sense laugh network ",
+        "capacidad": "Impact because.",
+        "peso": "Rise.",
+        "tiempomediofallos": "0.89"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 24,
+    "fields": {
+        "amperaje": "Statement woman poli",
+        "capacidad": "Back television.",
+        "peso": "Subject.",
+        "tiempomediofallos": "0.05"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 25,
+    "fields": {
+        "amperaje": "Wife ago while do. V",
+        "capacidad": "City employee.",
+        "peso": "Instead.",
+        "tiempomediofallos": "0.29"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 26,
+    "fields": {
+        "amperaje": "Spend avoid at bill ",
+        "capacidad": "Computer data.",
+        "peso": "Along.",
+        "tiempomediofallos": "0.76"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 27,
+    "fields": {
+        "amperaje": "Democratic board adm",
+        "capacidad": "House when test.",
+        "peso": "Position.",
+        "tiempomediofallos": "0.85"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 28,
+    "fields": {
+        "amperaje": "Who end development.",
+        "capacidad": "Out strong personal.",
+        "peso": "Policy.",
+        "tiempomediofallos": "0.91"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 29,
+    "fields": {
+        "amperaje": "Wonder around suppor",
+        "capacidad": "Public eight.",
+        "peso": "Mission.",
+        "tiempomediofallos": "0.95"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 30,
+    "fields": {
+        "amperaje": "Clear eat specific m",
+        "capacidad": "Staff new real.",
+        "peso": "Outside.",
+        "tiempomediofallos": "0.14"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 31,
+    "fields": {
+        "amperaje": "Where hot house left",
+        "capacidad": "Site cold land one.",
+        "peso": "Leave.",
+        "tiempomediofallos": "0.28"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 32,
+    "fields": {
+        "amperaje": "Leave want medical p",
+        "capacidad": "Hotel possible.",
+        "peso": "Really.",
+        "tiempomediofallos": "0.90"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 33,
+    "fields": {
+        "amperaje": "Must fall maintain f",
+        "capacidad": "Such discussion.",
+        "peso": "Which.",
+        "tiempomediofallos": "0.65"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 34,
+    "fields": {
+        "amperaje": "Law second look cell",
+        "capacidad": "Prevent grow up.",
+        "peso": "Computer.",
+        "tiempomediofallos": "0.26"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 35,
+    "fields": {
+        "amperaje": "Upon cut once act.\nS",
+        "capacidad": "Keep only note town.",
+        "peso": "Here.",
+        "tiempomediofallos": "0.82"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 36,
+    "fields": {
+        "amperaje": "Travel season card e",
+        "capacidad": "Seat clearly night.",
+        "peso": "Article.",
+        "tiempomediofallos": "0.58"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 37,
+    "fields": {
+        "amperaje": "Letter scene member ",
+        "capacidad": "Phone according.",
+        "peso": "Though.",
+        "tiempomediofallos": "0.49"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 38,
+    "fields": {
+        "amperaje": "See family some coll",
+        "capacidad": "Manage democratic.",
+        "peso": "Change.",
+        "tiempomediofallos": "0.93"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 39,
+    "fields": {
+        "amperaje": "Dream four sure tele",
+        "capacidad": "West another early.",
+        "peso": "Foot.",
+        "tiempomediofallos": "0.69"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 40,
+    "fields": {
+        "amperaje": "New night you smile ",
+        "capacidad": "Technology whose.",
+        "peso": "Entire.",
+        "tiempomediofallos": "0.01"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 41,
+    "fields": {
+        "amperaje": "Why area rise moment",
+        "capacidad": "Son often list bar.",
+        "peso": "Truth.",
+        "tiempomediofallos": "0.16"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 42,
+    "fields": {
+        "amperaje": "Short because thing ",
+        "capacidad": "Sign play car board.",
+        "peso": "Stand.",
+        "tiempomediofallos": "0.07"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 43,
+    "fields": {
+        "amperaje": "Myself indicate eith",
+        "capacidad": "Law half movie.",
+        "peso": "Itself.",
+        "tiempomediofallos": "0.89"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 44,
+    "fields": {
+        "amperaje": "Use college manager.",
+        "capacidad": "Grow anything.",
+        "peso": "Hold.",
+        "tiempomediofallos": "0.40"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 45,
+    "fields": {
+        "amperaje": "Book expert not once",
+        "capacidad": "Black rule can pay.",
+        "peso": "Employee.",
+        "tiempomediofallos": "0.04"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 46,
+    "fields": {
+        "amperaje": "Avoid understand why",
+        "capacidad": "Language seven.",
+        "peso": "Happy one.",
+        "tiempomediofallos": "0.75"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 47,
+    "fields": {
+        "amperaje": "Human short national",
+        "capacidad": "Dream whatever.",
+        "peso": "Indicate.",
+        "tiempomediofallos": "0.52"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 48,
+    "fields": {
+        "amperaje": "Nothing Democrat soo",
+        "capacidad": "Ever reality.",
+        "peso": "With her.",
+        "tiempomediofallos": "0.62"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 49,
+    "fields": {
+        "amperaje": "None power prove sec",
+        "capacidad": "Evening nice which.",
+        "peso": "Method.",
+        "tiempomediofallos": "0.39"
+    }
+},
+{
+    "model": "tiendaordenadores.discodurossd",
+    "pk": 50,
+    "fields": {
+        "amperaje": "Policy network next ",
+        "capacidad": "Look scene common.",
+        "peso": "Whose.",
+        "tiempomediofallos": "0.85"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 1,
+    "fields": {
+        "amperaje": "Agent national indiv",
+        "capacidad": "Heavy floor tree.",
+        "peso": "Anything.",
+        "tiempomediofallos": "0.36"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 2,
+    "fields": {
+        "amperaje": "Usually option court",
+        "capacidad": "Recognize leg.",
+        "peso": "Community.",
+        "tiempomediofallos": "0.32"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 3,
+    "fields": {
+        "amperaje": "Space central former",
+        "capacidad": "Case four evening.",
+        "peso": "Staff.",
+        "tiempomediofallos": "0.10"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 4,
+    "fields": {
+        "amperaje": "Like lawyer area res",
+        "capacidad": "Me college same ago.",
+        "peso": "Team.",
+        "tiempomediofallos": "0.46"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 5,
+    "fields": {
+        "amperaje": "Gas family sense.\nAp",
+        "capacidad": "Seat near its.",
+        "peso": "Research.",
+        "tiempomediofallos": "0.75"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 6,
+    "fields": {
+        "amperaje": "One do help his rise",
+        "capacidad": "Evidence push lose.",
+        "peso": "Raise.",
+        "tiempomediofallos": "0.84"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 7,
+    "fields": {
+        "amperaje": "Difference ability c",
+        "capacidad": "Story officer the.",
+        "peso": "Practice.",
+        "tiempomediofallos": "0.50"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 8,
+    "fields": {
+        "amperaje": "All down seven posit",
+        "capacidad": "Mother just thus.",
+        "peso": "Floor.",
+        "tiempomediofallos": "0.38"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 9,
+    "fields": {
+        "amperaje": "Have carry tend hit ",
+        "capacidad": "Southern body.",
+        "peso": "Project.",
+        "tiempomediofallos": "0.82"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 10,
+    "fields": {
+        "amperaje": "Market health our ag",
+        "capacidad": "Whatever buy pass.",
+        "peso": "Wide.",
+        "tiempomediofallos": "0.98"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 11,
+    "fields": {
+        "amperaje": "Country avoid trial ",
+        "capacidad": "House tend.",
+        "peso": "Reach.",
+        "tiempomediofallos": "0.03"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 12,
+    "fields": {
+        "amperaje": "Detail glass economy",
+        "capacidad": "Wall when drop.",
+        "peso": "Home rich.",
+        "tiempomediofallos": "0.37"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 13,
+    "fields": {
+        "amperaje": "Create development l",
+        "capacidad": "Note trouble us.",
+        "peso": "National.",
+        "tiempomediofallos": "0.26"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 14,
+    "fields": {
+        "amperaje": "Her present little b",
+        "capacidad": "Knowledge door.",
+        "peso": "Serious.",
+        "tiempomediofallos": "0.75"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 15,
+    "fields": {
+        "amperaje": "Right growth importa",
+        "capacidad": "Kitchen concern.",
+        "peso": "Start.",
+        "tiempomediofallos": "0.57"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 16,
+    "fields": {
+        "amperaje": "Lay may husband item",
+        "capacidad": "Century science.",
+        "peso": "Can.",
+        "tiempomediofallos": "0.91"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 17,
+    "fields": {
+        "amperaje": "Decide send no feel.",
+        "capacidad": "Them despite group.",
+        "peso": "Finally.",
+        "tiempomediofallos": "0.33"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 18,
+    "fields": {
+        "amperaje": "Around week contain ",
+        "capacidad": "Benefit serve.",
+        "peso": "Wrong.",
+        "tiempomediofallos": "0.54"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 19,
+    "fields": {
+        "amperaje": "Sing resource sea of",
+        "capacidad": "Though sometimes.",
+        "peso": "Think.",
+        "tiempomediofallos": "0.35"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 20,
+    "fields": {
+        "amperaje": "Respond soldier huge",
+        "capacidad": "Way story compare.",
+        "peso": "Card.",
+        "tiempomediofallos": "0.14"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 21,
+    "fields": {
+        "amperaje": "Both city continue e",
+        "capacidad": "Image they possible.",
+        "peso": "Song.",
+        "tiempomediofallos": "0.21"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 22,
+    "fields": {
+        "amperaje": "Take blue night base",
+        "capacidad": "Can trouble trial.",
+        "peso": "Along.",
+        "tiempomediofallos": "0.23"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 23,
+    "fields": {
+        "amperaje": "One left will medica",
+        "capacidad": "Writer yes finish.",
+        "peso": "Happy.",
+        "tiempomediofallos": "0.40"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 24,
+    "fields": {
+        "amperaje": "Wall people each win",
+        "capacidad": "Father environment.",
+        "peso": "Focus.",
+        "tiempomediofallos": "0.25"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 25,
+    "fields": {
+        "amperaje": "Smile commercial you",
+        "capacidad": "Could tonight.",
+        "peso": "Available.",
+        "tiempomediofallos": "0.52"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 26,
+    "fields": {
+        "amperaje": "Score add true invol",
+        "capacidad": "Team today long too.",
+        "peso": "Adult son.",
+        "tiempomediofallos": "0.66"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 27,
+    "fields": {
+        "amperaje": "Lay personal agreeme",
+        "capacidad": "Success safe good.",
+        "peso": "Market.",
+        "tiempomediofallos": "0.14"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 28,
+    "fields": {
+        "amperaje": "Between whose measur",
+        "capacidad": "Case father church.",
+        "peso": "Cover.",
+        "tiempomediofallos": "0.90"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 29,
+    "fields": {
+        "amperaje": "Coach attack however",
+        "capacidad": "Notice work western.",
+        "peso": "Radio.",
+        "tiempomediofallos": "0.53"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 30,
+    "fields": {
+        "amperaje": "Find final what thro",
+        "capacidad": "Plant cover recent.",
+        "peso": "Remain.",
+        "tiempomediofallos": "0.22"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 31,
+    "fields": {
+        "amperaje": "Peace very by confer",
+        "capacidad": "Design never.",
+        "peso": "Sell war.",
+        "tiempomediofallos": "0.38"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 32,
+    "fields": {
+        "amperaje": "Pretty store nothing",
+        "capacidad": "However possible.",
+        "peso": "Entire.",
+        "tiempomediofallos": "0.39"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 33,
+    "fields": {
+        "amperaje": "Discussion already a",
+        "capacidad": "Window beat moment.",
+        "peso": "Stock.",
+        "tiempomediofallos": "0.76"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 34,
+    "fields": {
+        "amperaje": "Space organization o",
+        "capacidad": "Production maintain.",
+        "peso": "Test.",
+        "tiempomediofallos": "0.84"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 35,
+    "fields": {
+        "amperaje": "Agree safe that risk",
+        "capacidad": "True together peace.",
+        "peso": "Because.",
+        "tiempomediofallos": "0.05"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 36,
+    "fields": {
+        "amperaje": "Off bar meet make ad",
+        "capacidad": "Peace new scene.",
+        "peso": "So until.",
+        "tiempomediofallos": "0.13"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 37,
+    "fields": {
+        "amperaje": "Say general collecti",
+        "capacidad": "We image upon great.",
+        "peso": "Control.",
+        "tiempomediofallos": "0.54"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 38,
+    "fields": {
+        "amperaje": "Walk item management",
+        "capacidad": "Event stay these.",
+        "peso": "Since.",
+        "tiempomediofallos": "0.78"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 39,
+    "fields": {
+        "amperaje": "Security dog great s",
+        "capacidad": "Stay issue morning.",
+        "peso": "Property.",
+        "tiempomediofallos": "0.48"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 40,
+    "fields": {
+        "amperaje": "Great training away ",
+        "capacidad": "Mr improve follow.",
+        "peso": "Address.",
+        "tiempomediofallos": "0.22"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 41,
+    "fields": {
+        "amperaje": "Case himself theory ",
+        "capacidad": "Specific party.",
+        "peso": "Peace.",
+        "tiempomediofallos": "0.86"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 42,
+    "fields": {
+        "amperaje": "Might concern messag",
+        "capacidad": "Determine.",
+        "peso": "Listen.",
+        "tiempomediofallos": "0.96"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 43,
+    "fields": {
+        "amperaje": "Newspaper glass clai",
+        "capacidad": "You country anyone.",
+        "peso": "Enjoy bar.",
+        "tiempomediofallos": "0.73"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 44,
+    "fields": {
+        "amperaje": "Daughter fill PM spe",
+        "capacidad": "President poor.",
+        "peso": "Cost.",
+        "tiempomediofallos": "0.45"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 45,
+    "fields": {
+        "amperaje": "Dinner bad ago. Law ",
+        "capacidad": "Husband notice.",
+        "peso": "Someone.",
+        "tiempomediofallos": "0.89"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 46,
+    "fields": {
+        "amperaje": "Let although film up",
+        "capacidad": "Institution.",
+        "peso": "Church.",
+        "tiempomediofallos": "0.19"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 47,
+    "fields": {
+        "amperaje": "Out somebody peace w",
+        "capacidad": "Financial effect.",
+        "peso": "His about.",
+        "tiempomediofallos": "0.87"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 48,
+    "fields": {
+        "amperaje": "Memory billion soon ",
+        "capacidad": "Style city five.",
+        "peso": "Start two.",
+        "tiempomediofallos": "0.52"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 49,
+    "fields": {
+        "amperaje": "You democratic its h",
+        "capacidad": "Kind laugh lot try.",
+        "peso": "Shake.",
+        "tiempomediofallos": "0.40"
+    }
+},
+{
+    "model": "tiendaordenadores.discoduronvme",
+    "pk": 50,
+    "fields": {
+        "amperaje": "Sister your computer",
+        "capacidad": "Behavior risk size.",
+        "peso": "Amount.",
+        "tiempomediofallos": "0.74"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 1,
+    "fields": {
+        "vidautil": "Bank discover.",
+        "socket": "Intel",
+        "voltaje": "A book.",
+        "dimensiones": "Everybody.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 2,
+    "fields": {
+        "vidautil": "Look news lead be.",
+        "socket": "Ryzen",
+        "voltaje": "City want.",
+        "dimensiones": "Rule mind.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 3,
+    "fields": {
+        "vidautil": "Nice hit produce.",
+        "socket": "Ryzen",
+        "voltaje": "Ability.",
+        "dimensiones": "Goal.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 4,
+    "fields": {
+        "vidautil": "Sit money make over.",
+        "socket": "Ryzen",
+        "voltaje": "Finish.",
+        "dimensiones": "Lot age.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 5,
+    "fields": {
+        "vidautil": "Beyond hope up.",
+        "socket": "Intel",
+        "voltaje": "Popular.",
+        "dimensiones": "Same step.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 6,
+    "fields": {
+        "vidautil": "This itself.",
+        "socket": "Intel",
+        "voltaje": "Main.",
+        "dimensiones": "Summer.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 7,
+    "fields": {
+        "vidautil": "Hit may member take.",
+        "socket": "Ryzen",
+        "voltaje": "Member.",
+        "dimensiones": "Teacher.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 8,
+    "fields": {
+        "vidautil": "Many down poor ok.",
+        "socket": "Ryzen",
+        "voltaje": "Senior.",
+        "dimensiones": "Much.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 9,
+    "fields": {
+        "vidautil": "Wife religious same.",
+        "socket": "Ryzen",
+        "voltaje": "Send.",
+        "dimensiones": "Use.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 10,
+    "fields": {
+        "vidautil": "Cold past half.",
+        "socket": "Ryzen",
+        "voltaje": "Hot seek.",
+        "dimensiones": "True.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 11,
+    "fields": {
+        "vidautil": "Like represent.",
+        "socket": "Ryzen",
+        "voltaje": "Certainly.",
+        "dimensiones": "Glass.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 12,
+    "fields": {
+        "vidautil": "I easy ask.",
+        "socket": "Ryzen",
+        "voltaje": "Adult sit.",
+        "dimensiones": "Appear.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 13,
+    "fields": {
+        "vidautil": "Allow mission bank.",
+        "socket": "Intel",
+        "voltaje": "Might if.",
+        "dimensiones": "Score.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 14,
+    "fields": {
+        "vidautil": "Blue condition.",
+        "socket": "Intel",
+        "voltaje": "Foot lose.",
+        "dimensiones": "Benefit.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 15,
+    "fields": {
+        "vidautil": "After instead.",
+        "socket": "Intel",
+        "voltaje": "Person.",
+        "dimensiones": "Usually.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 16,
+    "fields": {
+        "vidautil": "Agreement cost.",
+        "socket": "Ryzen",
+        "voltaje": "Buy give.",
+        "dimensiones": "Stage.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 17,
+    "fields": {
+        "vidautil": "Ahead condition her.",
+        "socket": "Ryzen",
+        "voltaje": "Like.",
+        "dimensiones": "Five.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 18,
+    "fields": {
+        "vidautil": "Modern run the.",
+        "socket": "Intel",
+        "voltaje": "Social of.",
+        "dimensiones": "Remain.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 19,
+    "fields": {
+        "vidautil": "Security successful.",
+        "socket": "Intel",
+        "voltaje": "Write key.",
+        "dimensiones": "Animal.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 20,
+    "fields": {
+        "vidautil": "Buy miss strategy.",
+        "socket": "Ryzen",
+        "voltaje": "Fill let.",
+        "dimensiones": "Four.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 21,
+    "fields": {
+        "vidautil": "Speak write night.",
+        "socket": "Intel",
+        "voltaje": "Test you.",
+        "dimensiones": "Threat.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 22,
+    "fields": {
+        "vidautil": "Painting involve.",
+        "socket": "Intel",
+        "voltaje": "Else.",
+        "dimensiones": "Middle.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 23,
+    "fields": {
+        "vidautil": "Relate rock.",
+        "socket": "Ryzen",
+        "voltaje": "Only fly.",
+        "dimensiones": "Board at.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 24,
+    "fields": {
+        "vidautil": "Along city measure.",
+        "socket": "Intel",
+        "voltaje": "Away end.",
+        "dimensiones": "Thus page.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 25,
+    "fields": {
+        "vidautil": "Stock place once.",
+        "socket": "Ryzen",
+        "voltaje": "Hope.",
+        "dimensiones": "Cup issue.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 26,
+    "fields": {
+        "vidautil": "On half yeah.",
+        "socket": "Ryzen",
+        "voltaje": "Agent.",
+        "dimensiones": "Four open.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 27,
+    "fields": {
+        "vidautil": "Better challenge.",
+        "socket": "Intel",
+        "voltaje": "Boy term.",
+        "dimensiones": "Good film.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 28,
+    "fields": {
+        "vidautil": "Daughter build.",
+        "socket": "Ryzen",
+        "voltaje": "Apply.",
+        "dimensiones": "Public.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 29,
+    "fields": {
+        "vidautil": "Test attorney.",
+        "socket": "Intel",
+        "voltaje": "Prevent.",
+        "dimensiones": "Section.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 30,
+    "fields": {
+        "vidautil": "Total anyone it.",
+        "socket": "Ryzen",
+        "voltaje": "Alone.",
+        "dimensiones": "Know.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 31,
+    "fields": {
+        "vidautil": "Attention be eat.",
+        "socket": "Intel",
+        "voltaje": "Gas hair.",
+        "dimensiones": "Side.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 32,
+    "fields": {
+        "vidautil": "Television its go.",
+        "socket": "Ryzen",
+        "voltaje": "Election.",
+        "dimensiones": "West.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 33,
+    "fields": {
+        "vidautil": "Finish live.",
+        "socket": "Ryzen",
+        "voltaje": "Ok space.",
+        "dimensiones": "Identify.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 34,
+    "fields": {
+        "vidautil": "Mr order reality.",
+        "socket": "Ryzen",
+        "voltaje": "Congress.",
+        "dimensiones": "Answer.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 35,
+    "fields": {
+        "vidautil": "Power someone us.",
+        "socket": "Ryzen",
+        "voltaje": "Artist.",
+        "dimensiones": "Or.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 36,
+    "fields": {
+        "vidautil": "Choose series.",
+        "socket": "Ryzen",
+        "voltaje": "Interview.",
+        "dimensiones": "Day.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 37,
+    "fields": {
+        "vidautil": "Admit its meet seat.",
+        "socket": "Intel",
+        "voltaje": "Rather.",
+        "dimensiones": "Forward.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 38,
+    "fields": {
+        "vidautil": "Reality choose dark.",
+        "socket": "Intel",
+        "voltaje": "Always.",
+        "dimensiones": "Effect.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 39,
+    "fields": {
+        "vidautil": "Their simple art.",
+        "socket": "Intel",
+        "voltaje": "Himself.",
+        "dimensiones": "Prove.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 40,
+    "fields": {
+        "vidautil": "Father accept sign.",
+        "socket": "Ryzen",
+        "voltaje": "Standard.",
+        "dimensiones": "Matter.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 41,
+    "fields": {
+        "vidautil": "Two amount sell.",
+        "socket": "Intel",
+        "voltaje": "Age wind.",
+        "dimensiones": "Modern.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 42,
+    "fields": {
+        "vidautil": "To professional.",
+        "socket": "Intel",
+        "voltaje": "Within.",
+        "dimensiones": "Very.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 43,
+    "fields": {
+        "vidautil": "Happy visit leg.",
+        "socket": "Intel",
+        "voltaje": "Glass.",
+        "dimensiones": "Father.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 44,
+    "fields": {
+        "vidautil": "Produce impact.",
+        "socket": "Ryzen",
+        "voltaje": "Born red.",
+        "dimensiones": "Alone.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 45,
+    "fields": {
+        "vidautil": "Natural real guess.",
+        "socket": "Intel",
+        "voltaje": "Travel.",
+        "dimensiones": "Nothing.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 46,
+    "fields": {
+        "vidautil": "Product town.",
+        "socket": "Ryzen",
+        "voltaje": "Social.",
+        "dimensiones": "True play.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 47,
+    "fields": {
+        "vidautil": "Effect side.",
+        "socket": "Intel",
+        "voltaje": "Sea none.",
+        "dimensiones": "Standard.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 48,
+    "fields": {
+        "vidautil": "Right place hope.",
+        "socket": "Intel",
+        "voltaje": "Director.",
+        "dimensiones": "Task else.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 49,
+    "fields": {
+        "vidautil": "Method important.",
+        "socket": "Ryzen",
+        "voltaje": "Wonder.",
+        "dimensiones": "Space.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+},
+{
+    "model": "tiendaordenadores.disipador",
+    "pk": 50,
+    "fields": {
+        "vidautil": "Machine style.",
+        "socket": "Intel",
+        "voltaje": "Available.",
+        "dimensiones": "Sort.",
+        "fechacreacion": "2025-01-14T09:21:18.451Z"
+    }
+}
+]

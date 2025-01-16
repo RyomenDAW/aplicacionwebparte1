@@ -1,4 +1,7 @@
 .nav-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     width: 100%;
     overflow: hidden;
     background-color: #f9f9f9;
@@ -7,6 +10,7 @@
     border-bottom: 1px solid black;
     border-top: 1px solid black;
 }
+
 
 .logo {
     float: left;
@@ -20,6 +24,7 @@
 
 .navigation {
     float: left;
+    margin-left: 10%;
 }
 
 nav {
@@ -31,14 +36,12 @@ ul.nav-section {
     list-style-type: none;
     padding: 0;
     margin: 0 0 15px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajusta las columnas según el ancho */
+    gap: 10px; /* Espacio entre los elementos */
 }
 
-.nav-section .nav-header {
-    font-weight: bold;
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-    color: #333;
-}
+
 
 ul.nav-section li {
     margin-bottom: 8px;
@@ -79,9 +82,56 @@ body {
     box-sizing: border-box;
 }
 
-.rtx-logo {
-    position: static;
+.rtxlogo {
     top: 10px;
     right: 10px;
     width: 10px;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 5px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.header-logo img,
+.header-rtxlogo img {
+    max-height: 50px; /* Controla el tamaño de las imágenes para que sean pequeñas */
+    height: auto;
+    width: auto;
+}
+
+
+.nav-sections-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+    gap: 20px; /* Espacio entre columnas */
+    margin-bottom: 30px; /* Espacio entre filas */
+}
+
+.nav-column {
+    border: 1px solid #ccc; /* Opcional: para separar visualmente las columnas */
+    padding: 15px;
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #f9f9f9; /* Fondo claro */
+}
+
+.nav-section {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-section .nav-header {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.nav-section li {
+    margin-bottom: 5px;
 }

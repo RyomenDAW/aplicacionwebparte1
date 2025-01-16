@@ -1,9 +1,10 @@
 from django.urls import path, re_path
 from . import views
 from .views import *
-
 from django.conf import settings
 from django.conf.urls.static import static
+
+
 urlpatterns = [
     path('home/', views.inicio, name ='inicio'),
     path('', views.inicio, name='inicio'),  # Página de inicio
@@ -50,7 +51,7 @@ urlpatterns = [
     path('discoshdd/eliminar_hdd/<int:id_hdd>/', views.eliminar_hdd, name='eliminar_hdd'),    
     #=====================================================================================================================================
     path('registrar',views.registrar_usuario, name='registrar_usuario'),
-    
+
 
 
     ] 
