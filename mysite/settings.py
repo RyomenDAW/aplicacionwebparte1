@@ -33,7 +33,14 @@ SECRET_KEY =  env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(env("DEBUG"))
-ALLOWED_HOSTS = [env("ALLOWED_HOST")]
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["localhost", "127.0.0.1"])
+# Explicación del cambio
+# env.list() convierte una cadena separada por comas en una lista.
+# La configuración en tu archivo .env será convertida automáticamente, por ejemplo:
+# env
+# Copy
+# Edit
+
 
 
 #ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com','0.0.0.0']
