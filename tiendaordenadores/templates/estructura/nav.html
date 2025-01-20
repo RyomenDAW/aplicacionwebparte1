@@ -10,26 +10,47 @@
     <div class="logo">
         <!--<img src="{% static 'imagenes/logo.png' %}" alt="Imagen de Cool Components">-->
     </div>
-    <li>Fecha de conexión: {{ request.session.fecha_inicio }}</li>
 
 
     {% if not request.user.is_authenticated%}
     <div class="registro">
         <a class="btn btn-outline-warning" href="{% url 'registrar_usuario' %}">
-            Sign in 
+            Registrarse
         </a>
     {% endif %}
-    {% if not request.user.is_authenticated%}
 
+
+    {% if not request.user.is_authenticated%}
+        <a class="btn btn-outline-warning" href="{% url 'login' %}">
+            Login
+        </a>
     {% endif %}
+
+
+    {% if request.user.is_authenticated %}
+        <form action="{% url 'logout' %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-warning">Desconectarse</button>
+        </form>
+        <ul>
+            <p>Bienvenido, {{ request.session.usuario_first_name }}!</p>
+
+            <li>Fecha de conexión: {{ request.session.fecha_inicio }}</li>
+            <li>Usuario: {{ request.session.usuario_nombre }}</li>
+            <!-- Aquí estamos comparando el valor de la sesión de 'rol' con los valores de cadena -->
+            <li>Rol: {% if request.session.rol == 'Administrador' %}Administrador{% elif request.session.rol == 'Cliente' %}Cliente{% elif request.session.rol == 'Técnico Informático' %}Técnico Informático{% elif request.session.rol == 'Vendedor' %}Vendedor{% else %}Desconocido{% endif %}</li>            <li>Email: {{ request.session.usuario_email }}</li>
+        </ul>
+    {% endif %}
+
+    {% if request.user.is_authenticated %}
 
         <div class="navigation">
             <nav class="nav-sections-grid">
                 <!-- Fila 1: Listas y Relaciones -->
+
                 <div class="nav-column">
                     <ul class="nav-section">
                         <li class="nav-header">Listas de Procesadores</li>
-                        <li>Fecha de conexión: {{ request.session.fecha_inicio }}</li>
                         <li><a href="{% url 'lista_procesadores' %}">Ver Lista de Procesadores</a></li>
                         <li><a href="{% url 'lista_procesadores_segunhilos' numero_hilos=46040 %}">Procesadores Según Hilos (46040)</a></li>
                         <li><a href="{% url 'lista_procesadores_segunfamilia' nombre_familia='Intel' %}">Procesadores Según Familia (Intel)</a></li>
@@ -52,33 +73,81 @@
                         <li><a href="{% url 'procesadores_segun_grafica' grafica_id=1 %}">Procesadores Según Su Gráfica (ID=1)</a></li>
                     </ul>
                 </div>
-        
+
+
+
                 <!-- Fila 2: CRUDs -->
                 <div class="nav-column">
                     <ul class="nav-section">
                         <li class="nav-header">CRUD Procesadores</li>
-                        <li><a href="{% url 'crear_procesador' %}">Crear un procesador</a></li>
+                        {% if request.session.rol == 'Administrador' or request.session.rol == 'Vendedor' %}
+
+                            <li><a href="{% url 'crear_procesador' %}">Crear un procesador</a></li>
+
+                        {% endif %}
+
+                        {% if request.session.rol == 'Administrador' or request.session.rol == 'Técnico Informático' %}
+
                         <li><a href="{% url 'read_procesadores' %}">Buscar un procesador (Read)</a></li>
                         <li><a href="{% url 'editar_procesador' id_procesador=2 %}">Editar un procesador (ID: 2)</a></li>
-                        <li><a href="{% url 'eliminar_procesador' id_procesador=2 %}">Eliminar un procesador (ID: 2)</a></li>
+
+                        {% endif %}
+                        
+                        {% if request.session.rol == 'Administrador' or request.session.rol == 'Vendedor' %}
+
+                            <li><a href="{% url 'eliminar_procesador' id_procesador=2 %}">Eliminar un procesador (ID: 2)</a></li>
+
+                        {% endif %}
+
                     </ul>
                 </div>
+
                 <div class="nav-column">
                     <ul class="nav-section">
                         <li class="nav-header">CRUD Gráficas</li>
+                        {% if request.session.rol == 'Administrador' or request.session.rol == 'Vendedor' %}
+
                         <li><a href="{% url 'crear_grafica' %}">Crear una gráfica</a></li>
+
+                        {% endif %}
+
+                        {% if request.session.rol == 'Administrador' or request.session.rol == 'Técnico Informático' %}
+
                         <li><a href="{% url 'read_graficas' %}">Buscar una gráfica (Read)</a></li>
                         <li><a href="{% url 'editar_grafica' id_grafica=2 %}">Editar una gráfica (ID: 2)</a></li>
+
+                        {% endif %}
+
+                        {% if request.session.rol == 'Administrador' or request.session.rol == 'Vendedor' %}
+
                         <li><a href="{% url 'eliminar_grafica' id_grafica=2 %}">Eliminar una gráfica (ID: 2)</a></li>
+
+                        {% endif %}
+
                     </ul>
                 </div>
                 <div class="nav-column">
                     <ul class="nav-section">
                         <li class="nav-header">CRUD Monitores</li>
+                        {% if request.session.rol == 'Administrador' or request.session.rol == 'Vendedor' %}
+
                         <li><a href="{% url 'crear_monitor' %}">Crear un monitor</a></li>
+
+                        {% endif %}
+
+                        {% if request.session.rol == 'Administrador' or request.session.rol == 'Técnico Informático' %}
+
                         <li><a href="{% url 'read_monitor' %}">Buscar un monitor (Read)</a></li>
                         <li><a href="{% url 'editar_monitor' id_monitor=2 %}">Editar un monitor (ID: 2)</a></li>
+
+                        {% endif %}
+
+                        {% if request.session.rol == 'Administrador' or request.session.rol == 'Vendedor' %}
+
                         <li><a href="{% url 'eliminar_monitor' id_monitor=98 %}">Eliminar un monitor (ID: 98)</a></li>
+
+                        {% endif %}
+
                     </ul>
                 </div>
         
@@ -86,32 +155,79 @@
                 <div class="nav-column">
                     <ul class="nav-section">
                         <li class="nav-header">CRUD Fuentes de Alimentación</li>
+                        {% if request.session.rol == 'Administrador' or request.session.rol == '4' %}
+
                         <li><a href="{% url 'crear_fuente' %}">Crear una fuente de alimentación</a></li>
+                        {% endif %}
+
+                        {% if request.session.rol == 'Administrador' or request.session.rol == 'Técnico Informático' %}
+
                         <li><a href="{% url 'read_fuente' %}">Buscar una fuente (Read)</a></li>
                         <li><a href="{% url 'editar_fuente' id_fuente=2 %}">Editar una fuente (ID: 2)</a></li>
+
+                        {% endif %}
+
+                        {% if request.session.rol == 'Administrador' or request.session.rol == 'Vendedor' %}
+
                         <li><a href="{% url 'eliminar_fuente' id_fuente=95 %}">Eliminar una fuente (ID: 95)</a></li>
+
+                        {% endif %}
+
                     </ul>
                 </div>
                 <div class="nav-column">
                     <ul class="nav-section">
                         <li class="nav-header">CRUD Memorias RAM</li>
+                        {% if request.session.rol == 'Administrador' or request.session.rol == 'Vendedor' %}
+
                         <li><a href="{% url 'crear_ram' %}">Crear una memoria RAM</a></li>
+
+                        {% endif %}
+
+                        {% if request.session.rol == 'Administrador' or request.session.rol == 'Técnico Informático' %}
+
                         <li><a href="{% url 'read_ram' %}">Buscar una RAM (Read)</a></li>
                         <li><a href="{% url 'editar_ram' id_ram=4 %}">Editar una RAM (ID: 4)</a></li>
+
+                        {% endif %}
+
+                        {% if request.session.rol == 'Administrador' or request.session.rol == 'Vendedor' %}
+
                         <li><a href="{% url 'eliminar_ram' id_ram=93 %}">Eliminar una RAM (ID: 93)</a></li>
+
+                        {% endif %}
+
                     </ul>
                 </div>
                 <div class="nav-column">
                     <ul class="nav-section">
                         <li class="nav-header">CRUD Discos Duros HDD</li>
+                        {% if request.session.rol == 'Administrador' or request.session.rol == 'Vendedor' %}
+
                         <li><a href="{% url 'crear_hdd' %}">Crear un disco duro HDD</a></li>
+
+                        {% endif %}
+
+                        {% if request.session.rol == 'Administrador' or request.session.rol == 'Técnico Informático' %}
+
                         <li><a href="{% url 'read_hdd' %}">Buscar un disco HDD (Read)</a></li>
                         <li><a href="{% url 'editar_hdd' id_hdd=6 %}">Editar un disco HDD (ID: 6)</a></li>
+
+                        {% endif %}
+
+                        {% if request.session.rol == 'Administrador' or request.session.rol == 'Vendedor' %}
+
                         <li><a href="{% url 'eliminar_hdd' id_hdd=10 %}">Eliminar un disco HDD (ID: 10)</a></li>
+
+                        {% endif %}
+
                     </ul>
                 </div>
             </nav>
         </div>
+
+
+        {%endif%}
         
 </div>
     

@@ -1,12 +1,28 @@
 {% extends "estructura/base_simple.html" %}
+{% load static %}
+{% load django_bootstrap5 %}  <!-- Asegúrate de que esta línea esté incluida -->
 
 {% block contenido %}
-<form action = "{% url 'registrar_usuario' %}" method = "post">
-
-    {% load django_bootstrap5 %}
-    {% csrf_token %} 
-    {% bootstrap_form formulario %}
-
+<form action="{% url 'registrar_usuario' %}" method="post">
+    {% csrf_token %}
+    
+    {% bootstrap_field formulario.username %}
+    {% bootstrap_field formulario.first_name %}
+    {% bootstrap_field formulario.last_name %}
+    {% bootstrap_field formulario.email %}
+    {% bootstrap_field formulario.password1 %}
+    {% bootstrap_field formulario.password2 %}
+    {% bootstrap_field formulario.rol %}
+    
+    <!-- Campo "Marca del Vendedor", inicialmente oculto -->
+    <div id="marca-vendedor" class="form-group" style="display: none;">
+        <label for="id_marca">Marca del Vendedor</label>
+        <input type="text" id="id_marca" name="marca" class="form-control">
+    </div>
+    
     <button type="submit" class="btn btn-primary">Enviar</button>
+
+    <!-- Cargar el script ocultarcampos.js -->
+    <script src="{% static 'javascript/ocultarcampos.js' %}"></script>
 </form>
 {% endblock %}

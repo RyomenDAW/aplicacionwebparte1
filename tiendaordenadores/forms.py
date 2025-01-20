@@ -86,35 +86,47 @@ class BusquedaAvanzadaProcesador(forms.Form):
 
 #================================================================================================================================
 
-class GraficaForm(forms.ModelForm):  # MODEL FORM
+class GraficaForm(forms.ModelForm):
     class Meta:
         model = Grafica
-        fields = 'nombre', 'urlcompra', 'familiagrafica', 'potenciacalculo', 'memoriavram', 'fecha_salida', 'trazadorayos', 'grafica_procesadores', 'placabase'  # Incluir todos los campos del modelo
+        fields = '__all__'
+        exclude = ['user']  # Excluimos el campo 'user' para que no aparezca en el formulario
 
         labels = {
-            'nombre': 'Nombre de la grafica',
+            'nombre': 'Nombre de la gráfica',
             'urlcompra': 'URL de compra',
-            'familiagrafica': 'Familia de la grafica',
+            'familiagrafica': 'Familia de la gráfica',
             'potenciacalculo': 'Potencia de Cálculo',
             'memoriavram': 'Cantidad de VRAM disponible',
             'fecha_salida': 'Fecha de salida:',
-            'trazadorayos': 'Tiene trazado de rayos?',
-            'grafica_procesadores': 'A que procesador esta enlazada?',
-            'placabase': 'A que placabase va enlazada?'
+            'trazadorayos': '¿Tiene trazado de rayos?',
+            'grafica_procesadores': '¿A qué procesador está enlazada?',
+            'placabase': '¿A qué placa base va enlazada?',
         }
         help_texts = {
-            'familiagrafica': 'Selecciona la familia a la que pertenece el procesador, sea AMD, Nvidia o Intel',
+            'familiagrafica': 'Selecciona la familia a la que pertenece el procesador: AMD, Nvidia o Intel.',
             'urlcompra': 'Introduce una URL válida donde se pueda comprar este procesador.',
-            'memoriavram': 'Recuerda que la memoria VRAM son números'
+            'memoriavram': 'Recuerda que la memoria VRAM son números.',
         }
         widgets = {
-            "nombre": forms.TextInput(attrs={'class': 'form-control'}),  # Widget de texto para el nombre
-            "urlcompra": forms.URLInput(attrs={'class': 'form-control'}),  # Widget para la URL de compra
-            "familiagrafica": forms.Select(attrs={'class': 'form-control'}),  # Dropdown para la familia de la gráfica
-            "potenciacalculo": forms.NumberInput(attrs={'class': 'form-control'}),  # Campo numérico para la potencia de cálculo
-            "memoriavram": forms.NumberInput(attrs={'class': 'form-control'}),  # Campo numérico para la memoria VRAM
-            "trazadorayos": forms.CheckboxInput(attrs={'class': 'form-check-input'}),  # Checkbox para trazado de rayos
+            'nombre': forms.TextInput(attrs={'class': 'form-control'}),
+            'urlcompra': forms.URLInput(attrs={'class': 'form-control'}),
+            'familiagrafica': forms.Select(attrs={'class': 'form-control'}),
+            'potenciacalculo': forms.NumberInput(attrs={'class': 'form-control'}),
+            'memoriavram': forms.NumberInput(attrs={'class': 'form-control'}),
+            'trazadorayos': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
         }
+
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user', None)  # Extraer el usuario de los argumentos
+        super().__init__(*args, **kwargs)
+        self.fields['grafica_procesadores'].required = False
+
+        
+        if not user or not user.is_superuser:  # Si no es admin, deshabilitar el campo
+            self.fields['grafica_procesadores'].disabled = True
+            self.fields['grafica_procesadores'].widget.attrs['class'] = 'form-control-plaintext'
+
 
 
 class BusquedaAvanzadaGrafica(forms.Form):
@@ -167,6 +179,7 @@ class MonitorForm(forms.ModelForm):  # MODEL FORM
     class Meta:
         model = Monitor
         fields = 'hz', 'urlcompra', 'calidad_respuesta', 'curvo', 'pantallafiltroplasma'  # Incluir todos los campos del modelo
+        exclude = ['user']  # Excluimos el campo 'user' para que no aparezca en el formulario
 
         labels = {
             'hz': 'Tasa de refresco',
@@ -271,6 +284,7 @@ class FuenteForm(forms.ModelForm):
     class Meta:
         model = FuenteAlimentacion
         fields = 'vatios', 'urlcompra', 'amperaje', 'conectoresdisponibles', 'calidadfuente'  # Incluir todos los campos del modelo
+        exclude = ['user']  # Excluimos el campo 'user' para que no aparezca en el formulario
 
         # Configuración opcional para personalizar etiquetas o mensajes de ayuda
         labels = {
@@ -376,6 +390,7 @@ class RamForm(forms.ModelForm):
     class Meta:
         model = Ram
         fields = 'fecha_fabricacion', 'mhz', 'familiaram', 'rgb', 'factormemoria'  # Incluir todos los campos del modelo
+        exclude = ['user']  # Excluimos el campo 'user' para que no aparezca en el formulario
 
         # Configuración opcional para personalizar etiquetas o mensajes de ayuda
         labels = {
@@ -477,6 +492,7 @@ class HDDForm(forms.ModelForm):  # MODEL FORM
     class Meta:
         model = DiscoDuroHdd
         fields = ['rpm', 'capacidad', 'peso', 'tiempomediofallos', 'pulgadas']  # Incluir todos los campos del modelo
+        exclude = ['user']  # Excluimos el campo 'user' para que no aparezca en el formulario
 
         # Configuración opcional para personalizar etiquetas o mensajes de ayuda
         labels = {
@@ -544,16 +560,30 @@ class HDDBusquedaAvanzadaForm(forms.Form):
 
 
 class RegistroForm(UserCreationForm):
+    # Roles posibles
     roles = (
-        (Usuario.CLIENTE, 'cliente'),
-        (Usuario.TECNICOINFORMATICO, 'tecnicoinformatico'),
-        (Usuario.VENDEDOR, 'vendedor'),
+        (Usuario.CLIENTE, 'Cliente'),
+        (Usuario.TECNICOINFORMATICO, 'Técnico Informático'),
+        (Usuario.VENDEDOR, 'Vendedor'),
     )
-    rol = forms.ChoiceField(choices = roles)
     
+    rol = forms.ChoiceField(choices=roles)
     
+    # Campo para 'Marca del Vendedor' que estará vacío inicialmente
+    marca = forms.CharField(max_length=100, required=False, label="Marca del Vendedor NO QUIERO ESTA")
+
     class Meta:
         model = Usuario
-        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', 'rol')
+        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', 'rol', 'marca')
+
+    
+    def clean(self):
+        cleaned_data = super().clean()
+        rol = cleaned_data.get("rol")
+        marca = cleaned_data.get("marca")
         
-        
+        # Solo validamos el campo marca si el rol es 'vendedor'
+        if rol == 'vendedor' and not marca:
+            self.add_error('marca', 'Este campo es obligatorio para el rol de Vendedor.')
+
+        return cleaned_data

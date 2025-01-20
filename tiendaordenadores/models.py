@@ -3,6 +3,7 @@ from django.db import models
 from django.utils import timezone
 from django.core.validators import MinValueValidator
 from django.contrib.auth.models import AbstractUser
+
 # Definir 10 modelos de mi página Web que cumpla los siguientes requisitos.
 # Al menos 3 relaciones OneToOne, 3 relaciones ManytoOne, 3 relaciones ManyToMany
 
@@ -88,7 +89,7 @@ class Vendedor(models.Model):
     ventas_realizadas = models.PositiveIntegerField(default=0, db_column="ventasrealizadas_tiendaordenadores")
     comision = models.FloatField(default=0.0, db_column="comision_tiendaordenadores")
     region = models.CharField(max_length=100, default="Europa/General", db_column="region_tiendaordenadores")
-    
+    marca = models.CharField(max_length=100, null=True, blank=True, db_column="marca_tiendaordenadores")
 
 class Procesador (models.Model):
     id_procesador = models.AutoField(primary_key=True)
@@ -99,6 +100,7 @@ class Procesador (models.Model):
     nucleos = models.PositiveSmallIntegerField()
     hilos = models.PositiveIntegerField(validators=[MinValueValidator(35000)])  # Este validator luego se suprime por el form y view xd
     imagen = models.ImageField(upload_to='procesadores/', blank=True, null=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # Aquí usamos CustomUser en lugar de User
 
     # Relación OneToOne con PlacaBase
     placabase = models.OneToOneField('PlacaBase', on_delete=models.CASCADE, null=True, blank=True)
@@ -113,9 +115,10 @@ class Grafica (models.Model):
     memoriavram = models.PositiveIntegerField()    # Valor mínimo de 0
     fecha_salida = models.DateTimeField(default=timezone.now)
     trazadorayos = models.BooleanField(default=False)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # Aquí usamos CustomUser en lugar de User
 
     #AÑADIDO EN ESTA TAREA PARA QUE FUNCIONE LA URL REVERSA
-    grafica_procesadores = models.ForeignKey(Procesador, related_name='procesadores_reverse', on_delete=models.CASCADE)
+    grafica_procesadores = models.ForeignKey(Procesador, related_name='procesadores_reverse', on_delete=models.CASCADE, null=True)
     # Relación OneToOne con PlacaBase
     placabase = models.OneToOneField('PlacaBase', on_delete=models.CASCADE, null=True, blank=True)
     
@@ -127,6 +130,7 @@ class FuenteAlimentacion(models.Model):
     amperaje = models.FloatField(max_length=20)
     conectoresdisponibles = models.TextField(max_length=100)
     calidadfuente = models.TextField(max_length=20, choices=SELLO_CALIDAD_FUENTE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # Aquí usamos CustomUser en lugar de User
 
 class PlacaBase(models.Model):
     id_placabase = models.AutoField(primary_key=True)
@@ -135,7 +139,7 @@ class PlacaBase(models.Model):
     familiaplacabase = models.TextField(max_length=10, choices=FAMILIA_PROCESADOR)
     vrm_placa = models.FloatField(max_length=10)
     rgb = models.BooleanField(default=False)
-    
+
     # Relación OneToMany con DiscoDuroHdd
     hdds = models.ManyToManyField('DiscoDuroHdd', related_name='placabas_hdds')
 
@@ -153,7 +157,8 @@ class Monitor (models.Model):
     calidad_respuesta = models.DecimalField(max_digits=10, decimal_places=5)  # 5 decimales, el valor real de ms puede ser 1, monitores competetivos sobre todo
     curvo = models.BooleanField(default=False)
     pantallafiltroplasma = models.BooleanField(default=False)
-    
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # Aquí usamos CustomUser en lugar de User
+
 class Ram (models.Model):
     id_ram = models.AutoField(primary_key=True)
     fecha_fabricacion = models.DateField(default=timezone.now)
@@ -161,7 +166,8 @@ class Ram (models.Model):
     familiaram = models.TextField(choices=FAMILIA_RAM)
     rgb = models.BooleanField(default = True)
     factormemoria = models.IntegerField()
-      
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # Aquí usamos CustomUser en lugar de User
+ 
 class DiscoDuroHdd(models.Model):
     id_hdd = models.AutoField(primary_key=True)
     rpm = models.TextField(max_length=20)
@@ -169,6 +175,7 @@ class DiscoDuroHdd(models.Model):
     peso = models.CharField(max_length=10)
     tiempomediofallos = models.DecimalField(max_digits=10, decimal_places=2)  # HASTA 2 DECIMALES
     pulgadas = models.IntegerField()
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # Aquí usamos CustomUser en lugar de User
 
 class DiscoDuroSsd(models.Model):
     id_ssd = models.AutoField(primary_key=True)

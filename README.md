@@ -575,7 +575,7 @@ Todas las validaciones estan comentadas en el forms debidamente, ya que estan or
 
 ===========================================================================================================================================================================================================
 
-MODIFACIONES PARTE V: 14 DE ENERO -->
+MODIFACIONES PARTE V: 14 DE ENERO --> ENTREGA 20 ENERO
 
 En nuestra aplicación debemos incluir al menos dos tipos de usuarios claramente diferenciados(No cuenta el usuario administrador) (1 puntos)
 
@@ -604,3 +604,273 @@ Funcionalidad de Vendedor --> Si puede crear, si puede borrar, si puede editar, 
 
 Se entiende vendedor aquellas marcas como ASUS, ROG, MSI, entre otras, no a un vendedor físico como puede ser Mark Johnson, nos referimos a la figura judicial que representa.
 
+===========================================================================================================================================================================================================
+
+En cada vista controlarse los permisos y si el usuario esta logueado o no (1 punto)
+
+En todas las vistas se requiere el comando del crud necesario para esa vista en especifico, lo he dividido muy bien y esta comentado
+de manera que se vea claro.
+
+
+# VISTA PARA ELIMINAR UN DISCO DURO HDD
+# REQUIERE LOGIN Y PERMISO PARA ELIMINAR HDD
+@login_required
+@permission_required('discoshdd.delete_discodurohdd', raise_exception=True)
+def eliminar_hdd(request, id_hdd):
+    # Usamos get_object_or_404 para manejar objetos inexistentes
+    hdd = get_object_or_404(DiscoDuroHdd, id_hdd=id_hdd)
+    
+    if request.method == 'POST':
+        try:
+            hdd.delete()  # Eliminar el disco duro de la base de datos
+            return redirect('inicio')  # Redirigir a la lista de discos duros
+        except Exception as e:
+            # Manejar cualquier error de eliminación (aunque no es común)
+            print(f"Error al eliminar el HDD: {e}")
+            return render(request, 'discoshdd/eliminar_hdd.html', {'hdd': hdd, 'error': 'Hubo un error al eliminar el HDD.'})
+    
+    # Si el método es GET, mostramos la página de confirmación
+    return render(request, 'discoshdd/eliminar_hdd.html', {'hdd': hdd})
+
+
+Por ejemplo eso va en esta vista, ya que se requiere el permiso delete_discodurohdd.
+
+
+¿Por qué se utiliza raise_exception=True?
+
+Cuando se usa @permission_required en una vista, el decorador revisa si el usuario tiene el permiso específico (como discoshdd.delete_discodurohdd en tu caso). Si el usuario tiene ese permiso, la vista se ejecuta normalmente. Si el usuario no tiene ese permiso, el decorador puede hacer varias cosas, dependiendo de la configuración:
+
+Si raise_exception=False (valor por defecto): El decorador redirige al usuario a una página de inicio de sesión si no está autenticado. Si está autenticado pero no tiene el permiso requerido, se le redirige a una página de error o a una página configurada para manejar este tipo de situación, en nuestro caso.
+
+Si raise_exception=True: En lugar de redirigir al usuario a una página de error o inicio de sesión, se lanza una excepción (PermissionDenied). Esta opción es más explícita en cuanto a la seguridad, ya que detiene la ejecución de la vista inmediatamente y proporciona una respuesta clara de que el usuario no tiene permisos para acceder a esa acción, la pagina de error 403.
+
+La ventaja de usar raise_exception=True es que te permite manejar mejor los casos de acceso no autorizado y tener un flujo de control más claro sobre cómo se debe manejar la seguridad de la vista, por eso lo he elegido, aunque esta a tu disposicion.
+
+===========================================================================================================================================================================================================
+
+En cada template de vista y formulario controlarse los permisos y si el usuario esta logueado o no (1 punto)
+
+Los permisos estan asignados de manera que:
+
+Todos los usuarios pueden ver las listas (Incluye cliente) y se requiere login mediante un if
+
+{% if request.user.is_authenticated %}
+
+
+Cliente no tiene acceso al CRUD.
+Solo vendedor puede hacer en el CRUD: Crear y Eliminar
+Solo tecnicoinformatico puede hacer en el CRUD: Editar y Buscar (Avanzado)
+
+Solo administrador puede hacer en el CRUD: Crear, Buscar (Avanzado), Editar y Eliminar
+
+Todas las condiciones del crud se hacen tambien mediante if
+
+{% if request.session.rol == 'Administrador' or request.session.rol == 'Vendedor' %}
+
+
+===========================================================================================================================================================================================================
+
+
+Incluir al menos 4 variables que se guarden en la sesión y que aparezcan siempre en la cabacera de la página. Y se eliminen cuando se desloguea el usuario. (1 punto)
+
+
+Variables incluidas en la sesión
+Se incluyen las siguientes variables en la sesión cuando el usuario está autenticado:
+
+fecha_inicio: Fecha y hora de inicio de sesión.
+usuario_nombre: Nombre completo del usuario.
+usuario_first_name: Primer nombre del usuario.
+rol: Rol del usuario basado en un campo específico (request.user.rol).
+usuario_email: Correo electrónico del usuario.
+Estas variables se almacenan en la sesión y estarán disponibles para ser mostradas en la cabecera de la página.
+
+Se puede ver en la view de inicio, se incluyen en nav.html que forma parte de la estrucutra.
+
+
+Para asegurar que las variables se eliminen al cerrar sesión, el método de cierre de sesión debe estar configurado para limpiar la sesión, en mi caso, en logout.
+
+def logout_view(request):
+    logout(request)  # Desloguear al usuario
+    request.session.flush()  # Eliminar todas las variables de la sesión
+
+    return redirect('login')  # Redirigir al login después de logout
+
+
+
+
+===========================================================================================================================================================================================================
+
+
+Debemos hacer un registro de los distintos tipos de usuario, salvo el administrador, con sus validaciones correspondiente, y controlar que dependiendo del tipo de usuario tendrá unos valores u otros (1 punto)
+
+En vendedor, tenemos el valor marca
+
+    marca = models.CharField(max_length=100, null=True, blank=True, db_column="marca_tiendaordenadores")
+
+El valor solo aparece si se elige vendedor como rol, se guarda en la BBDD como una columna ya que es de models.py
+
+
+
+===========================================================================================================================================================================================================
+
+Debemos hacer un login y logout del usuario (1 punto)
+
+LOGIN:
+
+def registrar_usuario(request):
+    if request.method == 'POST':
+        formulario = RegistroForm(request.POST)
+        if formulario.is_valid():
+            user = formulario.save()  # Guardar el usuario
+
+            rol = int(formulario.cleaned_data.get('rol'))
+            if rol == Usuario.CLIENTE:
+                cliente = Cliente.objects.create(usuario=user)  # Asociar el usuario como cliente
+                cliente.save()
+            elif rol == Usuario.TECNICOINFORMATICO:
+                tecnicoinformatico = TecnicoInformatico.objects.create(usuario=user)  # Asociar el usuario como técnico informático
+                tecnicoinformatico.save()
+            elif rol == Usuario.VENDEDOR:
+                vendedor = Vendedor.objects.create(usuario=user)  # Asociar el usuario como vendedor
+                vendedor.save()
+                
+            
+            # Redirigir al usuario a la página principal despues del form, ya que no tiene sentido quedarse en el formulario
+
+        
+            login(request, user) #Aqui se hace con la propia variable, al registrase, se conectara de forma automatica
+            
+            
+            if request.user.is_authenticated:
+                print("Usuario autenticado:", request.user.username)
+            else:
+                print("Error: Usuario no autenticado")
+
+
+            return redirect('index')
+
+
+LOGOUT:
+
+    def logout_view(request):
+        logout(request)  # Desloguear al usuario
+        request.session.flush()  # Eliminar todas las variables de la sesión
+
+        return redirect('login')  # Redirigir al login después de logout
+
+Las URLS son estas:
+
+  path('registrar',views.registrar_usuario, name='registrar_usuario'),
+  path('logout/', LogoutView.as_view(), name='logout'),  # Ruta para el logout
+
+===========================================================================================================================================================================================================
+
+
+Debe crearse una funcionalidad en algún formulario , que el contenido de algún select ManyToMany o ManyToOne varie dependiendo del usuario que está logueado. (1 punto)
+
+En crear grafica, se puede asignar como tal a que procesador va enlazada esa grafica (manytoone)
+        form = GraficaForm(user=request.user) #Se le pasa el usuario
+
+Si es administrador, podra elegir a que procesador podra ir enlazado, si es vendedor, no podra, aparecera en gris. (Ya que es el unico
+aparte del administrador que puede hacer la parte de crear)
+
+Logeate con HajimeKashimo para verlo, te pongo en el classroom la password de el.
+
+
+
+===========================================================================================================================================================================================================
+
+En los formularios de crear debe incluirse siempre el usuario que crea dicho registro por la sesión del usuario. (1 punto)
+
+Se hace por ejemplo asi en crear_procesador, 
+
+class Procesador (models.Model):
+    id_procesador = models.AutoField(primary_key=True)
+    urlcompra = models.URLField(max_length=100)
+    nombre = models.TextField(max_length=100)
+    familiaprocesador = models.TextField(max_length=6, choices=FAMILIA_PROCESADOR)
+    potenciacalculo = models.PositiveBigIntegerField()
+    nucleos = models.PositiveSmallIntegerField()
+    hilos = models.PositiveIntegerField(validators=[MinValueValidator(35000)])  # Este validator luego se suprime por el form y view xd
+    imagen = models.ImageField(upload_to='procesadores/', blank=True, null=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # Aquí usamos CustomUser en lugar de User
+
+
+@permission_required('tiendaordenadores.add_procesador', raise_exception=True)
+@login_required  # Asegura que solo los usuarios autenticados puedan crear un procesador
+def crear_procesador(request):
+    if request.method == 'POST':
+        form = ProcesadorForm(request.POST, request.FILES)
+        if form.is_valid():
+            procesador = form.save(commit=False)
+            procesador.user = request.user  # Asigna el usuario autenticado (es una instancia de User)
+            procesador.save()  # Guarda el procesador con el usuario asignado
+            return redirect('inicio')  # Redirige a la lista de procesadores o cualquier otra vista
+    else:
+        form = ProcesadorForm()
+
+    return render(request, 'procesadores/crear_procesador.html', {'form': form})
+
+    Esto sirve para en vez de ponerlo en el .html mas separado, se ponga en el form y ya, mas util.
+
+            exclude = ['user']  # Excluimos el campo 'user' para que no aparezca en el formulario
+
+
+===========================================================================================================================================================================================================
+
+Debe crearse una funcionalidad en algún formulario de búsqueda , que el contenido se filtre por el suario que está logueado. (1 punto)
+
+Dentro del formulario de busqueda ReadProcesador, solo saldran los procesadores relacionados del usuario logeado, sin importar el rol.
+
+
+    # Inicializamos la consulta base para filtrar por el usuario autenticado
+    procesadores = Procesador.objects.filter(user=request.user)  # Solo los procesadores del usuario logueado
+
+Al inicio de la vista, antes de aplicar cualquier otro filtro, se aplica un filtro inicial para obtener solo los procesadores que pertenecen al usuario logueado: Procesador.objects.filter(user=request.user), es lo que pide el apartado literalmente.
+
+Filtros adicionales:
+Después, si se envían otros parámetros en el formulario (como nombre, nucleos, hilos, o familiaprocesador), esos se aplican sobre la consulta filtrada por usuario.
+
+===========================================================================================================================================================================================================
+
+Implementar funcionalidad de reinicio de contraseña.  Ten en cuenta que tu aplicación en local no permite el envó de email, pero hay una forma en Django para obtener dicho enlace de recuperación de contraseña. Investiga! (1 punto)
+
+# settings.py
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+Esto permite que cualquier correo de recuperación de contraseña se redirija a la consola de mi servidor local (terminal), lo cual es útil.
+
+
+En urls creamos 4 vistas.
+
+
+Aquí está lo que hace cada vista:
+
+password_reset/: Vista donde el usuario ingresa su correo electrónico para recibir un enlace de restablecimiento de contraseña.
+
+password_reset_done/: Mensaje de confirmación que aparece después de que el usuario envía su correo para el restablecimiento de contraseña.
+
+reset/<uidb64>/<token>/: Página donde el usuario puede ingresar una nueva contraseña, accesible solo a través de un enlace seguro con un token válido.
+
+reset/done/: Mensaje de éxito que aparece después de que el usuario ha restablecido su contraseña correctamente.
+
+
+En tu plantilla de login (login.html),  incluyo un enlace para que los usuarios puedan acceder fácilmente a la página de recuperación de contraseña.
+
+En la terminal sale un mensaje muy similar a este:
+
+Ha recibido este correo electrónico porque ha solicitado restablecer la contraseña para su cuenta en 127.0.0.1:8000.
+
+Por favor, vaya a la página siguiente y escoja una nueva contraseña.
+
+http://127.0.0.1:8000/accounts/reset/MTEw/aquivaelenlacedeltoken/
+
+Lo he quitado ya que no le veo sentido ponerlo en el readme.md por motivos de seguridad
+
+Su nombre de usuario, en caso de que lo haya olvidado: Mahoraga
+
+¡Gracias por usar nuestro sitio!
+
+El equipo de 127.0.0.1:8000 (Mi preciosa pagina web)
+
+===========================================================================================================================================================================================================
