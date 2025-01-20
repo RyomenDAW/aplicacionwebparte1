@@ -3,9 +3,7 @@
     <div class="header-logo">
         <img src="{% static 'imagenes/logo.png' %}" alt="Logo Principal">
     </div>
-    <div class="header-rtxlogo">
-        <img src="{% static 'imagenes/grafica.png' %}" alt="Imagen RTX 4090">
-    </div>
+
 </div>
 
 <div class="nav-container">
@@ -13,10 +11,18 @@
         <!--<img src="{% static 'imagenes/logo.png' %}" alt="Imagen de Cool Components">-->
     </div>
     <li>Fecha de conexión: {{ request.session.fecha_inicio }}</li>
+
+
+    {% if not request.user.is_authenticated%}
     <div class="registro">
         <a class="btn btn-outline-warning" href="{% url 'registrar_usuario' %}">
             Sign in 
         </a>
+    {% endif %}
+    {% if not request.user.is_authenticated%}
+
+    {% endif %}
+
         <div class="navigation">
             <nav class="nav-sections-grid">
                 <!-- Fila 1: Listas y Relaciones -->

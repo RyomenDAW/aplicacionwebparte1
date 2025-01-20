@@ -550,6 +550,8 @@ class RegistroForm(UserCreationForm):
         (Usuario.VENDEDOR, 'vendedor'),
     )
     rol = forms.ChoiceField(choices = roles)
+    
+    
     class Meta:
         model = Usuario
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', 'rol')

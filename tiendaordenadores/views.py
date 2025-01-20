@@ -674,17 +674,21 @@ def registrar_usuario(request):
     if request.method == 'POST':
         formulario = RegistroForm(request.POST)
         if formulario.is_valid():
-            user = formulario.save()
+            user = formulario.save()  # Guardar el usuario
+
             rol = int(formulario.cleaned_data.get('rol'))
-            if (rol == Usuario.CLIENTE):
-                cliente = Cliente.objects.create ( usuario = user)
+            if rol == Usuario.CLIENTE:
+                cliente = Cliente.objects.create(usuario=user)  # Asociar el usuario como cliente
                 cliente.save()
-            elif (rol == Usuario.TECNICOINFORMATICO):
-                tecnicoinformatico = TecnicoInformatico.objects.create ( tecnicoinformatico = user)
+            elif rol == Usuario.TECNICOINFORMATICO:
+                tecnicoinformatico = TecnicoInformatico.objects.create(usuario=user)  # Asociar el usuario como técnico informático
                 tecnicoinformatico.save()
-            elif (rol == Usuario.VENDEDOR):
-                vendedor = Vendedor.objects.create ( vendedor = user)
+            elif rol == Usuario.VENDEDOR:
+                vendedor = Vendedor.objects.create(usuario=user)  # Asociar el usuario como vendedor
                 vendedor.save()
-    else: 
+                
+            # Redirigir al usuario a la página principal despues del form, ya que no tiene sentido quedarse en el formulario
+            return redirect('inicio')  
+    else:
         formulario = RegistroForm()
-    return render(request, 'registration/signup.html', {'formulario': formulario })
+    return render(request, 'registration/signup.html', {'formulario': formulario})
