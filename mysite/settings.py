@@ -32,7 +32,7 @@ SECRET_KEY =  env("SECRET_KEY")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(env("DEBUG"))
+DEBUG = True
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["localhost", "127.0.0.1"])
 # Explicación del cambio
 # env.list() convierte una cadena separada por comas en una lista.
@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'django_seed',
     'django_bootstrap5',
     'django_bootstrap_icons',
+    'rest_framework',
 
 ]
 
@@ -142,7 +143,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR /'static'
+#STATIC_ROOT = BASE_DIR /'static'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

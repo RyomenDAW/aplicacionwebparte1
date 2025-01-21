@@ -21,6 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('tiendaordenadores.urls')),  # Reemplaza 'tu_aplicacion' por el nombre de tu aplicación
     path('accounts/', include('django.contrib.auth.urls')),
+    path('api/v1/',include("tiendaordenadores.api_urls"))
 ]
 
 handler404 = 'tiendaordenadores.views.mi_error_404'
