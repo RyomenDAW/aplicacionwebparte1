@@ -153,7 +153,9 @@ LOGIN_REDIRECT_URL = 'inicio'
 LOGOUT_REDIRECT_URL = 'inicio'
 
 OAUTH2_PROVIDER = {
-    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Acceso a los grupos'}
+    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Acceso a los grupos'},
+    'ACCESS_TOKEN_EXPIRE_SECONDS': 3600000000,
+    'AUTHORIZATION_CODE_EXPIRE_SECONDS': 3600000000,
 }
 
 REST_FRAMEWORK = {
