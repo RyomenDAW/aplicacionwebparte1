@@ -23,7 +23,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('api/v1/',include("tiendaordenadores.api_urls")),
     path('oauth2/',include('oauth2_provider.urls',namespace ='oauth2_provider')),
-
+    
 ]
 
 handler404 = 'tiendaordenadores.views.mi_error_404'
