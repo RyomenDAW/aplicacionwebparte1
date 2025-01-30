@@ -1,7 +1,8 @@
 from rest_framework import serializers
 from .models import *
 from .forms import *
-                
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+
 
 class UsuarioSerializer(serializers.ModelSerializer):
     class Meta:
@@ -35,3 +36,15 @@ class ProcesadorMejoradoSerializer(serializers.ModelSerializer):
 
 #     # Relación OneToOne con PlacaBase
 #     placabase = models.OneToOneField('PlacaBase', on_delete=models.CASCADE, null=True, blank=True)
+
+
+
+class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
+    @classmethod
+    def get_token(cls, user):
+      token = super().get_token(user)
+      # Add custom claims
+      token['username'] = user.username 
+      token['email'] = user.email
+      return token
+

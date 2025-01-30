@@ -14,6 +14,7 @@ from django.views.defaults import page_not_found
 from django.contrib.auth import login
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required, permission_required
+from rest_framework_simplejwt.views import TokenObtainPairView
 
 
 def mi_error_404(request, exception=None):
@@ -951,3 +952,8 @@ def logout_view(request):
     request.session.flush()  # Eliminar todas las variables de la sesión
 
     return redirect('login')  # Redirigir al login después de logout
+
+
+#=======================================================================================================================================0
+class CustomTokenObtainPairView(TokenObtainPairView):
+  serializer_class = CustomTokenObtainPairSerializer

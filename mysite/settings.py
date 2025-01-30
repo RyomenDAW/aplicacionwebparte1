@@ -61,7 +61,8 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'django_bootstrap_icons',
     'rest_framework',
-    'oauth2_provider',
+    'oauth2_provider', #Esta se añade
+    'rest_framework_simplejwt', #Securizacion
 ]
 
 MIDDLEWARE = [
@@ -160,7 +161,8 @@ OAUTH2_PROVIDER = {
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication', #Y esta también
+        'rest_framework_simplejwt.authentication.JWTAuthentication', #Securizacion
     ),
 
     'DEFAULT_PERMISSION_CLASSES': (
