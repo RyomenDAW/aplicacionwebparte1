@@ -63,7 +63,17 @@ INSTALLED_APPS = [
     'rest_framework',
     'oauth2_provider', #Esta se añade
     'rest_framework_simplejwt', #Securizacion
+    'oidc_provider',  # OpenID Connect Provider      / # ESTA LINEA SE AÑADE PARA OICP
 ]
+
+# Configuración básica de OIDC
+OIDC_ISSUER = "http://localhost:8000"  # Puerto 8000
+OIDC_IDTOKEN_EXPIRE = 3600 # 1 HORA PARA EXPIRACION
+OIDC_USERINFO = "oidc_provider.lib.claims.StandardScopeClaims"
+
+
+
+
 
 MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
