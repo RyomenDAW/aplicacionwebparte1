@@ -23,7 +23,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('api/v1/',include("tiendaordenadores.api_urls")),
     path('oauth2/',include('oauth2_provider.urls',namespace ='oauth2_provider')),
-    path('oidc/', include('oidc_provider.urls', namespace='oidc_provider')), #Añadimos OIDC aqui tambien, urls.py de mysite.
+    # path('oidc/', include('oidc_provider.urls', namespace='oidc_provider')), #Añadimos OIDC aqui tambien, urls.py de mysite.
 
 ]
 

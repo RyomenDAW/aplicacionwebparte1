@@ -31,9 +31,17 @@ env = environ.Env()
 SECRET_KEY =  env("SECRET_KEY")
 
 
+# .env
+
+ADMIN_KEY = os.getenv('ADMIN_KEY')
+TECH_SUPPORT_KEY = os.getenv('TECH_SUPPORT_KEY')
+SELLER_KEY = os.getenv('SELLER_KEY')
+CUSTOMER_KEY = os.getenv('CUSTOMER_KEY')
+
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["localhost", "127.0.0.1","0.0.0.0"])
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["0.0.0.0", "localhost", "127.0.0.1"])
 # Explicación del cambio
 # env.list() convierte una cadena separada por comas en una lista.
 # La configuración en tu archivo .env será convertida automáticamente, por ejemplo:
@@ -45,6 +53,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 #ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com','0.0.0.0']
+
+
+
 
 
 # Application definition
@@ -62,14 +73,14 @@ INSTALLED_APPS = [
     'django_bootstrap_icons',
     'rest_framework',
     'oauth2_provider', #Esta se añade
-    'rest_framework_simplejwt', #Securizacion
-    'oidc_provider',  # OpenID Connect Provider      / # ESTA LINEA SE AÑADE PARA OICP
+   #'rest_framework_simplejwt', #Securizacion
+    #'oidc_provider',  # OpenID Connect Provider      / # ESTA LINEA SE AÑADE PARA OICP
 ]
 
-# Configuración básica de OIDC
-OIDC_ISSUER = "http://localhost:8000"  # Puerto 8000
-OIDC_IDTOKEN_EXPIRE = 3600 # 1 HORA PARA EXPIRACION
-OIDC_USERINFO = "oidc_provider.lib.claims.StandardScopeClaims"
+# # Configuración básica de OIDC
+# OIDC_ISSUER = "http://localhost:8000"  # Puerto 8000
+# OIDC_IDTOKEN_EXPIRE = 3600 # 1 HORA PARA EXPIRACION
+# OIDC_USERINFO = "oidc_provider.lib.claims.StandardScopeClaims"
 
 
 
@@ -172,7 +183,7 @@ OAUTH2_PROVIDER = {
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'oauth2_provider.contrib.rest_framework.OAuth2Authentication', #Y esta también
-        'rest_framework_simplejwt.authentication.JWTAuthentication', #Securizacion
+        #'rest_framework_simplejwt.authentication.JWTAuthentication', #Securizacion con JWT
     ),
 
     'DEFAULT_PERMISSION_CLASSES': (

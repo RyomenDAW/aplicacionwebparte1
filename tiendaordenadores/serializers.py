@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from .models import *
 from .forms import *
-from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 
 class UsuarioSerializer(serializers.ModelSerializer):
@@ -22,30 +21,48 @@ class ProcesadorMejoradoSerializer(serializers.ModelSerializer):
         model = Procesador
         fields = ['id_procesador', 'urlcompra', 'nombre', 'familiaprocesador', 'potenciacalculo','nucleos','hilos','imagen','user','placabase']
 
+class GraficaMejoradaSerializer(serializers.ModelSerializer):
+    user = UsuarioSerializer()
+    procesador = ProcesadorMejoradoSerializer(source='grafica_procesadores', read_only=True)
+    placabase = serializers.PrimaryKeyRelatedField(read_only=True)
 
-# class Procesador (models.Model):
-#     id_procesador = models.AutoField(primary_key=True)
-#     urlcompra = models.URLField(max_length=100)
-#     nombre = models.TextField(max_length=100)
-#     familiaprocesador = models.TextField(max_length=6, choices=FAMILIA_PROCESADOR)
-#     potenciacalculo = models.PositiveBigIntegerField()
-#     nucleos = models.PositiveSmallIntegerField()
-#     hilos = models.PositiveIntegerField(validators=[MinValueValidator(35000)])  # Este validator luego se suprime por el form y view xd
-#     imagen = models.ImageField(upload_to='procesadores/', blank=True, null=True)
-#     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # Aquí usamos CustomUser en lugar de User
+    class Meta:
+        model = Grafica
+        fields = ['id_grafica', 'urlcompra', 'nombre', 'familiagrafica', 'potenciacalculo', 
+                  'memoriavram', 'fecha_salida', 'trazadorayos', 'user', 'procesador', 'placabase']
+        
+class FuenteAlimentacionMejoradaSerializer(serializers.ModelSerializer):
+    user = UsuarioSerializer()
+    class Meta:
+        model = FuenteAlimentacion
+        fields = ['id_fuente', 'urlcompra', 'vatios', 'amperaje', 
+                  'conectoresdisponibles', 'calidadfuente', 'user']
+        
+        
+class RamMejoradaSerializer(serializers.ModelSerializer):
+    user = UsuarioSerializer()  
 
-#     # Relación OneToOne con PlacaBase
-#     placabase = models.OneToOneField('PlacaBase', on_delete=models.CASCADE, null=True, blank=True)
+    class Meta:
+        model = Ram
+        fields = ['id_ram', 'fecha_fabricacion', 'mhz', 'familiaram', 'rgb', 
+                  'factormemoria', 'user']       
+        
 
 
 
-class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
-    @classmethod
-    def get_token(cls, user):
-      token = super().get_token(user)
-      # Add custom claims
-      token['username'] = user.username 
-      token['email'] = user.email
-      return token
-      pass
+
+#ESTA DE AQUI NO
+
+
+
+
+# class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
+#     @classmethod
+#     def get_token(cls, user):
+#       token = super().get_token(user)
+#       # Add custom claims
+#       token['username'] = user.username 
+#       token['email'] = user.email
+#       return token
+#       pass
 

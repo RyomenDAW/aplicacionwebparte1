@@ -14,8 +14,6 @@ from django.views.defaults import page_not_found
 from django.contrib.auth import login
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required, permission_required
-from rest_framework_simplejwt.views import TokenObtainPairView
-from .serializers import CustomTokenObtainPairSerializer
 
 
 def mi_error_404(request, exception=None):
@@ -956,8 +954,8 @@ def logout_view(request):
 
 
 #=======================================================================================================================================0
-class CustomTokenObtainPairView(TokenObtainPairView):
-  serializer_class = CustomTokenObtainPairSerializer
+# class CustomTokenObtainPairView(TokenObtainPairView):
+#   serializer_class = CustomTokenObtainPairSerializer
   
   
   
@@ -973,31 +971,27 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 import requests
 
-OIDC_TOKEN_URL = "http://localhost:8000/oidc/token/"  # Your OIDC token endpoint
-CLIENT_ID = "904043"
-CLIENT_SECRET = "cc522d9f3c96f4f5221b8c9cbc52bfa4c289ed940ebd1aa5c03b4995"
-REDIRECT_URI = "http://localhost:8000/callback/"
 
 
-def oidc_callback(request):
-    """Handle the authorization code callback and exchange for tokens"""
-    code = request.GET.get("code")
-    if not code:
-        return HttpResponse("Error: No authorization code found.", status=400)
+# def oidc_callback(request):
+#     """Handle the authorization code callback and exchange for tokens"""
+#     code = request.GET.get("code")
+#     if not code:
+#         return HttpResponse("Error: No authorization code found.", status=400)
 
-    # Exchange code for tokens
-    token_data = {
-        "grant_type": "authorization_code",
-        "code": code,
-        "redirect_uri": REDIRECT_URI,
-        "client_id": CLIENT_ID,
-        "client_secret": CLIENT_SECRET,
-    }
+#     # Exchange code for tokens
+#     token_data = {
+#         "grant_type": "authorization_code",
+#         "code": code,
+#         "redirect_uri": REDIRECT_URI,
+#         "client_id": CLIENT_ID,
+#         "client_secret": CLIENT_SECRET,
+#     }
 
-    response = requests.post(OIDC_TOKEN_URL, data=token_data)
+#     response = requests.post(OIDC_TOKEN_URL, data=token_data)
 
-    if response.status_code == 200:
-        tokens = response.json()
-        return HttpResponse(f"Access Token: {tokens.get('access_token')}")
-    else:
-        return HttpResponse(f"Token request failed: {response.text}", status=400)
+#     if response.status_code == 200:
+#         tokens = response.json()
+#         return HttpResponse(f"Access Token: {tokens.get('access_token')}")
+#     else:
+#         return HttpResponse(f"Token request failed: {response.text}", status=400)

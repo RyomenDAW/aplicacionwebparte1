@@ -23,4 +23,22 @@ def procesadores_mejorados(request):
     serializer = ProcesadorMejoradoSerializer(procesadores, many=True)
     return Response(serializer.data)
 
- 
+
+@api_view(['GET'])
+def grafica_list(request):
+    graficas = Grafica.objects.all()  
+    serializer = GraficaMejoradaSerializer(graficas, many=True)  # Serializamos los datos
+    return Response(serializer.data)
+
+# Vista para listar fuentes de alimentación
+@api_view(['GET'])
+def fuente_list(request): #Aqui la mejora es que pone el user
+    fuentes = FuenteAlimentacion.objects.all()  
+    serializer = FuenteAlimentacionMejoradaSerializer(fuentes, many=True)  
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def ram_list(request):  
+    rams = Ram.objects.all()     
+    serializer = RamMejoradaSerializer(rams, many=True)  
+    return Response(serializer.data)
