@@ -1,6 +1,8 @@
 from django.urls import path, re_path
 from . import views
 from .views import *
+from .views import oidc_callback
+
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth.views import LogoutView
@@ -61,6 +63,8 @@ urlpatterns = [
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
     #=====================================================================================================================================
+    path("callback/", oidc_callback, name="oidc_callback"),
+    
     ] 
 
 
