@@ -8,7 +8,7 @@ urlpatterns = [
     path('graficas', grafica_list, name='graficas'),  # Ruta para la lista graficas
     path('fuentes', fuente_list, name='fuentes'),  # Ruta para la lista de fuentes de alimentación
     path('rams', ram_list, name='rams'),  # Ruta para la lista de RAMs
-
+    
     
     
 ]
