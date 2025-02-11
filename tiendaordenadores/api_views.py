@@ -5,6 +5,14 @@ from rest_framework.decorators import api_view
 from .forms import *
 
 
+
+@api_view(['GET'])
+def placabases_list(request):
+    placasbase = PlacaBase.objects.all()
+    serializer = PlacaBaseSerializer(placasbase, many=True)
+    return Response(serializer.data)
+
+
 @api_view(['GET'])
 def procesador_list(request):
 

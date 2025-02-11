@@ -12,7 +12,11 @@ class ProcesadorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Procesador 
         fields = '__all__'
-    
+
+class PlacaBaseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PlacaBase
+        fields = '__all__'
 
 class ProcesadorMejoradoSerializer(serializers.ModelSerializer):
     placabase = serializers.PrimaryKeyRelatedField(read_only=True)
