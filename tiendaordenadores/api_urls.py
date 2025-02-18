@@ -1,8 +1,8 @@
 from django.urls import path
-
 from .api_views import *
 
 urlpatterns = [
+    path('procesadores', procesador_list),
     path('placasbase', placabases_list, name='placasbase'),  # Ruta para la lista de procesadores
     path('procesadores', procesador_list, name='procesadores'),  # Ruta para la lista de procesadores
     path('procesadores-mejorados', procesadores_mejorados, name='procesadores-mejorados'),  # Ruta para procesadores mejorados
@@ -19,9 +19,5 @@ urlpatterns = [
     path('grafica_busqueda_avanzada/', grafica_busqueda_avanzada_api, name='grafica_busqueda_avanzada_api'),
     path('ram_busqueda_avanzada/', ram_busqueda_avanzada_api, name='ram_busqueda_avanzada_api'),
     path('fuente_busqueda_avanzada/', fuente_busqueda_avanzada_api, name='fuente_busqueda_avanzada_api'),
-
-    
+    path('crear_procesador/', crear_procesador, name='crear_procesador'),
 ]
-
-
-

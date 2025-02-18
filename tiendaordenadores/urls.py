@@ -1,6 +1,7 @@
 from django.urls import path, re_path
 from . import views
 from .views import *
+from .api_views import *
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -68,6 +69,10 @@ urlpatterns = [
     # # path("callback/", oidc_callback, name="oidc_callback"),
     # path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     # path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    
+    #path('template-api/procesadores/', views.crear_procesador, name='crear_procesador'),
+    
+     path('procesadores', procesador_list),
     ] 
 
 

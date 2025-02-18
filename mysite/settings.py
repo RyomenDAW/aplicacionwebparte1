@@ -93,7 +93,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.security.SecurityMiddleware',]
+    'django.middleware.security.SecurityMiddleware',
+    ]
 
 ROOT_URLCONF = 'mysite.urls'
 
@@ -182,7 +183,7 @@ OAUTH2_PROVIDER = {
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'oauth2_provider.contrib.rest_framework.OAuth2Authentication', #Y esta también
+        #'oauth2_provider.contrib.rest_framework.OAuth2Authentication', #Y esta también
         #'rest_framework_simplejwt.authentication.JWTAuthentication', #Securizacion con JWT
     ),
 
@@ -190,3 +191,4 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
 }
+

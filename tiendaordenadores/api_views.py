@@ -3,6 +3,7 @@ from .serializers import *
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .forms import *
+from rest_framework import status
 
 
 
@@ -170,3 +171,22 @@ def ram_busqueda_avanzada_api(request):
 
     serializer = RamMejoradaSerializer(rams, many=True)
     return Response(serializer.data)
+
+
+@api_view(['POST'])
+def crear_procesador(request):
+    """
+    Crea un nuevo procesador en la base de datos desde la API CLIENTE.
+    """
+    procesador_serializer = ProcesadorSerializer(data=request.data)
+
+    if procesador_serializer.is_valid():
+        try:
+            procesador_serializer.save()
+            return Response("Procesador CREADO", status=status.HTTP_201_CREATED)
+        except serializers.ValidationError as error:
+            return Response(error.detail, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as error:
+            return Response(str(error), status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    else:
+        return Response(procesador_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
