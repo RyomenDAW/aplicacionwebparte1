@@ -37,6 +37,7 @@ ADMIN_KEY = os.getenv('ADMIN_KEY')
 TECH_SUPPORT_KEY = os.getenv('TECH_SUPPORT_KEY')
 SELLER_KEY = os.getenv('SELLER_KEY')
 CUSTOMER_KEY = os.getenv('CUSTOMER_KEY')
+APPEND_SLASH = True
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -72,7 +73,9 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'django_bootstrap_icons',
     'rest_framework',
-    'oauth2_provider', #Esta se añade
+    'oauth2_provider',
+    'django_extensions',
+    #Esta se añade
    #'rest_framework_simplejwt', #Securizacion
     #'oidc_provider',  # OpenID Connect Provider      / # ESTA LINEA SE AÑADE PARA OICP
 ]

@@ -21,9 +21,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('tiendaordenadores.urls')),  # Reemplaza 'tu_aplicacion' por el nombre de tu aplicación
     path('accounts/', include('django.contrib.auth.urls')),
-    path('api/v1/',include("tiendaordenadores.api_urls")),
     path('oauth2/',include('oauth2_provider.urls',namespace ='oauth2_provider')),
     # path('oidc/', include('oidc_provider.urls', namespace='oidc_provider')), #Añadimos OIDC aqui tambien, urls.py de mysite.
+    path('template-api/', include('tiendaordenadores.api_urls')),  # Asegúrate que esto está correcto
+
 
 ]
 
