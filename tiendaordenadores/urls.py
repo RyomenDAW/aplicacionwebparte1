@@ -65,14 +65,36 @@ urlpatterns = [
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
     #=====================================================================================================================================
     path('o/token/', TokenView.as_view(), name='token'),
+    path('template-api/procesadores/', crear_procesador, name='crear_procesador'),
+    path('template-api/procesadores/<int:procesador_id>/', obtener_y_actualizar_procesador, name='obtener_actualizar_procesador'),
+    path('template-api/procesadores/<int:procesador_id>/actualizar-nombre/', actualizar_nombre_procesador, name='actualizar_nombre_procesador'),
 
+
+    #=====================================================================================================================================
+    path('template-api/graficas/', crear_grafica, name='crear_grafica'),
+    path('template-api/graficas/<int:grafica_id>/', obtener_y_actualizar_grafica, name='obtener_actualizar_grafica'),
+    path('template-api/graficas/<int:grafica_id>/actualizar-nombre/', actualizar_nombre_grafica, name='actualizar_nombre_grafica'),
+    path('template-api/graficas/<int:grafica_id>/eliminar/', eliminar_grafica, name='eliminar_grafica'),
+
+
+    #=====================================================================================================================================
+
+    # Rutas para Monitores-Graficas (ManyToMany)
+    path('template-api/monitores-graficas/crear/', crear_monitor_grafica, name='crear_monitor_grafica'),
+    path('template-api/monitores-graficas/<int:relacion_id>/', actualizar_monitor_grafica, name='actualizar_monitor_grafica'),
+    path('template-api/monitores-graficas/<int:relacion_id>/actualizar-grafica/', actualizar_grafica_en_relacion, name='actualizar_grafica_en_relacion'),
+    path('template-api/monitores-graficas/<int:relacion_id>/eliminar/', eliminar_monitor_grafica, name='eliminar_monitor_grafica'),
+    #=====================================================================================================================================
+
+    
+    
     # # path("callback/", oidc_callback, name="oidc_callback"),
     # path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     # path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     
     #path('template-api/procesadores/', views.crear_procesador, name='crear_procesador'),
     
-     path('procesadores', procesador_list),
+    #  path('procesadores', procesador_list),
     ] 
 
 

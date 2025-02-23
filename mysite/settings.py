@@ -73,6 +73,7 @@ INSTALLED_APPS = [
     'django_bootstrap_icons',
     'rest_framework',
     'oauth2_provider', #Esta se añade
+    'rest_framework.authtoken',  # 🔹 Agregar esto para Token Authentication
    #'rest_framework_simplejwt', #Securizacion
     #'oidc_provider',  # OpenID Connect Provider      / # ESTA LINEA SE AÑADE PARA OICP
 ]
@@ -183,8 +184,7 @@ OAUTH2_PROVIDER = {
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        #'oauth2_provider.contrib.rest_framework.OAuth2Authentication', #Y esta también
-        #'rest_framework_simplejwt.authentication.JWTAuthentication', #Securizacion con JWT
+        'rest_framework.authentication.TokenAuthentication',
     ),
 
     'DEFAULT_PERMISSION_CLASSES': (
