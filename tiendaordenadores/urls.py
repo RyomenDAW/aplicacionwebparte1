@@ -2,13 +2,16 @@ from django.urls import path, re_path
 from . import views
 from .views import *
 from .api_views import *
-
+from rest_framework.routers import DefaultRouter
+from .views import ProcesadorViewSet
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth.views import LogoutView
 # urls.py
 from django.contrib.auth import views as auth_views
 from oauth2_provider.views import TokenView
+router = DefaultRouter()
+router.register(r'procesadores', ProcesadorViewSet, basename='procesador')
 
 
 urlpatterns = [
@@ -95,6 +98,8 @@ urlpatterns = [
     #path('template-api/procesadores/', views.crear_procesador, name='crear_procesador'),
     
     #  path('procesadores', procesador_list),
+    
+    
     ] 
 
 
