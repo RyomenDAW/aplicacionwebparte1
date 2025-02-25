@@ -228,11 +228,22 @@ class GraficaProcesador(models.Model):
 
 # Relación ManyToMany: Monitor - Grafica               //Varios monitores pueden estar conectados a 1 o mas graficas tecnicamente
 class MonitorGrafica(models.Model):
+    CONEXIONES_VALIDAS = (
+        ("HDMI", "HDMI"),
+        ("DisplayPort", "DisplayPort"),
+        ("VGA", "VGA"),
+        ("DVI", "DVI"),
+    )
+
     monitor = models.ForeignKey(Monitor, on_delete=models.CASCADE)
     grafica = models.ForeignKey(Grafica, on_delete=models.CASCADE)
+    modo_conexion = models.CharField(max_length=15, choices=CONEXIONES_VALIDAS, default="HDMI")
+    es_monitor_gaming = models.BooleanField(default=False)  
+    resolucion_maxima = models.PositiveIntegerField(default=1080)  
 
     class Meta:
         unique_together = ('monitor', 'grafica')  # Evitar duplicados
+
 
 # Relación ManyToMany: PlacaBase - Disipador          //Una placa base de muy alta calidad puede tener uno o mas disipadores
 class PlacaBaseDisipador(models.Model): 

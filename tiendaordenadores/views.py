@@ -958,8 +958,26 @@ def logout_view(request):
 #   serializer_class = CustomTokenObtainPairSerializer
   
   
-  
-  
+  #viewset
+from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
+from .models import Procesador
+from .serializers import ProcesadorSerializer
+
+
+class ProcesadorViewSet(viewsets.ModelViewSet):
+    """
+    ViewSet para gestionar procesadores (CRUD completo)
+    """
+queryset = Procesador.objects.all()
+serializer_class = ProcesadorSerializer
+permission_classes = [IsAuthenticated]
+
+def perform_create(self, serializer):
+        """
+        Asigna automáticamente el usuario autenticado al crear un procesador
+        """
+        serializer.save(user=self.request.user)
   
   
   

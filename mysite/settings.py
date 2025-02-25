@@ -73,9 +73,7 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'django_bootstrap_icons',
     'rest_framework',
-    'oauth2_provider',
-    'django_extensions',
-    #Esta se añade
+    'oauth2_provider', #Esta se añade
    #'rest_framework_simplejwt', #Securizacion
     #'oidc_provider',  # OpenID Connect Provider      / # ESTA LINEA SE AÑADE PARA OICP
 ]
@@ -96,7 +94,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.security.SecurityMiddleware',]
+    'django.middleware.security.SecurityMiddleware',
+    ]
 
 ROOT_URLCONF = 'mysite.urls'
 
@@ -185,11 +184,11 @@ OAUTH2_PROVIDER = {
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'oauth2_provider.contrib.rest_framework.OAuth2Authentication', #Y esta también
-        #'rest_framework_simplejwt.authentication.JWTAuthentication', #Securizacion con JWT
+        'rest_framework.authentication.TokenAuthentication',
     ),
 
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
 }
+
