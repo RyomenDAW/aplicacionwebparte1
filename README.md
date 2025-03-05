@@ -71,7 +71,10 @@ curl -X GET http://127.0.0.1:8000/template-api/procesadores/ \
 - **Autenticación:** Requiere token OAuth2 en la cabecera `Authorization: Bearer <TOKEN>`
 
 **Ejemplo de petición con `curl`:**
-```bash
+
+
+
+
 curl -X GET http://127.0.0.1:8000/template-api/usuario/ -H "Authorization: Bearer TU_ACCESS_TOKEN"
 
 
