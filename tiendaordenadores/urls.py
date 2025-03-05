@@ -78,6 +78,7 @@ urlpatterns = [
     path('template-api/graficas/<int:grafica_id>/', obtener_y_actualizar_grafica, name='obtener_actualizar_grafica'),
     path('template-api/graficas/<int:grafica_id>/actualizar-nombre/', actualizar_nombre_grafica, name='actualizar_nombre_grafica'),
     path('template-api/graficas/<int:grafica_id>/eliminar/', eliminar_grafica, name='eliminar_grafica'),
+    path("template-api/CORSprocesadores/", procesador_list, name="procesador_list"),  # Prueba para CORS
 
 
     #=====================================================================================================================================

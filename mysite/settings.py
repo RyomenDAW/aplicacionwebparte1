@@ -74,6 +74,10 @@ INSTALLED_APPS = [
     'django_bootstrap_icons',
     'rest_framework',
     'oauth2_provider', #Esta se añade
+    'corsheaders',
+
+    
+    
    #'rest_framework_simplejwt', #Securizacion
     #'oidc_provider',  # OpenID Connect Provider      / # ESTA LINEA SE AÑADE PARA OICP
 ]
@@ -95,6 +99,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # Agregar aquí
+
     ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -193,3 +199,13 @@ REST_FRAMEWORK = {
     ),
 }
 
+
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:5500",  # cliente con Live Server de VS Code
+    "http://localhost:3000",  # React o Vue en desarrollo
+    "http://127.0.0.1:8000",  # Permitir también la API en sí misma
+    "http://127.0.0.1:8001",  # Permitir solicitudes desde el frontend
+
+]
+
+CORS_ALLOW_CREDENTIALS = True  # Para permitir cookies y autenticación con tokens

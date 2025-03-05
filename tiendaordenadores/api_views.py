@@ -15,7 +15,7 @@ def placabases_list(request):
     return Response(serializer.data)
 
 
-@api_view(['GET'])
+@api_view(["GET"])
 def procesador_list(request):
     procesadores = Procesador.objects.all()
     serializer = ProcesadorSerializer(procesadores, many=True)
