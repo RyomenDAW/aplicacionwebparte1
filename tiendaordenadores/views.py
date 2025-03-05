@@ -988,7 +988,61 @@ def perform_create(self, serializer):
 from django.http import HttpResponse
 from django.shortcuts import redirect
 import requests
+from .serializers import *
 
+from rest_framework import generics
+from rest_framework.permissions import AllowAny
+
+from rest_framework import generics, status
+from rest_framework.response import Response
+from rest_framework.permissions import AllowAny
+from django.contrib.auth.models import Group
+from .serializers import UsuarioSerializerRegistro
+from .models import Usuario, Cliente, TecnicoInformatico, Vendedor
+
+class RegistrarUsuario(generics.CreateAPIView):
+    serializer_class = UsuarioSerializerRegistro
+    permission_classes = [AllowAny]
+
+    def create(self, request, *args, **kwargs):
+        serializer = UsuarioSerializerRegistro(data=request.data)
+        if serializer.is_valid():
+            try:
+                rol = request.data.get('rol')
+
+                # Crear usuario
+                user = Usuario.objects.create_user(
+                    username=serializer.validated_data["username"],
+                    email=serializer.validated_data["email"],
+                    password=serializer.validated_data["password1"],
+                )
+                user.rol = rol  # Asignar el rol después de la creación
+                user.save()
+
+                # Asignar rol a grupo y crear la instancia del modelo correspondiente
+                if rol == Usuario.CLIENTE:
+                    grupo = Group.objects.get(name="Clientes")
+                    grupo.user_set.add(user)
+                    Cliente.objects.create(usuario=user)
+
+                elif rol == Usuario.TECNICOINFORMATICO:
+                    grupo = Group.objects.get(name="TecnicosInformaticos")
+                    grupo.user_set.add(user)
+                    TecnicoInformatico.objects.create(usuario=user)
+
+                elif rol == Usuario.VENDEDOR:
+                    grupo = Group.objects.get(name="Vendedor")
+                    grupo.user_set.add(user)
+                    Vendedor.objects.create(usuario=user)
+
+                # Serializar usuario
+                usuario_serializado = UsuarioSerializerRegistro(user)
+                return Response(usuario_serializado.data, status=status.HTTP_201_CREATED)
+
+            except Exception as error:
+                return Response({"error": str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 # def oidc_callback(request):

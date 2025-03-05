@@ -88,9 +88,11 @@ urlpatterns = [
     path('template-api/monitores-graficas/<int:relacion_id>/actualizar-grafica/', actualizar_grafica_en_relacion, name='actualizar_grafica_en_relacion'),
     path('template-api/monitores-graficas/<int:relacion_id>/eliminar/', eliminar_monitor_grafica, name='eliminar_monitor_grafica'),
     #=====================================================================================================================================
+    path('template-api/register/', RegistrarUsuario.as_view(), name='api_register'),
+    path("template-api/usuario/token/", obtener_usuario_token, name="api_usuario_token"),
+    path('template-api/usuario/', obtener_usuario_autenticado, name='api_usuario_autenticado'),
+    path('template-api/procesadores/usuario/', obtener_procesadores_usuario, name='api_procesadores_usuario'),
 
-    
-    
     # # path("callback/", oidc_callback, name="oidc_callback"),
     # path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     # path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),

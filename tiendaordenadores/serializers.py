@@ -23,8 +23,41 @@ class ProcesadorSerializer(serializers.ModelSerializer):
         return super().create(validated_data)
     
     
-    
-    
+from rest_framework import serializers
+from .models import Usuario
+from django.contrib.auth.hashers import make_password
+
+class UsuarioSerializerRegistro(serializers.ModelSerializer):
+    password1 = serializers.CharField(write_only=True)
+    password2 = serializers.CharField(write_only=True)
+
+    class Meta:
+        model = Usuario
+        fields = ("username", "email", "password1", "password2", "first_name", "last_name", "rol")
+
+    def validate_username(self, username):
+        if Usuario.objects.filter(username=username).exists():
+            raise serializers.ValidationError("Ya existe un usuario con este nombre.")
+        return username
+
+    def validate(self, data):
+        if data['password1'] != data['password2']:
+            raise serializers.ValidationError({"password2": "Las contraseñas no coinciden."})
+        return data
+
+    def create(self, validated_data):
+        validated_data.pop("password2")
+        validated_data["password1"] = make_password(validated_data["password1"])
+        user = Usuario.objects.create(
+            username=validated_data["username"],
+            email=validated_data["email"],
+            password=validated_data["password1"],
+            first_name=validated_data.get("first_name", ""),
+            last_name=validated_data.get("last_name", ""),
+            rol=validated_data.get("rol", 2),  # Cliente por defecto
+        )
+        return user
+
     
 class PlacaBaseSerializer(serializers.ModelSerializer):
     class Meta:

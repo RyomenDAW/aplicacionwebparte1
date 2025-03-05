@@ -177,9 +177,21 @@ def ram_busqueda_avanzada_api(request):
     return Response(serializer.data)
 
 
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework import status
+from django.shortcuts import get_object_or_404
+from .models import Procesador
+from .serializers import CrearProcesadorSerializer, ProcesadorSerializer, ProcesadorActualizarNombreSerializer
+#=============================================================================================================================
+# 🔹 Crear un procesador (Solo Vendedor y Administrador)
 @api_view(['POST'])
+@permission_classes([IsAuthenticated])
 def crear_procesador(request):
-    
+    if request.user.rol not in [1, 4]:  # Solo Administrador (1) y Vendedor (4)
+        return Response({"error": "No tienes permisos para crear procesadores."}, status=status.HTTP_403_FORBIDDEN)
+
     print("📌 RECIBIDA PETICIÓN POST EN /template-api/procesadores/")  # DEBUG
     print("📌 DATOS RECIBIDOS:", request.data)  # DEBUG
 
@@ -198,79 +210,96 @@ def crear_procesador(request):
 
     return Response(procesador_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
+# 🔹 Obtener y actualizar procesador (Solo Técnico Informático y Administrador)
 @api_view(['GET', 'PUT'])
+@permission_classes([IsAuthenticated])
 def obtener_y_actualizar_procesador(request, procesador_id):
-    """ OBTIENE O ACTUALIZA UN PROCESADOR SEGÚN EL MÉTODO HTTP """
-
-    # OBTENER PROCESADOR O DEVOLVER ERROR 404 SI NO EXISTE
     procesador = get_object_or_404(Procesador, id_procesador=procesador_id)
 
     if request.method == 'GET':
         serializer = ProcesadorSerializer(procesador)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-    elif request.method == 'PUT':
+    if request.method == 'PUT':
+        if request.user.rol not in [1, 3]:  # Solo Administrador (1) y Técnico Informático (3)
+            return Response({"error": "No tienes permisos para actualizar procesadores."}, status=status.HTTP_403_FORBIDDEN)
+
         procesador_serializer = CrearProcesadorSerializer(instance=procesador, data=request.data)
 
         if procesador_serializer.is_valid():
             procesador_serializer.save()
-            return Response({"mensaje": "Procesador actualizado correctamente SERVIDOR!"}, status=status.HTTP_200_OK)
+            return Response({"mensaje": "Procesador actualizado correctamente"}, status=status.HTTP_200_OK)
         else:
             return Response(procesador_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
+# 🔹 Actualizar solo el nombre del procesador (Solo Técnico Informático y Administrador)
 @api_view(['PATCH'])
+@permission_classes([IsAuthenticated])
 def actualizar_nombre_procesador(request, procesador_id):
-    """ Vista para actualizar solo el nombre de un procesador con PATCH """
+    if request.user.rol not in [1, 3]:  # Solo Administrador (1) y Técnico Informático (3)
+        return Response({"error": "No tienes permisos para actualizar nombres de procesadores."}, status=status.HTTP_403_FORBIDDEN)
+
     procesador = get_object_or_404(Procesador, id_procesador=procesador_id)
     serializer = ProcesadorActualizarNombreSerializer(procesador, data=request.data, partial=True)
 
     if serializer.is_valid():
         serializer.save()
         return Response({"mensaje": "Nombre actualizado correctamente"}, status=status.HTTP_200_OK)
-    
+
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+# 🔹 Eliminar un procesador (Solo Vendedor y Administrador)
 @api_view(['DELETE'])
+@permission_classes([IsAuthenticated])
 def eliminar_procesador(request, procesador_id):
-    """ Elimina un procesador por su ID """
+    if request.user.rol not in [1, 4]:  # Solo Administrador (1) y Vendedor (4)
+        return Response({"error": "No tienes permisos para eliminar procesadores."}, status=status.HTTP_403_FORBIDDEN)
+
     procesador = get_object_or_404(Procesador, id_procesador=procesador_id)
-    
+
     try:
         procesador.delete()
         return Response({"mensaje": "✅ Procesador eliminado correctamente."}, status=status.HTTP_204_NO_CONTENT)
-    
+
     except Exception as error:
         return Response({"error": str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-    
-    
+
+#=============================================================================================================================
+
+
+# 🔹 Crear una gráfica (Solo Vendedor y Administrador)
 @api_view(['POST'])
+@permission_classes([IsAuthenticated])
 def crear_grafica(request):
-        """ API para crear una nueva gráfica """
-        print("📌 RECIBIDA PETICIÓN POST EN /template-api/graficas/")  # DEBUG
-        print("📌 DATOS RECIBIDOS:", request.data)  # DEBUG
+    """ API para crear una nueva gráfica """
 
-        grafica_serializer = CrearGraficaSerializer(data=request.data, context={'request': request})
+    if request.user.rol not in [1, 4]:  # Solo Administrador (1) y Vendedor (4)
+        return Response({"error": "No tienes permisos para crear gráficas."}, status=status.HTTP_403_FORBIDDEN)
 
-        if grafica_serializer.is_valid():
-            try:
-                grafica_serializer.save(user=request.user)
-                return Response({"mensaje": "GRÁFICA CREADA CON ÉXITO"}, status=status.HTTP_201_CREATED)
+    print("📌 RECIBIDA PETICIÓN POST EN /template-api/graficas/")  # DEBUG
+    print("📌 DATOS RECIBIDOS:", request.data)  # DEBUG
 
-            except serializers.ValidationError as error:
-                return Response(error.detail, status=status.HTTP_400_BAD_REQUEST)
+    grafica_serializer = CrearGraficaSerializer(data=request.data, context={'request': request})
 
-            except Exception as error:
-                return Response({"error": str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    if grafica_serializer.is_valid():
+        try:
+            grafica_serializer.save(user=request.user)
+            return Response({"mensaje": "GRÁFICA CREADA CON ÉXITO"}, status=status.HTTP_201_CREATED)
 
-        return Response(grafica_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
+        except serializers.ValidationError as error:
+            return Response(error.detail, status=status.HTTP_400_BAD_REQUEST)
+
+        except Exception as error:
+            return Response({"error": str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    return Response(grafica_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# 🔹 Obtener y actualizar una gráfica (Solo Técnico Informático y Administrador)
 @api_view(['GET', 'PUT'])
+@permission_classes([IsAuthenticated])
 def obtener_y_actualizar_grafica(request, grafica_id):
     """ OBTIENE O ACTUALIZA UNA GRÁFICA SEGÚN EL MÉTODO HTTP """
 
-    # Obtener la gráfica o devolver error 404 si no existe
     grafica = get_object_or_404(Grafica, id_grafica=grafica_id)
 
     if request.method == 'GET':
@@ -278,16 +307,18 @@ def obtener_y_actualizar_grafica(request, grafica_id):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     elif request.method == 'PUT':
+        if request.user.rol not in [1, 3]:  # Solo Administrador (1) y Técnico Informático (3)
+            return Response({"error": "No tienes permisos para actualizar gráficas."}, status=status.HTTP_403_FORBIDDEN)
+
         datos = request.data.copy()
 
-        # Asegurar que el usuario autenticado sea el que está editando la gráfica
+        # Asegurar que el usuario autenticado es el que edita la gráfica
         if "user" not in datos or datos["user"] is None:
             if request.user.is_authenticated:
                 datos["user"] = request.user.id  # Asignar usuario autenticado
             else:
                 return Response({"error": "❌ Debes estar autenticado para actualizar una gráfica"}, status=status.HTTP_403_FORBIDDEN)
 
-        # Validamos los datos con el serializador
         grafica_serializer = CrearGraficaSerializer(instance=grafica, data=datos)
 
         if grafica_serializer.is_valid():
@@ -296,15 +327,17 @@ def obtener_y_actualizar_grafica(request, grafica_id):
         else:
             return Response(grafica_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
-
+# 🔹 Actualizar solo el nombre de la gráfica (Solo Técnico Informático y Administrador)
 @api_view(['PATCH'])
+@permission_classes([IsAuthenticated])
 def actualizar_nombre_grafica(request, grafica_id):
-    """
-    Actualiza solo el nombre de la gráfica con PATCH.
-    """
+    """ Actualiza solo el nombre de la gráfica con PATCH. """
+
+    if request.user.rol not in [1, 3]:  # Solo Administrador (1) y Técnico Informático (3)
+        return Response({"error": "No tienes permisos para actualizar nombres de gráficas."}, status=status.HTTP_403_FORBIDDEN)
+
     grafica = get_object_or_404(Grafica, id_grafica=grafica_id)
-    
+
     nuevo_nombre = request.data.get("nombre", None)
     if not nuevo_nombre:
         return Response({"error": "El campo 'nombre' es obligatorio para esta actualización."},
@@ -319,19 +352,36 @@ def actualizar_nombre_grafica(request, grafica_id):
 
     return Response({"mensaje": "Nombre de la gráfica actualizado con éxito"}, status=status.HTTP_200_OK)
 
-
-
+# 🔹 Eliminar una gráfica (Solo Vendedor y Administrador)
 @api_view(["DELETE"])
+@permission_classes([IsAuthenticated])
 def eliminar_grafica(request, grafica_id):
     """ Elimina una gráfica de la base de datos """
+
+    if request.user.rol not in [1, 4]:  # Solo Administrador (1) y Vendedor (4)
+        return Response({"error": "No tienes permisos para eliminar gráficas."}, status=status.HTTP_403_FORBIDDEN)
+
     grafica = get_object_or_404(Grafica, id_grafica=grafica_id)
-    grafica.delete()
-    return Response({"mensaje": "✅ Gráfica eliminada correctamente."}, status=status.HTTP_204_NO_CONTENT)
+    
+    try:
+        grafica.delete()
+        return Response({"mensaje": "✅ Gráfica eliminada correctamente."}, status=status.HTTP_204_NO_CONTENT)
+
+    except Exception as error:
+        return Response({"error": str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
+#=====================================================================================================================================
+
+# 🔹 Crear relación Monitor-Grafica (Solo Vendedor y Administrador)
 @api_view(['POST'])
+@permission_classes([IsAuthenticated])
 def crear_monitor_grafica(request):
     """ Crea una relación entre Monitor y Gráfica con validaciones """
+
+    if request.user.rol not in [1, 4]:  # Solo Administrador (1) y Vendedor (4)
+        return Response({"error": "No tienes permisos para crear relaciones Monitor-Grafica."}, status=status.HTTP_403_FORBIDDEN)
+
     monitor_id = request.data.get("monitor")
     grafica_id = request.data.get("grafica")
     modo_conexion = request.data.get("modo_conexion")
@@ -365,21 +415,23 @@ def crear_monitor_grafica(request):
         return Response({"mensaje": "La relación ya existe"}, status=status.HTTP_200_OK)
 
 
-### 🛠 **PUT - Actualizar Toda la Relación**
-
+### 🔹 Obtener y actualizar relación Monitor-Grafica (Solo Técnico Informático y Administrador)
 @api_view(['PUT', 'GET'])
+@permission_classes([IsAuthenticated])
 def actualizar_monitor_grafica(request, relacion_id):
     """ Obtiene o actualiza toda la relación entre Monitor y Gráfica """
 
-    # 📌 GET: Obtener la relación actual
+    relacion = get_object_or_404(MonitorGrafica, id=relacion_id)
+
+    # 📌 GET: Obtener la relación actual (Cualquiera autenticado puede verla)
     if request.method == "GET":
-        relacion = get_object_or_404(MonitorGrafica, id=relacion_id)
         serializer = MonitorGraficaSerializer(relacion)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     # 📌 PUT: Actualizar la relación
     elif request.method == "PUT":
-        relacion = get_object_or_404(MonitorGrafica, id=relacion_id)
+        if request.user.rol not in [1, 3]:  # Solo Administrador (1) y Técnico Informático (3)
+            return Response({"error": "No tienes permisos para actualizar relaciones Monitor-Grafica."}, status=status.HTTP_403_FORBIDDEN)
 
         monitor_id = request.data.get("monitor")
         grafica_id = request.data.get("grafica")
@@ -406,10 +458,15 @@ def actualizar_monitor_grafica(request, relacion_id):
         return Response({"mensaje": "✅ Relación actualizada correctamente"}, status=status.HTTP_200_OK)
 
 
-
+# 🔹 Actualizar solo la gráfica en la relación (Solo Técnico Informático y Administrador)
 @api_view(['PATCH'])
+@permission_classes([IsAuthenticated])
 def actualizar_grafica_en_relacion(request, relacion_id):
     """ Actualiza solo la tarjeta gráfica en una relación Monitor-Grafica """
+
+    if request.user.rol not in [1, 3]:  # Solo Administrador (1) y Técnico Informático (3)
+        return Response({"error": "No tienes permisos para actualizar gráficas en relaciones Monitor-Grafica."}, status=status.HTTP_403_FORBIDDEN)
+
     nueva_grafica_id = request.data.get("grafica")
 
     if not nueva_grafica_id:
@@ -422,11 +479,86 @@ def actualizar_grafica_en_relacion(request, relacion_id):
     return Response({"mensaje": "Gráfica actualizada correctamente"}, status=status.HTTP_200_OK)
 
 
-
-### 🛠 **DELETE - Eliminar Relación**
+# 🔹 Eliminar relación Monitor-Grafica (Solo Vendedor y Administrador)
 @api_view(['DELETE'])
+@permission_classes([IsAuthenticated])
 def eliminar_monitor_grafica(request, relacion_id):
     """ Elimina una relación Monitor-Grafica """
+
+    if request.user.rol not in [1, 4]:  # Solo Administrador (1) y Vendedor (4)
+        return Response({"error": "No tienes permisos para eliminar relaciones Monitor-Grafica."}, status=status.HTTP_403_FORBIDDEN)
+
     relacion = get_object_or_404(MonitorGrafica, id=relacion_id)
-    relacion.delete()
-    return Response({"mensaje": "Relación eliminada correctamente"}, status=status.HTTP_200_OK)
+    
+    try:
+        relacion.delete()
+        return Response({"mensaje": "✅ Relación eliminada correctamente"}, status=status.HTTP_200_OK)
+
+    except Exception as error:
+        return Response({"error": str(error)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+#=====================================================================================================================================
+from rest_framework import generics, status
+from rest_framework.permissions import AllowAny
+from rest_framework.response import Response
+from .serializers import UsuarioSerializerRegistro
+
+class RegistrarUsuario(generics.CreateAPIView):
+    serializer_class = UsuarioSerializerRegistro
+    permission_classes = [AllowAny]
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'message': 'Usuario registrado correctamente'}, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
+from oauth2_provider.models import AccessToken
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def obtener_usuario_token(request):
+    """ Devuelve los datos del usuario autenticado usando su token """
+    usuario = request.user
+    return Response({
+        "id": usuario.id,
+        "username": usuario.username,
+        "email": usuario.email,
+        "rol": usuario.rol
+    })
+    
+#==============================================================================================================
+
+# Diccionario para convertir números de rol a nombres de rol
+ROLES = {
+    1: "Administrador",
+    2: "Cliente",
+    3: "Técnico Informático",
+    4: "Vendedor"
+}
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def obtener_usuario_autenticado(request):
+    """ Devuelve la información del usuario autenticado """
+    usuario = request.user
+    return Response({
+        "id": usuario.id,
+        "username": usuario.username,
+        "email": usuario.email,
+        "rol": ROLES.get(usuario.rol, "Desconocido"),  # Convertir número de rol a nombre de rol
+    })
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def obtener_procesadores_usuario(request):
+    """ Devuelve solo los procesadores creados por el usuario autenticado """
+    procesadores = Procesador.objects.filter(user=request.user)  # Filtrar por usuario autenticado
+    serializer = ProcesadorSerializer(procesadores, many=True)
+    return Response(serializer.data)
