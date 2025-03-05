@@ -75,8 +75,17 @@ curl -X GET http://127.0.0.1:8000/template-api/procesadores/ \
 curl -X GET http://127.0.0.1:8000/template-api/usuario/ -H "Authorization: Bearer TU_ACCESS_TOKEN"
 
 
-#===================================================================================================================================================
+===================================================================================================================================================
 
-![alt text](https://imgur.com/a/13wIkBP)
+
+Ejemplo con un usuario kazan de ambos get.
+
+curl -X GET http://127.0.0.1:8000/template-api/usuario/ -H "Authorization: Bearer CWSWUHQBXTK7w3CNl5CFkg0SVTUAgn"
+
+https://imgur.com/a/13wIkBP
+
+
+curl -X GET http://127.0.0.1:8000/template-api/procesadores/usuario/ -H "Authorization: Bearer CWSWUHQBXTK7w3CNl5CFkg0SVTUAgn"
+https://imgur.com/a/uIsH3Ff
 
 
