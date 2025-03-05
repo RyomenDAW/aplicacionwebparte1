@@ -75,6 +75,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'oauth2_provider', #Esta se añade
     'corsheaders',
+    'rest_framework.authtoken',  # Agregar esta línea
 
     
     

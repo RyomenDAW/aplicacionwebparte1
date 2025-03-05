@@ -256,7 +256,366 @@ victortxakon@daw:~$ curl -X POST http://127.0.0.1:8000/template-api/procesadores
 ===================================================================================================================================================
 
 
+Tutorial:
+
+# 📌 Tutorial de Uso de la Aplicación
+
+Este tutorial está diseñado para que cualquier persona pueda desplegar y utilizar la aplicación de manera efectiva. Explicamos los pasos para desplegar la aplicación y realizar operaciones fundamentales como GET, POST, PUT, DELETE y PATCH.
+
+---
+
+## 🔹 **Requisitos Previos**
+Antes de comenzar, asegúrate de contar con los siguientes requisitos:
+
+- **Python 3.x**: Necesario para ejecutar el servidor.
+- **Django**: Framework utilizado para el backend.
+- **Requests**: Para hacer solicitudes HTTP al backend.
+- **Token de acceso válido**: Necesario para autenticar las operaciones. Se obtiene al iniciar sesión en la aplicación.
+
+---
+
+## 🖥️ **1. Desplegar la Aplicación**
+Sigue estos pasos para ejecutar el servidor Django:
+
+1️⃣ **Clona el repositorio** en tu máquina local:
+```sh
+git clone <URL_DE_TU_REPOSITORIO>
+```
+
+2️⃣ **Navega a la carpeta del proyecto:**
+```sh
+cd <nombre_del_proyecto>
+```
+
+3️⃣ **Crea un entorno virtual e instálalo:**
+```sh
+python3 -m venv venv
+source venv/bin/activate  # En Windows: venv\Scripts\activate
+```
+
+4️⃣ **Instala las dependencias necesarias:**
+```sh
+pip install -r requirements.txt
+```
+
+5️⃣ **Realiza las migraciones de la base de datos:**
+```sh
+python manage.py migrate
+```
+
+6️⃣ **Inicia el servidor de desarrollo Django:**
+```sh
+python manage.py runserver
+```
+
+La aplicación estará corriendo en `http://127.0.0.1:8000/`.
+
+---
+
+## 🔑 **2. Autenticación**
+Para realizar cualquier operación en la API, primero debes obtener un token de autenticación.
+
+1️⃣ **Realiza un POST a la URL de inicio de sesión para obtener el token.**
+
+- **Endpoint:** `POST http://127.0.0.1:8000/template-api/login/`
+- **Cuerpo (Body):**
+```json
+{
+  "username": "tu_usuario",
+  "password": "tu_contraseña"
+}
+```
+- **Respuesta:**
+```json
+{
+  "token": "aqui_va_tu_token"
+}
+```
+
+Guarda este token, lo necesitarás en las siguientes peticiones.
+
+---
+
+## 📌 **3. Operaciones CRUD con la API**
+
+### 🟢 **3.1. Obtener datos (GET)**
+El método **GET** se usa para recuperar información de la API.
+
+- **Ejemplo: Obtener lista de procesadores**
+```sh
+curl -X GET http://127.0.0.1:8000/template-api/procesadores/ \
+     -H "Authorization: Token tu_token"
+```
+- **Respuesta esperada:**
+```json
+[
+  {
+    "id_procesador": 1,
+    "nombre": "Intel i9-13900K",
+    "nucleos": 24,
+    "hilos": 32
+  }
+]
+```
+
+---
+
+### 🟠 **3.2. Crear un nuevo recurso (POST)**
+El método **POST** se usa para agregar un nuevo registro en la API.
+
+- **Ejemplo: Crear un nuevo procesador**
+```sh
+curl -X POST http://127.0.0.1:8000/template-api/procesadores/ \
+     -H "Authorization: Token tu_token" \
+     -H "Content-Type: application/json" \
+     -d '{
+         "nombre": "AMD Ryzen 9 7950X",
+         "nucleos": 16,
+         "hilos": 32,
+         "potenciacalculo": 5.6
+     }'
+```
+- **Respuesta esperada:**
+```json
+{
+  "mensaje": "PROCESADOR CREADO CON ÉXITO"
+}
+```
+
+---
+
+### 🔵 **3.3. Actualizar un recurso completamente (PUT)**
+El método **PUT** se usa para reemplazar completamente un recurso existente.
+
+- **Ejemplo: Actualizar un procesador**
+```sh
+curl -X PUT http://127.0.0.1:8000/template-api/procesadores/1/ \
+     -H "Authorization: Token tu_token" \
+     -H "Content-Type: application/json" \
+     -d '{
+         "nombre": "Intel i9-14900K",
+         "nucleos": 24,
+         "hilos": 32,
+         "potenciacalculo": 5.8
+     }'
+```
+- **Respuesta esperada:**
+```json
+{
+  "mensaje": "Procesador actualizado correctamente"
+}
+```
+
+---
+
+### 🔴 **3.4. Eliminar un recurso (DELETE)**
+El método **DELETE** se usa para borrar un recurso existente.
+
+- **Ejemplo: Eliminar un procesador**
+```sh
+curl -X DELETE http://127.0.0.1:8000/template-api/procesadores/1/ \
+     -H "Authorization: Token tu_token"
+```
+- **Respuesta esperada:**
+```json
+{
+  "mensaje": "✅ Procesador eliminado correctamente."
+}
+```
+
+---
+
+### 🟣 **3.5. Actualizar parcialmente un recurso (PATCH)**
+El método **PATCH** se usa para actualizar solo ciertos campos de un recurso.
+
+- **Ejemplo: Actualizar solo el nombre de un procesador**
+```sh
+curl -X PATCH http://127.0.0.1:8000/template-api/procesadores/1/ \
+     -H "Authorization: Token tu_token" \
+     -H "Content-Type: application/json" \
+     -d '{
+         "nombre": "Intel i9-14900KS"
+     }'
+```
+- **Respuesta esperada:**
+```json
+{
+  "mensaje": "Nombre actualizado correctamente"
+}
+```
+
+---
+
+##  **Conclusión**
+Siguiendo este tutorial, ahora puedes desplegar la aplicación y realizar operaciones CRUD (GET, POST, PUT, DELETE, PATCH) de manera sencilla utilizando la API REST.
+
+Si tienes alguna duda o encuentras un error, revisa la consola del servidor Django (`python manage.py runserver`) para ver posibles mensajes de depuración. 
+
+---
 
 
+#====================================================================================================================================================================
 
 
+DOCKERIZACION:
+
+Dockerizacion de la Aplicacion
+Este documento explica cómo desplegar la aplicación API REST y el Cliente utilizando Docker. Se incluyen los comandos necesarios para construir las imágenes, ejecutar los contenedores y gestionar el despliegue. Si no tienes experiencia previa con Docker, sigue los pasos en orden y no deberías tener muchos  problemas.
+
+Requisitos previos
+Antes de empezar, asegúrate de que tienes instalado lo siguiente:
+
+Docker: Herramienta para contenedores.
+Docker Compose: Permite orquestar varios contenedores, esta es mas importante incluso.
+Además, necesitas clonar los repositorios del API REST y del Cliente en tu máquina local:
+
+Repositorio API REST: https://github.com/RyomenDAW/aplicacionwebparte1
+Repositorio Cliente: https://github.com/RyomenDAW/tiendaordenadores-clienteapi
+Si aún no los tienes en tu máquina, usa estos comandos para clonarlos:
+
+bash
+Copy
+Edit
+git clone https://github.com/RyomenDAW/aplicacionwebparte1
+git clone https://github.com/RyomenDAW/tiendaordenadores-clienteapi
+Construcción de las imágenes Docker
+Antes de poder ejecutar los contenedores, hay que construir las imágenes de Docker. Esto se hace desde las carpetas donde están los archivos Dockerfile de cada aplicación.
+
+Construir la imagen de la API REST
+bash
+Copy
+Edit
+cd aplicacionwebparte1  # Moverse a la carpeta de la API
+docker build -t api-tiendaordenadores .
+Esto creará una imagen llamada api-tiendaordenadores con todo lo necesario para ejecutar la API.
+
+Construir la imagen del Cliente
+bash
+Copy
+Edit
+cd tiendaordenadores-clienteapi  # Moverse a la carpeta del cliente
+docker build -t cliente-tiendaordenadores .
+Esto creará una imagen llamada cliente-tiendaordenadores con el cliente listo para ejecutarse.
+
+Ejecutar la aplicación con Docker
+Una vez creadas las imágenes, podemos iniciar los contenedores.
+
+Ejecutar la API REST
+bash
+Copy
+Edit
+docker run -d -p 8000:8000 --name api-tienda api-tiendaordenadores
+Este comando ejecuta la API en segundo plano (-d significa "detached"), la expone en el puerto 8000 y le asigna el nombre api-tienda.
+
+Después de ejecutarlo, la API debería estar disponible en:
+http://localhost:8000/
+
+Ejecutar el Cliente
+bash
+Copy
+Edit
+docker run -d -p 8001:8001 --name cliente-tienda cliente-tiendaordenadores
+Este comando ejecuta el cliente, lo expone en el puerto 8001 y le asigna el nombre cliente-tienda.
+
+Después de ejecutarlo, el cliente debería estar disponible en:
+http://localhost:8001/
+
+Usar Docker Compose (Recomendado)
+En lugar de ejecutar manualmente cada servicio, es más conveniente usar docker-compose. Para ello, asegúrate de tener un archivo docker-compose.yml en la raíz del proyecto con el siguiente contenido:
+
+yaml
+Copy
+Edit
+version: '3.8'
+
+services:
+  api:
+    build: ./aplicacionwebparte1
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DEBUG=True
+    volumes:
+      - ./aplicacionwebparte1:/app
+
+  cliente:
+    build: ./tiendaordenadores-clienteapi
+    ports:
+      - "8001:8001"
+    depends_on:
+      - api
+    environment:
+      - DEBUG=True
+    volumes:
+      - ./tiendaordenadores-clienteapi:/app
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: tiendaordenadores
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5432:5432"
+Este archivo define tres servicios:
+
+api: Contiene la API REST y se ejecuta en el puerto 8000.
+cliente: Contiene la aplicación cliente y se ejecuta en el puerto 8001.
+db: Un contenedor de PostgreSQL para manejar la base de datos.
+Levantar todos los servicios con un solo comando
+bash
+Copy
+Edit
+docker-compose up -d
+Este comando creará y ejecutará todos los contenedores definidos en docker-compose.yml.
+Si haces cambios en el código y necesitas reconstruir las imágenes:
+
+bash
+Copy
+Edit
+docker-compose up --build -d
+Para ver los contenedores activos:
+
+bash
+Copy
+Edit
+docker ps
+Para detener todos los contenedores:
+
+bash
+Copy
+Edit
+docker-compose down
+Verificación y pruebas
+Después de que los contenedores estén en ejecución, puedes hacer pruebas para asegurarte de que todo está funcionando.
+
+Verificar la API REST:
+Abre un navegador o usa curl para ver si la API responde correctamente:
+
+bash
+Copy
+Edit
+curl -X GET http://localhost:8000/template-api/procesadores/
+Verificar el Cliente:
+Abre en tu navegador:
+http://localhost:8001/
+
+Si todo está funcionando, deberías ver la interfaz del cliente y poder interactuar con la API.
+
+Conclusión
+Este proceso permite desplegar la API y el cliente de manera sencilla utilizando Docker. Con docker-compose, se puede levantar todo con un solo comando, lo que facilita la gestión del proyecto. Si alguna parte no funciona como esperas, revisa los logs con:
+
+bash
+Copy
+Edit
+docker logs api-tienda
+docker logs cliente-tienda
+Y si necesitas más detalles, revisa los contenedores en ejecución con:
+
+bash
+Copy
+Edit
+docker ps
+Con esto, la aplicación esta completamente dockerizada y lista para ejecutarse en cualquier entorno, llevatela como quieras 

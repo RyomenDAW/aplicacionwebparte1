@@ -15,7 +15,7 @@ def placabases_list(request):
     return Response(serializer.data)
 
 
-@api_view(["GET"])
+@api_view(['GET'])
 def procesador_list(request):
     procesadores = Procesador.objects.all()
     serializer = ProcesadorSerializer(procesadores, many=True)
@@ -533,15 +533,6 @@ def obtener_usuario_token(request):
     })
     
 #==============================================================================================================
-
-# Diccionario para convertir números de rol a nombres de rol
-ROLES = {
-    1: "Administrador",
-    2: "Cliente",
-    3: "Técnico Informático",
-    4: "Vendedor"
-}
-
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def obtener_usuario_autenticado(request):
@@ -551,14 +542,14 @@ def obtener_usuario_autenticado(request):
         "id": usuario.id,
         "username": usuario.username,
         "email": usuario.email,
-        "rol": ROLES.get(usuario.rol, "Desconocido"),  # Convertir número de rol a nombre de rol
+        "rol": usuario.get_rol_display(),  # Si rol es un número,  se convertira a texto
     })
-
-
+    
+    
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def obtener_procesadores_usuario(request):
-    """ Devuelve solo los procesadores creados por el usuario autenticado """
-    procesadores = Procesador.objects.filter(user=request.user)  # Filtrar por usuario autenticado
-    serializer = ProcesadorSerializer(procesadores, many=True)
+    """ Devuelve solo los productos creados por el usuario autenticado """
+    procesador = Procesador.objects.filter(usuario=request.user)  # Filtrar por usuario autenticado
+    serializer = ProcesadorSerializer(procesador, many=True)
     return Response(serializer.data)
